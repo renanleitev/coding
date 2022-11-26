@@ -1,0 +1,1 @@
+anotacao_set_inteiros: set[int] = {1, 2, 3}

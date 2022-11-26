@@ -1,0 +1,117 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{
+    scroll-behavior: smooth;
+}
+body{
+    font-family: sans-serif;
+}
+.grid{
+    max-width: 1200px;
+    padding: 15px;
+    margin: 0 auto;
+}
+.grid::after{
+    content: '';
+    display: block;
+    clear: both;
+}
+.grid .col{
+    box-sizing: border-box;
+    /* Três colunas ocupando a tela */
+    width: 33.33%;  
+    height: 300px;
+    float: left;
+    padding: 15px;
+}
+.grid .col-content{
+    /* Afastando da parte superior */
+    margin-top: 50px;
+
+    width: 100%;
+    height: 100%;
+    background: red;
+
+    /* ! Bordas arredondadas */
+    /* Inserindo borda arredondada na parte superior e esquerda (SE) */
+    border-top-left-radius: 150px;
+    /* Inserindo borda arredondada na parte superior e direita (SD) */
+    border-top-right-radius: 150px;
+    /* Inserindo borda arredondada na parte inferior e esquerda (IE) */
+    border-bottom-left-radius: 150px;
+    /* Inserindo borda arredondada na parte inferior e direita (ID) */
+    border-bottom-right-radius: 150px;
+    /* Ao final, vira um círculo! */
+
+    /* Unificando todas as propriedades */
+    /* Ordem (sentido horário) = SE, SD, IE, ID */
+    /* border-radius: 150px 150px 150px 150px; */
+
+    /* Desenhando um círculo perfeito */
+    border-radius: 50%;
+
+    /* ! Bordas com sombras */
+    /* 1º = Esquerda (-10) ou direita (10) */
+    /* 2º = Superior (-10) ou inferior (10) */
+    /* 3º = Nível de espalhamento interno */
+    /* 4º = Nível de espalhamento externo */
+    /* inset = Colocando a sombra dentro do elemento */
+    /* É possível colocar mais de uma sombra no mesmo elemento */
+    box-shadow: inset 10px 10px 10px 10px blue, 5px 5px 5px 5px green;
+}
+.menu{
+    width: 100%;
+    position: fixed;
+    background-color: black;
+}
+.menu ul{
+    list-style: none;
+    display: block;
+    max-width: 1200px;
+    padding: 0 30px;
+    margin: 0 auto;
+    columns: 2;
+    column-width: 50%;
+    text-align: center;
+}
+.menu ul li a{
+    display: block;
+    color: white;
+    padding: 20px;
+    text-decoration: none;
+    transition: all 300ms ease-in-out;
+}
+.menu ul li a:hover{
+    background: lightslategray;
+    color: black;
+    border-radius: 20px;
+}
+p{
+    margin-top: 50px;
+    padding: 100px;
+}
+
+/* ! Inserindo media queries */
+@media all and (max-width: 320px){
+    .grid .col{
+        width: 100%;
+    }
+}
+@media all and (min-width: 321px) and (max-width: 768px){
+    .grid .col{
+        width: 50%;
+    }
+}
+@media all and (min-width: 769px) and (max-width: 1200px){
+    .grid .col{
+        width: 33.33%;
+    }
+}
+@media all and (min-width: 1201px){
+    .grid .col{
+        width: 25%;
+    }
+}

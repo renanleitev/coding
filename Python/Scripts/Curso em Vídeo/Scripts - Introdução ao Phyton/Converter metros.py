@@ -1,0 +1,5 @@
+A=int(input('Diga um tamanho em metros: '))
+B=(A/10)
+C=(A/100)
+D=(A/1000)
+print('O tamanho em decímetro é', B,'dm, ''em centímetros é', C,'cm, ''em milímetros é', D,'mm.')

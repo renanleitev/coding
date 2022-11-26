@@ -1,0 +1,266 @@
+*{
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    padding: 0;
+    margin: 0;
+}
+body{
+    background-color: rgba(0, 0, 0, 0.699);
+    color: white;
+}
+a{
+    text-decoration: none;
+}
+/* Links do site */
+ul.link{
+    list-style: none;
+    columns: 4;
+    background-color: black;
+    position: fixed;
+    width: 100%;
+    z-index: 2;
+}
+ul.link > li{
+    text-align: center;
+    border-radius: 50px;
+    padding: 20px;
+}
+header > ul > li > a > span{
+    color: white;
+    width: 25%;
+}
+/* Pop-up identificando o nome dos links */
+.pop-up{
+    margin-top: -22px;
+}
+.texto-escondido-1{
+    visibility: hidden;
+    margin-left: -10px;
+    font-size: 20px;
+}
+.texto-escondido-2{
+    visibility: hidden;
+    margin-right: 15px;
+    font-size: 20px;
+}
+.texto-escondido-3{
+    visibility: hidden;
+    margin-left: -10px;
+    font-size: 20px;
+}
+.texto-escondido-4{
+    visibility: hidden;
+    margin-left: -40px;
+    font-size: 20px;
+}
+.pop-up:hover .texto-escondido-1{
+    visibility: visible;
+    position: relative;
+    color:white;
+    background-color: lightslategray;
+    color: black;
+    padding: 10px;
+    padding-top: 100px;
+    border-radius: 20px;
+}
+.pop-up:hover .texto-escondido-2{
+    visibility: visible;
+    position: relative;
+    color:white;
+    background-color: lightslategray;
+    color: black;
+    padding: 10px;
+    padding-top: 100px;
+    border-radius: 20px;
+}
+.pop-up:hover .texto-escondido-3{
+    visibility: visible;
+    position: relative;
+    color:white;
+    background-color: lightslategray;
+    color: black;
+    padding: 10px;
+    padding-top: 100px;
+    border-radius: 20px;
+}
+.pop-up:hover .texto-escondido-4{
+    visibility: visible;
+    position: relative;
+    color:white;
+    background-color: lightslategray;
+    color: black;
+    padding: 10px;
+    padding-top: 100px;
+    border-radius: 20px;
+}
+/* Apresentação do site */
+ul.escritorio{
+    list-style: none;
+    columns: 2;
+    column-width: 50%;
+    width: 100%;
+}
+ul.escritorio > li{
+    overflow: auto;
+    text-align: center;
+}
+ul.escritorio > li > p{
+    font-size: calc(1vw + 1vh + 1.2vmin);
+}
+table, thead, tbody, th, td, tr { 
+    display: block; 
+}
+div.tabela > table{
+    width: 100%;
+    text-align: center;
+}
+div.tabela > table.trab{
+    background-image: url(imagens/assinar-contraot.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: right top;
+}
+div.tabela > table.prev{
+    background-image: url(imagens/segurando-livros.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: left center;
+}
+div.tabela > table.crim{
+    background-image: url(imagens/balanca-justica.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: top right;
+}
+div.tabela > table.fam{
+    background-image: url(imagens/assinatura.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: top left;
+}
+div.tabela > table > thead{
+    font-size: 2em;
+    padding: 20px;
+    background-color: black;
+}
+div.tabela > table > tbody > tr > td{
+    padding: 20px;
+    font-size: 2em;
+    border: none;
+    position: relative;
+    margin-left: 15vw;
+    margin-right: 15vw;
+    background-color: rgba(0, 0, 0, 0.329);
+}
+div.tabela > table > tbody > tr > td:hover{
+    height: 100%;
+    color: white;
+    transition: 0.5s;
+    transition-delay: 0.25s;
+    background-color: rgba(0, 0, 0, 0.678);
+}
+div.tabela > table > tbody > tr > td.info:hover{
+    background-color: lightslategray;
+    color: black;
+}
+/* Configurações gerais */
+h1{
+    padding: 20px;
+    padding-top: 90px;
+    text-align: center;
+    font-size: 4em;
+    background-color: rgba(0, 0, 0, 0.521);
+    z-index: 2;
+}
+h2{
+    font-size: 2.5em;
+    padding: 10px;
+    text-align: center;
+    background-color: lightslategray;
+    color: black;
+}
+p{
+    font-size: 0.7em;
+    padding: 20px;
+    line-height: 1.9em;
+}
+/* Elementos adicionais */
+.img{
+    background-image: url('imagens/estatua-justica.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 1200px;
+}
+ul > li > iframe{
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    height: 50vh;
+}
+/* Rodapé */
+footer{
+    text-align: center;
+    background-color: black;
+    color: white;
+}
+footer>p{
+    font-size: 15px;
+    position: relative;
+}
+/* Ícones para contato profissional */
+.linkedin{
+    position: relative;
+    top: 13px;
+    height: 42px;
+}
+.github{
+    position: relative;
+    top: 8px;
+}
+/* Adaptando para celular */
+@media only screen and (max-width: 1000px) and (min-width: 320px) {
+    ul.escritorio{
+        list-style: none;
+        columns: 1;
+        overflow-y: auto;
+    }
+    .img{
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 100vh;
+    }
+    p.hidden{
+        font-size: 20px;
+    }
+    div.tabela > table > tbody > tr > td{
+        padding: 20px;
+        font-size: 1.5em;
+        border: none;
+        position: relative;
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .texto-escondido-1{
+        visibility: hidden;
+        margin-left: -10px;
+        font-size: 15px;
+    }
+    .texto-escondido-2{
+        visibility: hidden;
+        margin-left: -20px;
+        font-size: 15px;
+    }
+    .texto-escondido-3{
+        visibility: hidden;
+        margin-left: -30px;
+        font-size: 15px;
+    }
+    .texto-escondido-4{
+        visibility: hidden;
+        margin-left: -40px;
+        font-size: 15px;
+    }
+}

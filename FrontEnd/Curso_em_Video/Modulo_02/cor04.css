@@ -1,0 +1,30 @@
+div{
+    display: inline-block;
+    background-color: purple;
+    text-align: center;
+    height: 200px;
+    width: 200px;
+    border: 1px solid black;
+}
+/* : = Pseudoclasse */
+div:hover > p{
+    background-color: gray;
+    display: block;
+}
+/* p:hover{
+    background-color: red;
+} */
+/* > = Filho (herança) */
+/* display = Exibir ou não */
+div > p{
+    display: none;
+}
+/* #d1{
+    background-color: cyan;
+}
+#d2{
+    background-color: green;
+}
+#d3{
+    background-color: red;
+} */

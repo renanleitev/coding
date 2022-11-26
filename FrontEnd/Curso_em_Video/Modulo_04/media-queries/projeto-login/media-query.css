@@ -1,0 +1,86 @@
+/* Versão para tablet */
+@media screen and (min-width: 768px) and (max-width: 992px){
+    /* Definindo a cor de fundo */
+    body{
+        /* No tablet ou PC, pode utilizar um gradiente,
+        pois possuem mais poder de processamento */
+        background-image: linear-gradient(to top, cyan, purple);
+    }
+
+    /* Definindo o bloco da tela de login */
+    section#login{
+        width: 720px;
+        height: 280px;
+    }
+
+    /* Definindo a posição da imagem */
+    section#login > div#imagem{
+        float: left;
+        width: 30%;
+        height: 100%;
+    }
+
+    /* Definindo o formulário como um bloco */
+    section#login > div#formulario{
+        float: left;
+        width: 70%;
+    }
+
+    /* Definindo o formato e a posição dos campos de digitação */
+    div.campo > input{
+        padding: 10px;
+        transform: translateX(+30px) translateY(-10px);
+    }
+
+    /* Centralizando os ícones de login e senha */
+    div.campo > label > span{
+        transform: translateX(18px);
+    }
+}
+/* Versão para PC */
+@media screen and (min-width: 992px){
+    /* Definindo a cor de fundo */
+    body{
+        background-image: linear-gradient(to top, cyan, purple);
+    }
+
+    /* Definindo o bloco da tela de login */
+    section#login{
+        width: 950px;
+        height: 350px;
+    }
+
+    /* Definindo a posição da imagem */
+    section#login > div#imagem{
+        float: right;
+        width: 50%;
+        height: 100%;
+    }
+
+    /* Definindo o formulário como um bloco */
+    section#login > div#formulario{
+        float: left;
+        width: 50%;
+    }
+
+    /* Aumentando o título do formulário = mais espaço de tela */
+    div#formulario > h1{
+        font-size: 2em;
+    }
+
+    /* Aumentando o subtítulo do formulário = mais espaço de tela */
+    div#formulario > p{
+        font-size: 1.2em;
+    }
+
+    /* Definindo o formato e a posição dos campos de digitação */
+    div.campo > input{
+        padding: 10px;
+        transform: translateX(+30px) translateY(-10px);
+    }
+
+    /* Centralizando os ícones de login e senha */
+    div.campo > label > span{
+        transform: translateX(18px);
+    }
+}

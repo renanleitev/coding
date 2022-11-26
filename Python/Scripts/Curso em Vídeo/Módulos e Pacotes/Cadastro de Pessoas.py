@@ -1,0 +1,3 @@
+import cadastro
+
+cadastro.menu()

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trabalhando com links</title>
+</head>
+<body>
+    <h1>Criando links</h1>
+
+    <h2>Usando links externos</h2>
+    <!-- "href" = Indica onde está o link -->
+    <!-- "target" = Indica para onde a página vai ser redirecionada -->
+    <!-- "_blank" = Redireciona para uma nova aba em branco (ideal para páginas externas) -->
+    <!-- "rel" = Indica a relação do link (o que ele faz) -->
+    <!-- "external" = Indica que o link é de uma fonte externa -->
+    <p>Github: Acesse <a href="https://github.com/renanleitev" target="_blank" rel="external">aqui</a> para ser redirecionado para outra aba</p>
+    <!-- Sem o target e o rel, o link é aberto na mesma aba -->
+    <p>Github: Acesse <a href="https://github.com/renanleitev">aqui</a> para permanecer nessa aba</p>
+
+    <h2>Usando links internos</h2>
+    <!-- "next" = Indica que há uma página posterior-->
+    <!-- "_self" = Redireciona para o próprio site (ideal para páginas internas) -->
+    <!-- ./listas.html = Volta uma pasta superior -->
+    <!-- ../listas.html = Volta duas pastas superiores -->
+    <p>Link de <a href="listas.html" target="_self" rel="next">lista</a> interna</p>
+
+    <h2>Usando links de fontes não confiáveis ou de conteúdo patrocinado</h2>
+    <!-- "nofolow" = Não recomenda para o buscador que promova esse link -->
+    <p>Link para o site <a href="https://www.brasilparalelo.com.br/" rel="nofollow">não confiável</a></p>
+
+    <h2>Links para download</h2>
+    <ul>
+        <li>
+            <a href="livros/teste.pdf" download="teste.pdf" type="application/pdf">Baixar livro em pdf</a>
+        </li>
+        <li>
+            <a href="livros/teste.zip" download="teste.zip" type="application/zip">Baixar livro em zip</a>
+        </li>
+    </ul>
+</body>
+</html>

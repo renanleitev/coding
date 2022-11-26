@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Formulário</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <h1>Outros tipos de formulários</h1>
+        <form action="cadastro.php">
+            <!-- <fieldset> = Organizando os campos em uma caixa -->
+            <fieldset>
+                <legend>Caixa de Texto</legend>
+                <p>
+                    <!-- ! Para caixas de texto, usa-se "POST" ! -->
+                    <label for="imsg">Mensagem</label> <br>
+                    <textarea name="msg" id="imsg" cols="30" rows="10"></textarea>
+                </p>
+            </fieldset>
+            <fieldset>
+                <legend>Lista Complexa (com sugestões, mas o usuário pode digitar)</legend>
+                <p>
+                    <label for="iprof">Profissão:</label>
+                    <input type="text" name="prof" id="iprof" list="lstprof">
+                    <datalist id="lstprof">
+                        <option value="ADM">Administrador</option>
+                        <option value="DEV">Desenvolvedor</option>
+                        <option value="PROF">Professor</option>
+                    </datalist>
+                </p>
+            </fieldset>
+            <fieldset>
+                <legend>Lista Simples (sem sugestões, o usuário escolhe de uma lista)</legend>
+                <p>
+                    <label for="iest">Estado</label>
+                    <select name="estado" id="iest">
+                        <!-- selected = Escolhendo o valor padrão -->
+                        <option value="" selected>Escolha o estado</option>
+                        <!-- Separando por subgrupos -->
+                        <optgroup label="Região Sudeste">
+                            <option value="SP">São Paulo</option>
+                            <option value="RJ">Rio de Janeiro</option>
+                            <option value="MG">Minas Gerais</option>
+                        </optgroup>
+                        <optgroup label="Região Nordeste">
+                            <option value="CE">Ceará</option>
+                            <option value="MA">Maranhão</option>
+                            <option value="PB">Paraíba</option>
+                        </optgroup>
+                    </select>
+                </p>
+            </fieldset>
+            <fieldset>
+                <legend>Arquivo</legend>
+                <p>
+                    <!-- ! Para arquivos, usa-se "POST" ! -->
+                    <label for="ifoto">Foto:</label>
+                    <input type="file" name="foto" id="ifoto">
+                </p>
+            </fieldset>
+            <fieldset>
+                <legend>Cor</legend>
+                <p>
+                    <label for="icor">Cor:</label>
+                    <input type="color" name="cor" id="icor" value="#00ff00">
+                </p>
+                <p>
+                    <label for="inivel">Experiência:</label>
+                    <input type="range" name="nivel" id="inivel" min="1" max="5">
+                </p>
+            </fieldset>
+            <fieldset>
+                <legend>Sexo</legend>
+                <!-- Para permitir desmarcar, coloque os dois com o mesmo nome -->
+                <!-- checked = Marca por padrão o input -->
+                <input type="radio" name="sexo" id="isxmas"><label for="isxmas">Masculino</label>
+                <input type="radio" name="sexo" id="isxfem" checked><label for="isxfem">Feminino</label>
+            </fieldset>
+            <fieldset>
+                <legend>Esportes</legend>
+                <input type="checkbox" name="esbas" id="iesbas"> <label for="iesbas">Basquete</label> <br>
+                <input type="checkbox" name="esfut" id="iesfut" checked> <label for="iesfut">Futebol</label> <br>
+                <input type="checkbox" name="esnat" id="iesnat"> <label for="iesnat">Natação</label> <br>
+                <input type="checkbox" name="esten" id="iesten"> <label for="iesten">Tênis</label> <br>
+            </fieldset>
+            <fieldset>
+                <legend>Dados pessoais</legend>
+                <p>
+                    <label for="iemail">Email</label>
+                    <input type="email" name="email" id="email"
+                    autocomplete="email" required>
+                </p>
+                <p>
+                    <label for="itel">Telefone</label>
+                    <!-- pattern = Padrão de dígito
+                    Começa com "^", depois "[intervalo-números] e termina com "$""
+                    Ou começa com "^", depois \d -->
+                    <input type="tel" name="tel" id="itel"
+                    autocomplete="tel" pattern="^\(\d{2}\)\d{4,5}-\d{4}$" 
+                    placeholder="(xx)xxxx-xxxx" required>
+                </p>
+                <p>
+                    <label for="inome">Aluno:</label>
+                    <input type="text" name="nome" id="inome">
+                </p>
+                <p>
+                    <label for="imedia">Média:</label>
+                    <!-- Input Number = Só aceita números -->
+                    <!-- Pode definir valores mínimos (min) e máximos (max) -->
+                    <!-- step = Pode definir a contagem (de quanto em quanto) -->
+                    <!-- value = Definindo o valor padrão do formulário -->
+                    <input type="number" name="media" id="imedia" 
+                    min="0" max="10" step="0.5" value="7" required>
+                </p>
+                <p>
+                    <label for="imes">Período letivo:</label>
+                    <input type="month" name="mes" id="imes" value="2022-10">
+                </p>
+                <p>
+                    <label for="idia">Dia da prova:</label>
+                    <input type="date" name="dia" id="idia" value="2022-10-06">
+                </p>
+                <p>
+                    <label for="ihora">Hora da Prova:</label>
+                    <input type="time" name="hora" id="ihora">
+                </p>
+            </fieldset>
+            <p>
+                <input type="submit" value="Enviar">
+                <input type="reset" value="Limpar">
+            </p>
+        </form>
+    </body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Documento</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+        <style>
+            body{
+                font-family: sans-serif;
+            }
+            table{
+                border-collapse: collapse;
+                width: 100%;
+            }
+            table td, table th{
+                border: 1px solid #ccc;
+                padding: 5px;
+                text-align: left;
+            }
+            table caption{
+                caption-side: top;
+                text-align: left;
+                font-style: italic;
+                font-size: 44px;
+                margin-bottom: 50px;
+            }
+            tfoot td{
+                font-style: italic;
+                background-color: gray;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- <table> = Criando uma tabela -->
+        <table>
+            <!-- <caption> = Descrição da tabela -->
+            <caption>Uma descrição da tabela</caption>
+            <!-- <thead> = Título da tabela -->
+            <thead>
+                <!-- <tr> = Linha da tabela (row) -->
+                <tr>
+                    <!-- <th> = Coluna da tabela (head) -->
+                    <th>Coluna 1</th>
+                    <th>Coluna 2</th>
+                    <th>Coluna 3</th>
+                </tr>
+            </thead>
+            <!-- <tbody> = Corpo da tabela -->
+            <tbody>
+                <tr>
+                    <!-- <td> = Conteúdo da célula -->
+                        <!-- rowspan = Expandir as células na vertical -->
+                    <td>Corpo 1</td>
+                    <td>Corpo 2</td>
+                    <td rowspan="3">Corpo 3</td>
+                </tr>
+                <tr>
+                    <!-- <td> = Conteúdo da célula -->
+                        <!-- colspan = Expandir as células na horizontal -->
+                    <td colspan="2">Corpo 1</td>
+                </tr>
+                <tr>
+                    <!-- <td> = Conteúdo da célula -->
+                    <td>Corpo 1</td>
+                    <td>Corpo 2</td>
+                </tr>
+            </tbody>
+            <!-- <tfoot> = Rodapé da tabela -->
+            <tfoot>
+                <tr>
+                    <!-- <td> = Conteúdo da célula -->
+                    <td>Corpo 1</td>
+                    <td>Corpo 2</td>
+                    <td>Corpo 3</td>
+                </tr>
+            </tfoot>
+        </table>
+    </body>
+</html>

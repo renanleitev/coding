@@ -1,0 +1,8 @@
+Para fazer herança em Java, é necessário utilizar
+a palavra "extends" dentro da classe que vai receber
+os atributos de outra classe, da seguinte forma:
+public class Vai_Receber_Atributos extends Repassa_Atributos
+
+Para utilizar os atributos e métodos de uma classe,
+primeiro é preciso instanciá-la, usando o seguinte:
+Exemplo ex = new Exemplo();

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Listas</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+        <style>
+            *{
+                margin:0;
+                padding:0;
+            }
+            nav{
+                background-color: rgba(0,0,0,0.5);
+                height: 50px;
+            }
+            nav{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            nav ul {
+                color: palevioletred;
+                text-decoration: none;
+                font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                display: flex;
+                flex-direction: column-reverse;
+                list-style: none;
+            }
+        </style>
+    </head>
+    <body>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+        <!-- <ul> = Listas não ordenadas -->
+        <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+        </ul>
+        <!-- <ol> = Listas ordenadas -->
+            <!-- type = define o tipo de enumeração (números romanos, letras) -->
+            <!-- start = define o ponto inicial da enumeração -->
+        <ol type="1" start="2">
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+        </ol>
+        <ol type="A">
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+        </ol>
+        <ol type="a">
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+        </ol>
+        <ol type="I">
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+        </ol>
+        <ol type="i">
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+        </ol>
+        <!-- <dl> = Lista de itens descritivos -->
+        <!-- <dt> = Título do item -->
+        <!-- <dd> = Descrição do item -->
+        <dl>
+            <dt>Café</dt>
+            <dd>Amargo, não gosto</dd>
+            <dt>Refrigerante</dt>
+            <dd>Doce, não gosto</dd>
+        </dl>
+    </body>
+</html>

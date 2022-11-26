@@ -1,0 +1,83 @@
+/* Importando fontes externas */
+@font-face {
+    /* Pode colocar qualquer nome em "font-family" */
+    font-family: 'black-parade';
+    src: url('fonts/black parade.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+    /* 
+    Tipos de format():
+    opentype (otf) - mais usado
+    truetype (ttf) - mais usado
+    embedded-opentype
+    truetype-aat (Apple Advanced Typography)
+    svg
+    */
+}
+
+body{
+    /* Ordem de prioridade = Se não achar uma fonte,
+    o sistema procura pela próxima fonte para exibir */
+    /* font-family: Arial, Helvetica, sans-serif; */
+
+    /* 
+    Medidas absolutas:
+    cm, mm, in (polegadas), px (pixels), pt (ponto), pc (picas)
+
+    Medidas relativas:
+    em (referente ao tamanho da letra "M" da uma fonte)
+    ex (referente ao tamanho da letra "X" de uma fonte)
+    rem (referente ao tamanho da letra "M" da fonte do body)
+    vw (largura do tamanho da janela)
+    vh (altura do tamanho da janela)
+    % (porcentagem simples)
+
+    ! Recomendado: px e em
+    */
+
+    /* font-size: 1cm; */
+    /* font-size: 1in; */
+    /* font-size: 16pt; */
+    /* Tamanho padrão: 16px */
+    /* font-size: 16px; */
+    /* 16px = 1em */
+    /* font-size: 2em; */
+
+    /* 
+    Peso da fonte (por tipo)
+    lighter = mais fraco
+    normal = normal
+    bold = negrito
+    bolder = mais forte
+
+    Peso da fonte (por número)
+    Entre 100 (mais fraco) - 900 (mais forte)
+
+    ! Nem todas as fontes possuem esses níveis
+    */
+
+    /* font-weight: bold; */
+    /* font-weight: 100;
+
+    font-style:italic;
+
+    text-decoration: underline; */
+
+    /* ! Unificando todos os parâmetros */
+    /* Ordem (de cima pra baixo):
+    font-style;
+    font-weight;
+    font-size;
+    font-family;
+    */
+    /* font: italic bold 2em sans-serif; */
+
+    font-family: 'black-parade';
+    font-size: 2em;
+}
+p{
+    /* Posição do texto: left, center, right, justify */
+    text-align: justify;
+    /* Início do parágrafo - primeira linha */
+    text-indent: 100px;
+}

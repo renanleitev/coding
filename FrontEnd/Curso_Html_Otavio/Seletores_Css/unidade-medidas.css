@@ -1,0 +1,75 @@
+/* ! Unidade de medida absoluta */
+
+/* p{
+    font-size: 20px;
+} */
+*{
+    margin: 0;
+    padding: 0;
+}
+html{
+    /* Cálculo por porcentagem */
+    font-size: 62.5%;
+    /* Rolagem suave */
+    scroll-behavior: smooth;
+}
+
+/* ! Unidade de medida relativa */
+
+/* Em pixel (px) */
+div.pai{
+    font-size: 50px;
+}
+p.filha{   
+    /* Acompanha o tamanho da fonte da classe
+    mais próxima (no caso, a classe "pai") */
+    /* font-size: 0.5em; */
+
+    /* Acompanha o tamanho da fonte da classe
+    mais distante = root (no caso, html) */
+    font-size: 1.6rem;
+    background: green;
+}
+
+/* Em rem (relativo ao root) */
+div.carro{
+    width: 30rem;
+    height: 30rem;
+    background: yellow;
+}
+p.pneu{
+    font-size: 1.6em;
+}
+div.time{
+    /* Em vw = largura visível */
+    width: 50vw;
+    /* Em vh = altura visível */
+    height: 50vh;
+    background: lightblue;
+}
+div#um{
+    height: 100vh;
+    background: lightcoral;
+    font-size: 2em;
+}
+div#dois{
+    height: 100vh;
+    background: lightcyan;
+    font-size: 2em;
+}
+div#tres{
+    height: 100vh;
+    background: lightgreen;
+    font-size: 2em;
+}
+a{
+    font-size: 2em;
+}
+/* 
+p{
+    Máximo da parte visível
+    font-size: 2vmax;
+    Mínimo da parte visível
+    font-size: 2vmin;
+}
+*/

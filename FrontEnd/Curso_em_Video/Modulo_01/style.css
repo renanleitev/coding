@@ -1,0 +1,14 @@
+/* Opcional: Começar o CSS com o tipo de caractere */
+@charset "UTF-8";
+
+body {
+    background-color: green;
+    font-family: sans-serif;
+    font-size: 20px;
+}
+h1{
+    color:red;
+}
+h2{
+    color:purple;
+}

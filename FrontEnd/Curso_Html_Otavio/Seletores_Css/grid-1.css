@@ -1,0 +1,137 @@
+*{
+    margin: 0;
+    padding: 10px;
+    box-sizing: border-box;
+}
+body{
+    font: sans-serif;
+    font-size: 40px;
+}
+ul.largura{
+    list-style: none;
+    column-count: 4;
+}
+ul.altura{
+    position: relative;
+    list-style: none;
+    right: 30px;
+}
+ul.altura > li{
+    padding-bottom: 35px;
+}
+.grid{
+    /* ! Definindo o display */
+    display: grid;
+    margin: 0 auto;
+    max-width: 1200px;
+    position: relative;
+    top: -618px;
+
+    /* ! Definindo a largura das colunas */
+
+    /* Duas colunas */
+    /* grid-template-columns: 100px 50%; */
+
+    /* Três colunas */
+    /* fr (fragmento) = Adapta a largura da página */
+    /* grid-template-columns: 200px 1fr 1fr; */
+
+    /* N colunas */
+    /* repeat(nº de colunas, largura das colunas) */
+    /* grid-template-columns: repeat(4, 1fr); */
+
+    /* Alternando larguras diferentes */
+    /* grid-template-columns: repeat(3, 1fr 2fr); */
+
+    /* Preenchendo automaticamente */
+    /* grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); */
+
+    /* Criando variáveis para as colunas */
+    grid-template-columns:
+        [um] 1fr
+        [dois] 1fr
+        [tres] 1fr
+        [quatro];
+
+    /* ! Definindo a altura das linhas */
+
+    /* Altura da primeira linha, segunda linha, ... */
+    /* grid-template-rows: 2fr 1fr; */
+
+    /* Alternando alturas diferentes */
+    /* grid-template-rows: repeat(2, 1fr 2fr); */
+
+    /* Criando variáveis para as linhas */
+    grid-template-rows:
+        [um] 1fr
+        [dois] 1fr
+        [tres] 1fr
+        [quatro] 1fr;
+
+    /* ! Espaçamento entre as div */
+    
+    /* Espaçamento geral */
+    /* grid-gap: 30px; */
+
+    /* Espaçamento da linha */
+    row-gap: 30px;
+
+    /* Espaçamento de coluna */
+    column-gap: 30px;
+
+}
+.grid div{
+    background-color: tomato;
+    /* min-height: 100px; */
+}
+/* Manipulando duas grids (Ex: 5 e 6) */
+/* .grid div:nth-child(5), */
+/* .grid div:nth-child(6){ */
+    /* Cor de fundo */
+    /* background-color: aqua; */
+
+    /* Coluna início */
+    /* grid-column-start: 1; */
+
+    /* Coluna final */
+    /* grid-column-end: 4; */
+
+    /* Linha início */
+    /* Agora, ambas div sobrescrevem */
+    /* grid-row-start: 3; */
+
+    /* Linha final (aumenta a altura) */
+    /* grid-row-end: 10; */
+/* } */
+/* Manipulando uma grid específica */
+.grid div:nth-child(5){
+    /* Cor de fundo */
+    background-color: yellow;
+
+    /* Trazendo a div 5 pra frente */
+    z-index: 1;
+
+    /* Ocupando o espaço de vinte linhas */
+    /* grid-row: span 20; */
+
+    /* Ocupando o espaço de trinta colunas */
+    /* grid-column: span 30; */
+
+    /* Usando as variáveis das colunas */
+    /* grid-column-start: um;
+    grid-column-end: quatro; */
+
+    /* Usando um atalho */
+    /* grid-column: dois / quatro;
+    grid-column: span 2 / span 2; */
+
+    /* Usando as variáveis das linhas */
+    /* grid-row: um / quatro; */
+
+    /* Criando uma área grid */
+    /* Começa na linha um */
+    /* Começa na coluna um */
+    /* Termina na linha um */
+    /* Termina na coluna quatro */
+    grid-area: um / um / um / quatro;
+}

@@ -1,0 +1,139 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+header > ul{
+    columns: 4;
+    column-width: 25%;
+    text-align: center;
+    list-style: none;
+    background-color: gray;
+    width: 100%;
+    position: fixed;
+    z-index: 2;
+}
+header> ul > li{
+    padding: 10px;
+}
+header > ul > li > a{
+    text-decoration: none;
+    color: white;
+}
+header > ul > li > a:hover{
+    background-color: lightgrey;
+    padding: 10px;
+    color: black;
+}
+header > h1{
+    color: white;
+    background-color: black;
+    text-align: center;
+    padding: 10px;
+    padding-top: 50px;
+    font-size: 4em;
+}
+header > h1 > span:hover{
+    color: gray;
+    margin-left: 5px;
+    margin-right: 5px;
+    position: relative;
+    top: 5px;
+    transition: 0.5s ease-in-out;
+}
+h2{
+    text-align: center;
+    background-color: gray;
+    color: white;
+    padding: 10px;
+}
+h3{
+    padding: 10px;
+}
+div.diferencial{
+    background: url(piano-imagens/piano-concerto.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center top;
+    height: 1400px;
+    position: relative;
+}
+div.topo > ul{
+    columns: 4;
+    column-width: 25%;
+    text-align: center;
+    list-style: none;
+}
+div.topo > ul > li{
+    background-color: rgba(0, 0, 0, 0.247);
+    color: white;
+    padding: 20px;
+    height: 200px;
+    overflow-y: auto;
+    overflow: hidden;
+}
+div.topo > ul > li:hover{
+    transition-duration: 0.5s;
+    background-color: rgba(0, 0, 0, 0.575);
+    padding-top: 50px;
+    height: 100%;
+}
+div.topo > ul > li > p{
+    padding: 5px;
+}
+div.embaixo > ul{
+    columns: 4;
+    column-width: 25%;
+    text-align: center;
+    list-style: none;
+    position: absolute;
+    bottom: 0;
+}
+div.embaixo > ul > li{
+    background-color: rgba(0, 0, 0, 0.247);
+    color: white;
+    padding: 20px;
+    height: 200px;
+    overflow-y: auto;
+    overflow: hidden;
+}
+div.embaixo > ul > li:hover{
+    transition-duration: 0.5s;
+    background-color: rgba(0, 0, 0, 0.575);
+    transform: translateY(-20px);
+}
+div.produtos{
+    background-color: lightgray;
+}
+div.contato{
+    background-color: lightgrey;
+}
+form{
+    color: white;
+    text-align: center;
+}
+footer{
+    font-size: 20px;
+    padding: 20px;
+    text-align: center;
+    color: white;
+    background-color: black;
+}
+footer>p{
+    padding: 10px;
+    position: relative;
+    bottom: 10px;
+}
+/* Ícones para contato profissional */
+.linkedin{
+    position: relative;
+    top: 13px;
+    height: 42px;
+}
+.github{
+    position: relative;
+    top: 8px;
+}
+span > a{
+    text-decoration: none;
+}

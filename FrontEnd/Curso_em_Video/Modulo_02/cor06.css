@@ -1,0 +1,100 @@
+/* Box-level */
+h1{
+    height: 300px;
+    width: 300px;
+    background-color: purple;
+
+    /* Unificando a borda */
+    border: 10px solid cyan;
+
+    /* border-width: 10px;
+    border-style: solid;
+    border-color: cyan; */
+
+    /* Unificando o padding */
+    /* top, right, bottom, left */
+    /* padding: 10px 10px 10px 10px; */
+
+    /* Se todos os valores forem iguais */
+    /* padding: 10px; */
+
+    /* Se colocar dois valores */
+    /* Top e bottom = 10, left e right = 20 */
+    padding: 10px 20px;
+    /* Significa */
+    /* padding-top: 10px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+    padding-left: 20px; */
+
+    /* Especificando todos os valores */
+    /* Sentido horário: top, right, bottom, left */
+    /* padding-top: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px; */
+
+    /* Centralização Automática */
+    /* margin: auto; */
+
+    /* Unificando as margens */
+    /* top, right, bottom, left */
+    /* margin: 20px 20px 40px 20px; */
+
+    /* Se quiser centralizar, mas especificando top e bottom */
+    margin: 200px auto 40px auto;
+
+    /* Especificando todos os valores */
+    /* margin-top: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px; */
+
+    /* Unificando outline */
+    /* width, style, color */
+    outline: 5px dashed green;
+
+    /* Especificando todos os valores */
+    /* outline-width: 5px;
+    outline-style: dashed;
+    outline-color: green; */
+}
+
+/* Inline-level */
+a{
+    /* Transformando o link em box-level */
+    display: block;
+    border-width: 5px;
+
+    /* Borda sólida */
+    border-style: solid;
+
+    /* Borda pontilhada */
+    /* border-style: dashed; */
+
+    /* Borda com pontinhos */
+    /* border-style: dotted; */
+
+    /* Borda dupla */
+    /* border-style: double; */
+
+    /* Borda 3d */
+    /* border-style:groove; */
+
+    border-color: red;
+
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+
+    /* margin-top e margin-bottom não são influenciados,
+    pois seguem o nível da linha em que estão inseridos */
+    /* margin-top: 10px;
+    margin-right: 100px;
+    margin-bottom: 10px;
+    margin-left: 100px; */
+}
+p{
+    margin-top: 100px;
+}
