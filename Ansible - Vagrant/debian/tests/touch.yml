@@ -1,0 +1,12 @@
+---
+- hosts: all
+  become: true
+  vars:
+    file_path: /home/vagrant
+    file_name: teste.txt
+
+  tasks:
+    - name: Creating {{ file_name }} on {{ file_path}}
+      file:
+        path: "{{ file_path }}/{{ file_name }}"
+        state: touch

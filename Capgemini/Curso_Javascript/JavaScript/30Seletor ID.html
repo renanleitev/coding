@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Seletor ID</title>
+    
+        <!--JS-->
+        <script> 
+            
+            //Função
+            function exibirConteudo(){
+                
+                //Obter dados do id CAMPO
+                // Não precisa selecionar o número do ID 
+                // (cada ID é único por página HTML)
+                var campo = document.getElementById("campo");
+                var dog = document.getElementsByTagName 
+                
+                //Exibir o conteúdo
+                alert(campo.value);
+                
+                //Apagar o conteúdo
+                campo.value = "";
+                
+            }
+            
+        </script>
+    </head>
+    
+    <body> 
+        
+        <input type="text" id="campo">
+        <button onclick="exibirConteudo()">Clique aqui para exibir o texto em pop-up</button>
+        
+    </body>
+</html>

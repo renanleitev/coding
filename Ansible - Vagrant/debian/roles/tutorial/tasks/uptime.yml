@@ -1,0 +1,4 @@
+---
+- name: Run uptime command
+  shell: uptime
+  changed_when: False

@@ -1,0 +1,12 @@
+---
+- name: Copy test config file
+  copy:
+    src: /mnt/c/Users/Renan/debian/test.conf
+    dest: "{{ apache_config_dir }}/test.conf"
+    # Irá chamar os handlers, no final do playbook, apenas se o arquivo for modificado/copiado
+    notify:
+      - restart apache
+      - restart memcached
+    # Irá chamar o handler imediatamente (sem precisar esperar até o final do playbook)
+      - name: Make sure handlers are flushed immediately
+        meta: flush_handlers

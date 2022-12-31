@@ -1,0 +1,212 @@
+<!-- Assistir aula a partir de: Aula 11 - Input -->
+
+<!-- Conteúdos semânticos: main, head, body, footer, header, nav, article, section, aside -->
+<!-- ! Conteúdos genéricos (evitar): div, span -->
+    <!-- <div> = Bloco de texto genérico -->
+    <!-- <span> = Separação de texto genérico -->
+
+<!-- Definindo o tipo de arquivo do documento -->
+<!DOCTYPE html>
+<!-- Definindo a linguagem do documento -->
+<html lang="pt-br">
+    <!-- Head: A "cabeça" do documento -->
+    <head>
+        <!-- Definindo o tipo de caracteres -->
+        <meta charset="utf-8" />
+        <!-- O título da página (nome da guia) -->
+        <title>Currículo de Renan</title>
+    </head>
+    <!-- Body: O conteúdo principal do documento -->
+    <body>
+        <!-- <header> = Cabeçalho do documento -->
+        <header>
+            <!-- <figure> = Para dar destaque à imagem -->
+            <figure>
+                <!-- <img src> = Utilizando imagens local ou via web -->
+                <img src="https://avatars.githubusercontent.com/u/109419403?v=4"
+                width="200" height="200">
+                <!-- <figcaption> = Legenda da imagem (opcional) -->
+                <figcaption>Foto tirada em ago/2019</figcaption>
+            </figure>
+            <!-- <h1> = Primeiro Header (Título) -->
+            <h1>
+                Currículo Profissional <br/>
+                <!-- <nav> = Definindo as páginas do site -->
+                    <!-- ! No header, criar links para páginas dentro do site (internas) -->
+                <span>
+                    Renan Leite Vieira
+                </span>
+            </h1>
+            <h2>
+                <nav>
+                    <!-- <ol> = Criando listas numeradas -->
+                    <ol>
+                        <!-- <li> = Cada item da lista -->
+                        <li>
+                            <!-- <a> = Para exibir links (html ou de sites externos) -->
+                            <a href="aula01.html">Início</a>
+                        </li>
+                        <li>
+                            <a href="sobre.html">Sobre</a>
+                        </li>
+                        <li>
+                            <a href="contato.html">Contato</a>  
+                        </li>
+                    </ol>
+                </nav>
+            </h2>
+        </header>
+        <!-- <article> = Tipo de documento -->
+            <!-- Pode ser uma página de um blog, um produto de e-commerce -->
+            <!-- Mais usado para itens específicos -->
+        <article>
+            <!-- <section> = Definindo cada seção do documento-->
+                <!-- Mais usado para itens genéricos -->
+            <section>
+                <h3>Dados pessoais</h3>
+                <!-- <ul> = Criando listas sem numeração -->
+                <ul>
+                <!-- Pode haver várias sections dentro de uma section -->
+                <section>
+                    <li><h4>Documento de identidade</h4></li>
+                </section>
+                <section>
+                    <li><h4>Dados de contato</h4></li>
+                </section>
+                </ul>
+            </section> 
+        </article>
+        <!-- <main> = Conteúdo exclusivo/principal da página -->
+        <main>
+            <!-- Pode ter um header no <main> também -->
+            <header>
+                <h2>Cursos realizados</h2>
+            </header>
+            <!-- Pode haver várias sections no <main> também -->
+            <section>
+                <!-- <br/> = Quebra de linha -->
+                <h3>Curso de Ensino Médio <br/></h3>
+                <!-- <p> Define os parágrafos do texto do documento -->
+                <p>Tá deprimidis, eu conheço uma cachacis que pode alegrar sua vidis.Em pé sem cair, deitado sem dormir, sentado sem cochilar e fazendo pose.Casamentiss faiz malandris se pirulitá.Per aumento de cachacis, eu reclamis.</p>
+                <!-- Pode haver <article> dentro de <section> e vice-versa -->
+                <article>
+                    <h4>Outros detalhes</h4>
+                </article>
+                <h3>Faculdade Senac <br/></h3>
+                <p>
+                    Mussum Ipsum, cacilds vidis litro abertis. Quem num gosta di mim que vai caçá sua turmis!Per aumento de cachacis, eu reclamis.A ordem dos tratores não altera o pão duris.Praesent malesuada urna nisi, quis volutpat erat hendrerit non. Nam vulputate dapibus.
+                </p>
+                <h3>Curso de HTML <br/></h3>
+                <p>Todo mundo vê os porris que eu tomo, mas ninguém vê os tombis que eu levo!Suco de cevadiss deixa as pessoas mais interessantis.Viva Forevis aptent taciti sociosqu ad litora torquent.Paisis, filhis, espiritis santis.</p>
+            </section>
+            <section>
+                <h2>Formação complementar</h2>
+                <p>
+                    Vehicula non. Ut sed ex eros. Vivamus sit amet nibh non tellus tristique interdum.Viva Forevis aptent taciti sociosqu ad litora torquent.Atirei o pau no gatis, per gatis num morreus.Copo furadis é disculpa de bebadis, arcu quam euismod magna.
+                </p>
+                <h2>Curso EAD</h2>
+                <p>Em pé sem cair, deitado sem dormir, sentado sem cochilar e fazendo pose.Copo furadis é disculpa de bebadis, arcu quam euismod magna.Cevadis im ampola pa arma uma pindureta.Manduma pindureta quium dia nois paga.</p>
+            </section>
+            <!-- Pode ter um footer no <main> também -->
+            <footer>
+                <h3>Mais detalhes...</h3>
+            </footer>
+        </main>
+        <!-- <aside> = Itens opcionais (propaganda, descrições) -->
+        <aside>
+            <h2>Experiência profissional</h2>
+            <ol>
+                <article>
+                    <li>
+                    <h3>Advogado</h3>
+                    <header>
+                        <h4>Início em ago/2019</h4>
+                    </header>
+                    <section>
+                        <h4>Responsável pelo escritório</h4>
+                    </section>
+                    <footer>
+                        <h4>Término em jul/2022</h4>
+                    </footer>
+                    </li>
+                    <li>
+                        <h3>Desenvolvedor</h3>
+                        <header>
+                            <h4>Início em ago/2022</h4>
+                        </header>
+                        <section>
+                            <h4>Elaborando programas em Python</h4>
+                        </section>
+                        <footer>
+                            <h4>Atualmente</h4>
+                        </footer>
+                        </li>
+                </article>
+            </ol>
+            <nav>
+                <h2>
+                    Links complementares 
+                </h2>
+            </nav>
+        </aside>
+        <aside>
+            <!-- <table> Criando uma tabela -->
+                <!-- ! border = Não se usa mais (código legado),
+                     ! usado apenas para facilitar a visualização da tabela -->
+            <table border=1>
+                <!-- <captio> = Título da tabela -->
+                <caption>Linguagens e Sistemas Utilizados</caption>
+                <!-- <thead> = Para definir o "topo" da tabela -->
+                <thead>
+                    <tr>
+                        <!-- <th> = Escrevendo a linha acima da tabela -->
+                            <!-- colspan = Mesclando células na horizontal -->
+                                <!-- "Coluna expande para os lados (direita/esquerda)" -->
+                        <th colspan="5">
+                            Matérias
+                        </th>
+                    </tr>
+                </thead>
+                <!-- <tbody> = Corpo da tabela -->
+                <tbody>
+                    <!-- <tr> = Escrevendo as linhas -->
+                    <tr>
+                        <!-- <td> = Definindo as células -->
+                        <td>Python</td>
+                        <!-- rowspan = Mesclando células na vertical -->
+                            <!-- "Linha expande a altura (cima/baixo)" -->
+                        <td rowspan="2">Java</td>
+                        <td>Azure</td>
+                        <td>HTML</td>
+                        <td>CSS</td>
+                    </tr>
+                    <tr>
+                        <!-- <td> = Definindo as células -->
+                        <td>Python</td>
+                        <td>Azure</td>
+                        <td>HTML</td>
+                        <td>CSS</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <!-- <th> = Escrevendo a linha acima da tabela -->
+                        <th colspan="5">
+                            Fim da tabela
+                        </th>
+                    </tr>
+                </tfoot>
+            </table>
+        </aside>
+        <!-- <footer> = Rodapé do documento -->
+        <footer>
+            <!-- Páginas de acesso fora do site (externas) -->
+            <nav>
+                <h3><a href="https://br.linkedin.com/">LinkedIn</a></h3>
+                <h3><a href="https://github.com/">Github</a></h3>
+            </nav>
+            <!-- &copy; = Direitos autorais ("©") -->
+            &copy; 2022 - Renan
+        </footer>
+    </body>
+</html>

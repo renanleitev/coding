@@ -1,0 +1,51 @@
+<!-- Ordem de exibição (carregamento)
+1) Javascript
+2) CSS
+3) HTML
+-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Aula 02</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            body{
+                background-color: darkslategray;
+                color: white;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Aprendendo Javascript</h1>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quisquam saepe beatae quos enim, qui, quod accusamus voluptatibus voluptate sed in numquam illum eligendi nostrum, accusantium eius expedita dolorum dolor error.</p>
+        <!-- 
+            Convertendo strings para inteiro (int)
+            parseInt(string)
+            -------------------------------------
+            Convertendo strings para real (float)
+            parseFloat(string)
+            -------------------------------------
+            Convertendo número para string
+            String(n)
+            n.toString()
+            -------------------------------------
+            ! Template para exibir strings (entre crases)
+            `Texto ${var}`
+        -->
+        <script>
+            var num1 = parseInt(window.prompt("Digite um número: "))
+            var num2 = parseInt(window.prompt("Digite outro número: "))
+            var soma = num1 + num2
+            window.alert('A soma é: ' + String(soma))
+            window.alert(`A soma é: ${soma}`)
+            var num3 = window.prompt("Digite um número real: ")
+            var num4 = window.prompt("Digite outro número real: ")
+            var subtracao = parseFloat(num3) - parseFloat(num4)
+            window.alert('A subtração é: ' + subtracao.toString())
+        </script>
+    </body>
+</html>

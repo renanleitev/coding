@@ -1,0 +1,37 @@
+<!-- Ordem de exibição (carregamento)
+1) Javascript
+2) CSS
+3) HTML
+-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Aula 01</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            body{
+                background-color: aqua;
+                color: black;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Aprendendo Javascript</h1>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quisquam saepe beatae quos enim, qui, quod accusamus voluptatibus voluptate sed in numquam illum eligendi nostrum, accusantium eius expedita dolorum dolor error.</p>
+        <!-- 
+            alert = Mostra uma mensagem na tela (print)
+            confirm = Mostra uma tela de confirmação para o usuário (ok ou cancel)
+            prompt = Mostra um input para o usuário
+         -->
+        <script>
+            var nome = window.prompt("Digite o seu nome: ")
+            window.alert(nome)
+            window.alert('O tipo nome é: ' + typeof(nome))
+            window.confirm("O nome está correto?")
+        </script>
+    </body>
+</html>

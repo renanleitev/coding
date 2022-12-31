@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="exercicio01.css">
+    </head>
+    <body>
+        <header>
+            <h1>Verificador de idade</h1>
+        </header>
+        <section>
+            <div>
+                <p>Ano de Nascimento:
+                    <input type="number" name="txtano" id="txtano" min="0">
+                </p>
+                <p>Sexo:
+                    <input type="radio" name="radsex" id="mas">
+                    <label for="mas">Masculino</label>
+                    <input type="radio" name="radsex" id="fem">
+                    <label for="fem">Feminino</label>
+                </p>
+                <p>
+                    <input type="button" value="Verificar" onclick="verificar()">
+                </p>
+            </div>
+            <div id="res">
+                Preencha os dados para obter o resultado!
+            </div>
+            <div id="sexo">Sexo: Escolha uma opção.</div>
+        </section>
+        <footer>
+            Feito por fulano
+        </footer>
+        <script src="exercicio02.js" async defer></script>
+    </body>
+</html>

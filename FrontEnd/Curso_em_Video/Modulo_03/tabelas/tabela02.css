@@ -1,0 +1,52 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+table{
+    width: 500px;
+    border-collapse: collapse;
+    position: relative;
+}
+
+td, th{
+    border: 1px solid #ccc;
+    padding: 5px;
+    text-align: center;
+    padding: 10px;
+}
+
+thead, tfoot{
+    background-color: gray;
+    color: white;
+}
+
+thead > tr > th{
+    /* Fixando o topo da tabela */
+    position: sticky;
+    top: -1px;
+    background-color: gray;
+}
+
+/* Efeito de zebra */
+/* Pulando de dois em dois */
+/* tbody > tr:nth-child(2n){
+    background-color: lightgray
+} */
+/* Começando pelo impar */
+/* tbody > tr:nth-child(odd){
+    background-color: lightgray
+} */
+/* Começando pelo par */
+/* tbody > tr:nth-child(even){
+    background-color: lightgray
+} */
+tbody > tr:nth-child(2n-1){
+    background-color: lightgray
+}
+
+caption{
+    font-weight: bold;
+    padding: 10px;
+    font-size: 1.5em;
+    background-color: #ccc;
+}

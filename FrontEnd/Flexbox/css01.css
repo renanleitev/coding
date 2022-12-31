@@ -1,0 +1,126 @@
+html, body{
+    background-color: bisque;
+}
+.bloco-1{
+    background-color: lightblue;
+    height: 200px;
+    width: 200px;
+    border-radius: 20px;
+    text-align: center;
+}
+.bloco-2{
+    background-color: lightslategray;
+    height: 200px;
+    width: 200px;
+    border-radius: 20px;
+    text-align: center;
+    font-size: 50px;
+}
+.bloco-3{
+    background-color: lightcoral;
+    height: 200px;
+    width: 200px;
+    border-radius: 20px;
+    text-align: center;
+    font-size: 100px;
+}
+/* Mudando o eixo vertical para horizontal */
+.container{
+/* Criando o flex-box */
+    display: flex;
+
+/* ! Definindo a direção dos blocos */
+
+/* Padrão */
+    /* flex-direction:row; */
+
+/* Fazendo o inverso na horizontal */
+    /* flex-direction: row-reverse; */
+
+/* Colocando na vertical */
+    /* flex-direction: column; */
+
+/* Colocando na vertical ao inverso */
+    /* flex-direction: column-reverse; */
+
+/* ! Alinhando os blocos no eixo horizontal */
+
+/* Alinhando os blocos no lado esquerdo */
+    /* justify-content: flex-start; */
+
+/* Alinhando os blocos no lado direito */
+    /* justify-content: flex-end; */
+
+/* Alinhando os blocos no centro */
+    /* justify-content: center; */
+
+/* Separando os blocos com espaços entre eles  */
+    /* justify-content: space-between; */
+
+/* Separando os blocos com espaços entre e fora deles */
+    /* justify-content: space-around; */
+
+/* ! Alinhando os blocos no eixo vertical*/
+
+/* Alinhando os blocos no começo da página */
+    /* align-items: flex-start; */
+
+/* Alinhando os blocos no final da página */
+    /* align-items: flex-end; */
+
+/* Alinhando os blocos no meio da página */
+    /* align-items: center; */
+
+/* Esticando os blocos na vertical */
+    /* align-items: stretch; */
+
+/* Alinhando na base do conteúdo */
+    /* align-items: baseline; */
+
+/* ! Posicionando os blocos no eixo horizontal */
+
+/* Padrão */
+    /* flex-wrap: nowrap; */
+
+/* Colocando os blocos na linha de baixo */
+    flex-wrap: wrap;
+
+/* Colocando os blocos na linha de cima */
+    /* flex-wrap: wrap-reverse; */
+
+/* Definindo duas propriedades ao mesmo tempo */
+    /* flex-flow: row wrap; */
+
+/* ! Posicionando os blocos no eixo vertical  */
+
+/* Padrão = Colocando no começo da página */
+    /* align-content: flex-start; */
+
+/* Colocando os blocos no final da página */
+    /* align-content: flex-end; */
+
+/* Colocando os blocos no meio da página */
+    /* align-content: center; */
+
+/* Separando os blocos quebrados 
+(a outra linha fica no final da página) */
+    /* align-content: space-between; */
+
+/* Separando os blocos com espaços entre e fora deles */
+    /* align-content: space-around; */
+
+/* ! Definindo o espaço entre os blocos */
+
+/* Definindo o espaço por px */
+/* (linhas e colunas possuem a mesma dimensão) */
+    /* gap: 70px; */
+
+/* Definindo os espaços por linhas e colunas */
+    /* gap: 10px 30px; */
+
+/* Definindo os espaços por linhas */
+    row-gap: 10px;
+
+/* Definindo os espaços por colunas */
+    column-gap: 30px;
+}

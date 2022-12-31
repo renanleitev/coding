@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aprendendo listas</title>
+</head>
+<body>
+    <!-- ! Por exemplo ao invés de digitar OL depois 4 Li's 
+        ! pode usar o comando  ol>li*4  e depois tecla Tab 
+        ! que ele já faz toda a estrutura com os 4 LI's dentro -->
+    <h1>Trabalhando com listas</h1>
+    <!-- "prev" = Indica que há uma página anterior -->
+    <h2>Para voltar para outra página de <a href="links.html" target="_self" rel="prev">links</a></h2>
+    <h2>Listas Ordenadas</h2>
+    <!-- <ol> = Listas ordenadas -->
+    <ol>
+        <!-- <li> = Cada item da lista -->
+            <!-- </li> = É opcional -->
+        <li>Acordar</li>
+        <li>Acordar</li>
+        <li>Acordar</li>
+        <li>Acordar</li>
+        <li>Acordar</li>
+    </ol>
+    <!-- type = Definindo o tipo de lista -->
+    <!-- Padrão = "1" -->
+    <!-- start = Definindo o início da lista -->
+    <ol type="1" start="4">
+        <li>Acordar</li>
+        <li>Acordar</li>
+        <li>Acordar</li>
+        <li>Acordar</li>
+        <li>Acordar</li>
+    </ol>
+    <!-- Números romanos (em maiúscula) -->
+    <ol type="I" start="1">
+        <li>Acordar</li>
+        <li>Acordar</li>
+        <li>Acordar</li>
+        <li>Acordar</li>
+        <li>Acordar</li>
+    </ol>
+    <!-- Números romanos (em minúscula) -->
+    <ol type="i" start="1">
+        <li>Acordar</li>
+        <li>Acordar</li>
+        <li>Acordar</li>
+        <li>Acordar</li>
+        <li>Acordar</li>
+    </ol>
+
+    <h2>Listas não ordenadas</h2>
+    <!-- <ul> = Listas não ordenadas -->
+    <ul>
+        <li>Acordar</li>
+        <li>Acordar</li>
+        <li>Acordar</li>
+        <li>Acordar</li>
+        <li>Acordar</li>
+    </ul>
+    <!-- Pode definir "type" também -->
+    <!-- Padrão = "disc" (bolinha fechada) -->
+    <!-- "circle" = Bolinha aberta -->
+    <ul type="circle">
+        <li>Acordar</li>
+        <li>Acordar</li>
+        <li>Acordar</li>
+        <li>Acordar</li>
+        <li>Acordar</li>
+    </ul>
+    <!-- "square" = Quadrado -->
+    <ul type="square">
+        <li>Acordar</li>
+        <li>Acordar</li>
+        <li>Acordar</li>
+        <li>Acordar</li>
+        <li>Acordar</li>
+    </ul>
+
+    <h2>Sublistas</h2>
+    <!-- Misturando listas -->
+    <ol>
+        <li>Atividades</li>
+        <ol type="a">
+            <li>Dormir</li>
+                <ul type="square">
+                    <li>Manhã</li>
+                    <li>Tarde</li>
+                    <li>Noite</li>
+                </ul>
+            <li>Comer</li>
+            <li>Estudar</li>
+        </ol>
+        <li>Outras atividades</li>
+        <!-- Mesmo o tipo sendo alfabético,
+        é preciso usar números no "start" -->
+        <ol type="a" start="4">
+            <li>Correr</li>
+            <li>Pegar</li>
+            <li>Jogar</li>
+        </ol>
+        <li>Não gosto de fazer</li>
+        <li>Gosto de fazer</li>
+    </ol>
+
+    <h2>Listas de definições</h2>
+    <!-- Funciona como se fosse um dicionário -->
+    <dl>
+        <dt>Fazer</dt>
+        <dd>Eu não sei o que fazer</dd>
+        <dt>Dormir</dt>
+        <dd>Eu não sei quando eu vou dormir</dd>
+    </dl>
+</body>
+</html>

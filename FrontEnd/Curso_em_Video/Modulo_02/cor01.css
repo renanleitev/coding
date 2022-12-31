@@ -1,0 +1,32 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+}
+body {
+    /* Gradiente linear da esquerda para direita */
+    /* background-image: linear-gradient(to right, white, blue); */
+
+    /* Gradiente linear de cima para baixo */
+    /* background-image: linear-gradient(to top, white, blue); */
+
+    /* Gradiente por grau e com várias cores */
+    /* Utilizar entre 03 (mínimo) e 05 (máximo) cores */
+    background-image: linear-gradient(45deg, cyan, blue, purple, pink);
+    background-attachment: fixed;
+
+    /* Gradiente por circulo */
+    /* background-image: radial-gradient(circle, white, blue, purple, pink);
+    background-attachment: fixed; */
+}
+main{
+    background-color: lightseagreen;
+    width: 600px;
+    padding: 10px;
+    margin: auto;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 10px 10px 10px black;
+}
+h1{
+    color:cyan;
+    text-shadow: 1px 1px 2px black;
+}

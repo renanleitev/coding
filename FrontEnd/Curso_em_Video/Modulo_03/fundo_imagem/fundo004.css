@@ -1,0 +1,27 @@
+body{
+    height: 100vh;
+    /* background-color: white;
+    background-image: url('imagens/wallpaper002.jpg');
+    background-position: center top; */
+    /* Contain = Mantém a proporção da imagem, intacta */
+    /* background-size: contain; */
+    /* Cover = Cortar a imagem, mas mantém o fundo preenchido */
+    /* background-repeat: no-repeat; */
+    /* Attachment = A imagem de fundo acompanha a rolagem da página */
+    /* background-attachment: fixed; */
+
+    /* Atalho - background image */
+    /* color > image > position > repeat > [size - não funciona] > attachment */
+
+    background: black url('imagens/wallpaper002.jpg')
+    center top no-repeat fixed;
+    background-size: cover;
+}
+main{
+    background-color: white;
+    max-width: 400px;
+    padding: 10px;
+    margin: auto;
+    border-radius: 15px;
+    border: 1px solid darkblue;
+}

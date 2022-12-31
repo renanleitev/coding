@@ -1,0 +1,12 @@
+---
+- hosts: all
+  gather_facts: no
+
+  tasks:
+    - name: Register the output of "uptime" command
+      command: uptime
+      register: sys_uptime
+
+    - name: Print the registered output
+      debug:
+        var: sys_uptime.stdout

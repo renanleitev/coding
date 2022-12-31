@@ -1,0 +1,10 @@
+# Application Servers
+[app]
+192.168.60.10 
+192.168.60.11
+192.168.60.12
+
+# Variable for all servers
+[app:vars]
+ansible_ssh_password=vagrant
+ansible_ssh_user=vagrant

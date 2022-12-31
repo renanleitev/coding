@@ -1,0 +1,10 @@
+---
+- name: Adicionar/Remover Ferramentas
+  hosts: all
+  become: yes
+  tasks:
+    - name: Instalar/Desinstalar Ferramentas
+      community.general.apk: name={{ item }} state=present
+      with_items:
+      - htop
+      - ncdu

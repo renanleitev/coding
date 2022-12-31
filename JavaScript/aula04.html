@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Aula 04</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            body{
+                background-color: black;
+                color: white;
+                font-size: 1.5em;
+            }
+        </style>
+    </head>
+    <!-- Selecionando elementos HTML
+        -------------------------------------
+        Por tag de elemento
+        document.getElementsByTagName('nome-elemento')[indice]
+        -------------------------------------
+        Por id
+        document.getElementById('nome-id')
+        Obs: O element está em singular pois o id é único
+        -------------------------------------
+        Por nome
+        document.getElementsByName('nome')
+        -------------------------------------
+        Por classe
+        document.getElementsByClass('nome-classe')
+        -------------------------------------
+        Por seletor css
+        document.querySelector('div.teste')
+        -------------------------------------
+        Modificando um estilo de elemento (Ex: cor do texto)
+        p1.style.color
+        Obs: Aqui envolve CSS
+        -------------------------------------
+        Obtendo o texto puro em HTML
+        p1.innerText
+        Obs: O JS só captura o texto
+        -------------------------------------
+        Obtendo o texto modificado em HTML
+        p1.innerHTML
+        Obs: O JS captura as tags HTML
+        -------------------------------------
+    -->
+    <body>
+        <h1>Arvore DOM</h1>
+        <p><strong>Mostrando</strong> o resultado</p>
+        <p id="teste">Outro resultado</p>
+        <div class="teste">Clique aqui</div>
+        <script>
+            var p1 = document.getElementsByTagName('p')[0]
+            document.writeln(p1.innerHTML)
+            p1.style.color = 'yellow'
+            var p2 = document.getElementById('teste')
+            document.writeln(p2.innerHTML)
+            document.querySelector('div.teste').style.color = 'green'
+        </script>
+    </body>
+</html>

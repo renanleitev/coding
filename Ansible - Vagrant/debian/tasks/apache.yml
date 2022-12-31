@@ -1,0 +1,50 @@
+---
+- name: Checks if Apache is installed
+  package:
+    name: "{{ apache_package }}"
+    state: present
+
+- name: Ensures if Apache is running and start at boot
+  service:
+    name: "{{ apache_service }}"
+    state: started
+    enabled: yes
+
+# Instalando software de firewall
+- name: Install firewall software
+  package:
+    name:
+      - ufw
+    state: present
+
+# Habilitando firewall
+- name: Enabling firewall
+  shell: "sudo ufw allow 'WWW'"
+  notify:
+    - restart apache
+
+# Copiando o conteúdo de uma página HTML qualquer
+- name: Copy a web page
+  copy:
+    content: |
+      <html>
+        <head>
+          <title>
+            Titulo da pagina
+          </title>
+        </head>
+        <body>
+          <h1>
+            Corpo da pagina
+          </h1>
+        </body>
+      </html>
+    dest: "/var/www/html/index.html"
+  notify:
+    - restart apache
+
+# Checando se o conteúdo foi exibido corretamente
+- name: Checks if Apache is serving web requests
+  uri:
+    url: http://192.168.60.4/
+    status_code: 200

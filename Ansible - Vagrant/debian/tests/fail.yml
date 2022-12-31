@@ -1,0 +1,25 @@
+---
+- hosts: all
+  gather_facts: false
+
+  vars:
+    var_fail: false
+    var_assert: false
+    var_complex_assert: true
+
+  tasks:
+    - name: Fail if "var_fail" is true
+      fail:
+        msg: "Variavel var_fail foi ativada"
+      when: var_fail
+
+    - name: Stop the playbook if "var_assert" is true
+      assert:
+        that: "var_assert != true"
+
+    - name: Assertions can have conditions
+      assert:
+        that:
+          - var_fail != true
+          - var_assert != true
+          - var_complex_assert != true

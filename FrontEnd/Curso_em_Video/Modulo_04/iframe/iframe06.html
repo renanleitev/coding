@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Teste com Javascript</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <h1>Importando Iframe com Javascript</h1>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Unde quis ducimus harum perspiciatis at deleniti quos omnis mollitia modi qui quasi, necessitatibus tenetur ullam! Libero magni omnis odit aut consequatur?</p>
+        <p>Bloqueando o script</p>
+        <!-- Bloqueando script em html -->
+        <iframe src="javascript.html" frameborder="1" referrerpolicy="no-referrer" sandbox="sandbox"></iframe>
+        <!-- Permitindo script em html -->
+        <p>Permitindo o script</p>
+        <iframe src="javascript.html" frameborder="1" referrerpolicy="no-referrer" sandbox="allow-scripts"></iframe>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Unde quis ducimus harum perspiciatis at deleniti quos omnis mollitia modi qui quasi, necessitatibus tenetur ullam! Libero magni omnis odit aut consequatur?</p>
+    </body>
+</html>

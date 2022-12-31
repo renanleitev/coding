@@ -1,0 +1,31 @@
+---
+- name: Adicionar/Remover Ferramentas
+  hosts: all
+  become: yes
+  tasks:
+    - name: Adicionar Ferramentas
+      apt:
+        name: "{{ item }}"
+        state: present
+        update_cache: true
+      with_items:
+        - htop
+        - ncdu
+        - neofetch
+        - nano
+        - unzip
+        - wget
+        - python3-pip
+    - name: Remover Ferramentas
+      apt:
+        name: "{{ item }}"
+        state: absent
+        update_cache: true
+      with_items:
+        - pandoc
+    - name: Baixando e instalando tldr (versão resumida do man)
+      shell: "pip3 install tldr"
+    - name: Tornando tldr executável
+      shell: "mv /usr/local/bin/tldr /usr/bin"
+    - name: Baixando e instalando tuifi (gerenciador de janelas no terminal)
+      shell: "pip3 install TUIFIManager --upgrade"

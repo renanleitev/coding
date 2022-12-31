@@ -1,0 +1,41 @@
+---
+- name: Add users and sudoers to the servers
+  hosts: all
+  become: true
+  vars:
+    add_user: picanha
+    rem_user: aluno
+    file_path: /etc/ssh/ssh_config
+    file_permission: 0600
+
+  tasks:
+    - name: Add user {{ add_user }}
+      user:
+        name: "{{ add_user }}"
+    - name: Remove user {{ rem_user }}
+      user:
+        name: "{{ rem_user }}"
+        state: absent
+        remove: true
+    - name: Add sudo rights for the user {{ add_user }}
+      lineinfile:
+        dest: /etc/sudoers
+        regexp: "^{{ add_user }}"
+        line: "{{ add_user }} ALL=(ALL) NOPASSWD: ALL"
+        state: present
+        validate: 'visudo -cf %s'
+    - name: Remove sudo rights for the user {{ rem_user }}
+      lineinfile:
+        dest: /etc/sudoers
+        regexp: "^{{ rem_user }}"
+        line: "{{ rem_user }} ALL=(ALL) NOPASSWD: ALL"
+        state: absent
+        validate: 'visudo -cf %s'
+    - name: File permission
+      file:
+        path: "{{ file_path }}"
+        mode: "{{ file_permission }}"
+    - name: Update all programs
+      apt:
+        upgrade: dist
+        update_cache: true

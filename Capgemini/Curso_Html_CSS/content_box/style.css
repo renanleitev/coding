@@ -1,0 +1,42 @@
+/* Valores gerais para todas as caixas */
+.box{
+    box-sizing: content-box;
+    /* Largura e altura da caixa */
+    width: 10rem;
+    height: 5rem;
+
+    /* Tamanho da fonte do texto */
+    font-size: 3rem;
+
+    /* Cor do texto */
+    color: yellow;
+
+    /* Posicionando o texto */
+    padding: 5px 2px 3px 10px;
+
+    /* Borda da caixa */
+    /* solid = linha normal */
+    /* dotted = linhas pontilhadas com bolinhas */
+    /* dashed = linhas pontilhadas por quadrados */
+    border: dashed 10px gray;
+
+    /* Colocando duas linhas na borda de baixo */
+    border-bottom-style: double;
+
+    /* Margem de cada caixa */
+    margin: 50px;
+}
+
+/* Valores individuais para cada caixa */
+.vermelho{
+    background-color: red;
+    border-width: 5px;
+}
+.azul{
+    background-color: blue;
+    border-width: 10px 0x 5px;
+}
+.verde{
+    background-color: green;
+    border-width: 5px;
+}

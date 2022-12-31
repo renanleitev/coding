@@ -1,0 +1,135 @@
+/* Definindo uma cor para todo o HTML */
+html{
+    /* Cor padrão do texto */
+    color: red;
+
+    /* Cor de fundo da página */
+    /* background-color: blue; */
+
+    /* Imagem de fundo da página */
+    /* Por padrão, repete-se a imagem para
+    preencher o fundo da página */
+    /* background-image: url("./card-5.jpg"); */
+
+    /* A imagem repete apenas o eixo X */
+    /* background-repeat: repeat-x; */
+
+    /* Ou então pode usar o no-repeat */
+    /* background-repeat: no-repeat; */
+
+    /* A imagem repete apenas no eixo Y */
+    /* background-repeat: repeat-y; */
+
+    /* Definindo a posição da imagem */
+    /* Primeira variável: posição vertical */
+    /* Segunda variável: posição horizontal */
+    /* background-position: bottom left; */
+
+    /* Redimensiona a imagem para o tamanho normal */
+    /* background-size: contain; */
+
+    /* Ocupa todo o espaço onde está a estrutura HTML */
+    /* background-size: cover; */
+}
+
+/* Referente aos hyperlinks */
+a{
+    /* Mudando a cor do link */
+    color: yellow;
+
+    /* Mudando o cursor do mouse */
+    cursor: crosshair;
+}
+
+/* Se o link já foi visitado */
+a:visited {
+    color: green;
+}
+
+/* Ao passar o mouse em cima do link */
+a:hover{
+    color: purple;
+}
+
+h2#titulo-primeira-aula{
+    /* Decorando o texto (sublinhado, etc) */
+    text-decoration: overline;
+
+    /* Espaçamento entre letras */
+    letter-spacing: 5px;
+
+    /* Transformando o texto */
+    text-transform: uppercase;
+}
+
+main p{
+    /* Tipo de fonte (Ex: Comic Sans MS) */
+    font-family: 'Comic Sans MS';
+
+    /* Estilo da fonte (Ex: itálico - oblique) */
+    font-style: oblique;
+
+    /* "Peso" da fonte (pode ser gradual) */
+    font-weight: bold;
+
+    /* Mudando a capitalização das palavras */
+    font-variant: small-caps;
+
+    /* Mudando o tamanho da letra */
+    /* font-size: 40px; */
+    /* ou */
+    font-size: 1.5rem;
+
+    /* Alterando a indentação do texto */
+    text-indent: 4rem;
+
+    /* Alinhando o texto (left, right, start, end, center, etc) */
+    /* ! Evitar texto justificado */
+    text-align: center;
+
+}
+
+/* ! Estrutura geral do CSS */
+
+/* main{
+    background-color: azure;
+}
+.titulo-aula{
+    background-color: aqua;
+} */
+/* h1{
+    color: red;
+}
+main h1{
+    color: palegreen;
+}
+h2{
+    color: green;
+}
+p{
+    color:yellow;
+} */
+
+/* Para definir uma classe, coloca-se ponto final na frente */
+
+/* .titulo-aula{
+    text-decoration: underline;
+}
+.texto-azul{
+    color:blue;
+}
+.texto-vermelho{
+    color:crimson;
+}
+.comentario{
+    color:palevioletred;
+} */
+/* Condição aninhada (if) = Se o comentário estiver em texto-vermelho,
+ele se torna amarelo (yellow) */
+/* .texto-vermelho .comentario{
+    color: yellow;
+} */
+/* Subclasses iniciam-se com # */
+/* #titulo-segunda-aula{
+    color: brown;
+} */

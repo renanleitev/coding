@@ -1,0 +1,9 @@
+---
+add_packages:
+  - vim
+  - rsync
+  - wget
+  - telnet
+rem_packages:
+  - nano
+  - emacs

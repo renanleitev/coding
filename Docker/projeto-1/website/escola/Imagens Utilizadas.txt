@@ -1,0 +1,5 @@
+background-image: url('escola/professores-comemorando.jpg');
+background-image: url(escola/professor-ensinando.jpg);
+background-image: url(escola/alunos-mascara.jpg);
+background-image: url(escola/alunos-comemorando.jpg);
+background-image: url('escola/professora-ensinando.jpg');

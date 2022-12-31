@@ -1,0 +1,9 @@
+sudo docker run -d \
+  --name=code-server \
+  -e PUID=1000 \
+  -e PGID=1000 \
+  -e PASSWORD=abc `#optional` \
+  -e SUDO_PASSWORD=abc `#optional` \
+  -p 8443:8443 \
+  -v /home/ubuntu/vscode:/config \
+linuxserver/code-server:latest

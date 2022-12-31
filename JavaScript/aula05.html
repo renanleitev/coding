@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Aula 05</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <style>
+        body{
+            background-color: black;
+            color: white;
+            font-size: 2em;
+        }
+        div#area{
+            background-color: darkcyan;
+            width: 200px;
+            height: 200px;
+            line-height: 200px;
+            text-align: center;
+        }
+    </style>
+    <!-- Chamando uma função em uma div -->
+    <body>
+        <div id="area">
+            Clique aqui...
+        </div>
+        <script>
+            var bloco = document.getElementById('area')
+        // addEventListener('click', clicar) <=> onclick = "clicar()"
+            bloco.addEventListener('click', clicar)
+            // addEventListener('mouseenter', entrar) <=> onmouseenter = "entrar()"
+            bloco.addEventListener('mouseenter', entrar)
+            // addEventListener('mouseout', sair) <=> onmouseout = "sair()"
+            bloco.addEventListener('mouseout', sair)
+            function clicar(){
+                bloco.innerText = 'Clicou!'
+                bloco.style.backgroundColor = 'darkblue'
+            }
+            function entrar(){
+                bloco.innerText = 'Entrou!'
+                bloco.style.backgroundColor = 'red'
+            }
+            function sair(){
+                bloco.innerText = 'Saiu!'
+                bloco.style.backgroundColor = 'green'
+            }
+        </script>
+    </body>
+</html>

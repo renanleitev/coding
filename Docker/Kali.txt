@@ -1,0 +1,1 @@
+sudo docker run -it --name rdp-kali -e USER=kali -e PASSWORD=kali -e SSHD_ENABLE=true -e MSF_ENABLE=true -p 3389:3389 -p 2222:22 heywoodlh/rdp-kali-linux

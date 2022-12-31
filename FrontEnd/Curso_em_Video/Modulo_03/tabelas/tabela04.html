@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Exercício de Tabelas</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="tabela04.css">
+    </head>
+    <body>
+        <h1>Exemplo de Tabela</h1>
+        <table>
+            <!-- <colgroup> = Selecionando colunas da tabela -->
+            <colgroup>
+                <!-- span = Pode expandir as cores para outras colunas -->
+                <col class="cnome" span="2">
+                <col class="csexo">
+                <col class="cidade">
+                <col class="cprof">
+            </colgroup>
+            <caption>Cadastro</caption>
+            <tr>
+                <th>Nome</th>
+                <th>Sexo</th>
+                <th>Idade</th>
+                <th>Profissão</th>
+            </tr>
+            <tr>
+                <td>Ana</td>
+                <td>F</td>
+                <td>23</td>
+                <td>Advogada</td>
+            </tr>
+            <tr>
+                <td>Lucas</td>
+                <td>M</td>
+                <td>44</td>
+                <td>Médico</td>
+            </tr>
+            <tr class="destaque">
+                <td>Paula</td>
+                <td>F</td>
+                <td>56</td>
+                <td>Enfermeira</td>
+            </tr>
+            <tr>
+                <td>Rafael</td>
+                <td>M</td>
+                <td>35</td>
+                <td>Desenvolvedor</td>
+            </tr>
+        </table>
+    </body>
+</html>

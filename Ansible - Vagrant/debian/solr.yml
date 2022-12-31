@@ -1,0 +1,54 @@
+---
+- name: Instalar Solr
+  hosts: all
+  become: yes
+  # Importando variáveis de outro arquivo
+  vars_files:
+    - vars.yml
+  pre_tasks:
+  # Igual a sudo apt update
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+        cache_valid_time: 3600
+  # Reinicia o servidor se houver mudança na configuração
+  handlers:
+    - name: Restart solr
+      service:
+        name: solr
+        state: restarted
+  tasks:
+  # Solr precisa do Java para funcionar
+    - name: Install Java
+      apt:
+        name: openjdk-8-jdk
+        state: present
+  # Baixando o pacote Solr
+    - name: Download Solr
+      get_url:
+        url: "https://dlcdn.apache.org/solr/solr/{{ solr_version }}/solr-{{ solr_version }}.tgz"
+        dest: "{{ download_dir }}/solr-{{ solr_version }}.tgz"
+  # Descompactando o arquivo Solr
+    - name: Extracting Solr
+      unarchive:
+        src: "{{ download_dir }}/solr-{{ solr_version }}.tgz"
+        dest: "{{ download_dir }}"
+        remote_src: yes
+        creates: "{{ download_dir }}/solr-{{ solr_version }}/README.txt"
+  # Configurando o script para instalar o Solr
+    - name: Run solr script
+      # O comando é executado em uma linha única. O ">" é para ficar legível no playbook
+      command: >
+        {{ download_dir }}/solr-{{ solr_version }}/bin/install_solr_service.sh
+        {{ download_dir }}/solr-{{ solr_version }}.tgz
+        -i /opt
+        -d /var/solr
+        -u solr
+        -s solr
+        -p 8983
+        creates={{ solr_dir }}/bin/solr
+    - name: Verify if solr is running at boot
+      service:
+        name: solr
+        state: started
+        enabled: yes

@@ -1,0 +1,1 @@
+sudo docker run --name=ubuntu-xfce -e PUID=1000 -e PGID=1000 -p 3000:3000 -v /home/ubuntu/ubuntu-xfce:/config linuxserver/webtop:arm64v8-ubuntu-xfce

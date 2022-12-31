@@ -1,0 +1,52 @@
+/* Pseudoclasse = : */
+/* Pseudoelemento = :: */
+
+/* Modificando o placeholder */
+::placeholder{
+    color:red;
+}
+
+/* Depois do item */
+ul li::after{
+    content: '-----';
+    background-color: red;
+    color: white;
+}
+
+/* Antes do item */
+ul li::before{
+    content: '-----';
+    background-color: cyan;
+}
+
+/* Aumentando a letra */
+li{
+    font-size: 4em;
+}
+p{
+    font-size: 2em;
+}
+
+/* Escolhendo a primeira letra do texto */
+p.primeira-letra::first-letter{
+    color: purple;
+    font-size: 150px;
+    float: left;
+    margin: 0 10px 10px 0;
+}
+
+/* Escolhendo a primeira linha do texto */
+p.primeira-linha::first-line{
+    background: aqua;
+    font-size: 150px;
+}
+/* p.primeira-letra::first-line{
+    background: aqua;
+    font-size: 150px;
+} */
+
+/* Selecionando o texto */
+p::selection{
+    background: purple;
+    color:white;
+}

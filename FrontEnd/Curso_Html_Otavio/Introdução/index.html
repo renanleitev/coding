@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <title>
+            Meu HTML
+        </title>
+        <style>
+            .img-in-text{
+                width: 500px;
+                height: 500px;
+            }
+        </style>
+        <!-- <style>
+            /* Selecionando por tag */
+            h1{
+                background: red;
+            }
+            p{
+                background: blue;
+            }
+            /* Selecionando por id (#)
+            Tem prevalência sobre os 
+            outros elementos da página */
+            #cabecalho-dois{
+                background: purple;
+            }
+            /* Selecionando por classe (.)
+            Você pode aplicar "!important" 
+            para forçar o navegador a adotar
+            o estilo desejado (não é recomendado!) */
+            .fundo-vermelho{
+                background: red !important;
+            }
+            .bold{
+                color: pink;
+            }
+        </style> -->
+    </head>
+    <body>
+        <!-- Id é único por página, mas a classe pode ser repetida -->
+        <h1 id="cabecalho-um" class="fundo-vermelho">Meu HTML</h1>
+        <!-- <br> = Quebra de linha (novo parágrafo) -->
+        <!-- <b> = Negrito / <strong> = Negrito mais forte -->
+        <!-- <i> e <em> = Enfase no texto (deixa em itálico) -->
+        <!-- <a href> = Usar hyperlinks ou arquivos -->
+        <!-- <del> e <s> = Taxar/riscar / <ins> = Sublinhado -->
+        <!-- <small> = Para diminuir o tamanho das letras -->
+        <!-- <sup> = Para elevar números ou palavras -->
+        <!-- <sub> = Para rebaixar números ou palavras -->
+        <!-- <blockquote> = Margem para citação (bloco de citação) -->
+        <!-- <hr> = Cria uma linha divisória -->
+        <!-- <code> = Para citar um código (fonte monospace) -->
+        <!-- <pre> = Mantém a formatação do código (com espaços) -->
+        <!-- <span> e <div> = Tags genéricas -->
+        <!-- <aside> = Colocando o texto na lateral da página -->
+        <!-- <nav> = Indica elementos que redirecionam para outras páginas -->
+        <!-- <li> = Estabelece uma lista -->
+        <aside>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <p><b class="bold">Lorem</b> <strong>ipsum</strong> dolor H<sub>2</sub>O sit amet <i>consectetur</i> <em>adipisicing</em> elit. <del>Harum</del> nobis animi, <ins>quos</ins> enim, <sup>caixa</sup>ex vitae <s>lorem</s> omnis sequi <br><hr>impedit architecto at <small>quidem</small>. Dolorem facere aperiam expedita nobis facilis architecto dolore.</p>
+        <h1 id="cabecalho-dois" class="fundo-vermelho"><a href="https://google.com">Link:</a> <q cite="https://www.correiobraziliense.com.br/politica/2022/09/5038908-lula-surfa-em-repercussao-de-entrevista-para-ratinho-gosto-de-uma-cachacinha.html">Rapaz... O Lula foi pro Ratinho!</q></h1>
+        <a href="https://google.com"><img class="img-in-text" src="https://www.logotipo.pt/wp-content/uploads/2015/09/googs-new.jpg" alt="Imagem" width="50" height="44" /></a>
+        <blockquote>Agora estou fazendo uma citação! <code>console.log</code></blockquote>
+        <pre><code>
+if a = 45
+b = 67
+        </code>
+        </pre>
+        <!-- O style pode ser colocado tanto na parte de cima (recomendado)
+        ou dentro do próprio código, usando "style" (não recomendado) -->
+        <div style="background: red;" class="caixa">Abc</div>
+    </body>
+</html>
