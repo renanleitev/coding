@@ -1,31 +1,70 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-# All Vagrant configuration is done below. The "2" in Vagrant.configure
-# configures the configuration version (we support older styles for
-# backwards compatibility). Please don't change it unless you know what
-# you're doing.
+# Definindo variáveis de provisionamento (para executar múltiplos comandos)
+# Não precisa do sudo, ele já vem habilitado por padrão
+#$script = <<-SCRIPT
+#apt install apache2 -y
+#apt remove apache2 -y
+#SCRIPT
+
+# vagrant up = para instanciar as VM
 Vagrant.configure("2") do |config|
+ 
+  # Nome da box da  máquina virtual
   config.vm.box = "generic/debian11"
-
+ 
+  # Ignora chave ssh
   config.ssh.insert_key = false
+ 
+  # Compartilhar arquivos do host para o guest
+  config.vm.synced_folder "arquivos/", "/vagrant"
+ 
+  # Executar comandos após instanciar a VM
+  # vagrant provision = para aplicar os comandos
+  # Comandos simples = linha única
+  config.vm.provision "shell" do |s|
+    s.inline = "echo 'Linha Unica'"
+  end
 
+  # Executando arquivos script (bash)
+  config.vm.provision :shell, path: "teste.sh"
+
+  # Utilizando variáveis internas no Vagrant
+  #config.vm.provision "shell", inline: $script
+
+  # Configurando a VM
   config.vm.provider "virtualbox" do |vb|
+    # Exibe a interface gráfica do VirtualBox 
     vb.gui = true
+    # Definir o limite de memória RAM da VM
     vb.memory = "512"
+    # Permite a clonagem da máquina virtual
     vb.linked_clone = true
   end
 
+  # VM Clonadas (pode ser quantas quiser)
+
   # App server 1
   config.vm.define "app1" do |app|
-    app.vm.hostname = "orc-app1.test"
+    # Nome do host (pode ser qualquer um)
+    app.vm.hostname = "deb-01.test"
+    # IP da VM (para se conectar no Ansible)
     app.vm.network :private_network, ip: "192.168.60.4" 
+    # Abrindo portas (devem ser feitas para cada máquina individualmente)
+    app.vm.network "forwarded_port", guest: 80, host: 8090 
   end
 
   # App server 2
   config.vm.define "app2" do |app|
-    app.vm.hostname = "orc-app2.test"
+    # Nome do host (pode ser qualquer um)
+    app.vm.hostname = "deb-02.test"
+    # IP da VM (para se conectar no Ansible)
     app.vm.network :private_network, ip: "192.168.60.5" 
+    # Abrindo portas (devem ser feitas para cada máquina individualmente)
+    app.vm.network "forwarded_port", guest: 80, host: 9090 
   end
 
 end
+# vagrant halt = interrompe as VM (sem forçar o desligamento)
+# vagrant destroy = apagar as VM (não apagar as imagens box)

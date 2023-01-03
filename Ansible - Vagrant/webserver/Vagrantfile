@@ -1,0 +1,41 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+$apache = <<-SCRIPT
+apt update
+apt install apache2 -y
+systemctl restart apache2
+SCRIPT
+
+$mariadb = <<-SCRIPT
+apt update
+apt install mariadb-server -y
+sed -i 's/# port = 3306/port = 3306/' /etc/mysql/mariadb.cnf
+sed -i 's/127.0.0.1/0.0.0.0/' /etc/mysql/mariadb.conf.d/50-server.cnf
+systemctl restart mariadb.service
+SCRIPT
+
+Vagrant.configure("2") do |config|
+  config.vm.box = "generic/debian11"
+
+  config.vm.provider "virtualbox" do |vb|
+    # Definir o limite de memória RAM da VM
+    vb.memory = "512"
+  end
+
+  # Máquina servidor web
+  config.vm.define "web" do |web|
+    web.vm.hostname = "servidor-web"
+    web.vm.network "forwarded_port", guest: 80, host: 8090
+    web.vm.network "private_network", ip: "192.168.60.6"
+    web.vm.provision "shell", inline: $apache    
+  end
+
+  # Máquina banco de dados
+  config.vm.define "database" do |db|
+    db.vm.hostname = "servidor-web"
+    db.vm.network "private_network", ip: "192.168.60.7"
+    db.vm.provision "shell", inline: $mariadb
+  end
+
+end
