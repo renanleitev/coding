@@ -1,0 +1,1 @@
+A pasta 'compartilhado' serve para compartilhar arquivos entre sua máquina host (Linux/Windows) e a máquina guest (Debian).
