@@ -1,4 +1,4 @@
-# Debian Xfce pré-configurado para banco de dados e programação
+# Debian Xfce pré-configurado para programação
 
 Debian Xfce pré-configurado para programação, com uso de Vagrant e Oracle VirtualBox.
 
