@@ -64,7 +64,7 @@ Softwares Pré-instalados:
 
 - **xfce4** (para ter uma interface gráfica no Debian)
 - **xfce4-goodies** (opcional, para ter aplicativos adicionais do Xfce)
-- **firefox-esr** (apenas se quiser usar o banco de dados)
+- **firefox-esr** (para navegar pela internet dentro da VM)
 - **deb-get** (para instalar o Visual Studio Code)
 - **Visual Studio Code** (IDE de propósito genérico)
 - **Sublime Text** (IDE de propósito genérico)
