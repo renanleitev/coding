@@ -29,6 +29,8 @@ Softwares Pré-instalados:
 
     [coding/Ansible - Vagrant/debian-xfce at main · renanleitev/coding (github.com)](https://github.com/renanleitev/coding/tree/main/Ansible%20-%20Vagrant/debian-xfce)
 
+- Obs: Não utilizar caracteres latinos ou com acentos gráficos para o nome da pasta em que o Vagrant irá rodar (ç, ã, á).
+
 2) Acesse a pasta em que você baixou os arquivos pelo terminal (CMD/Powershell):
 
 ![How to Add Open Windows Terminal Here Option to Right-click Menu](https://i0.wp.com/windowsloop.com/wp-content/uploads/2020/01/open-Windows-terminal-here-Windows-featured.png?fit=1500%2C844&ssl=1)
@@ -90,3 +92,23 @@ Softwares Pré-instalados:
 1) Os arquivos "script.sh" e "Vagrantfile" podem ser modificados livremente, para retirar e/ou acrescentar configurações extras.
 
 2) A máquina virtual pode ser configurada e alterada pelo VirtualBox, mas é recomendado utilizar os comandos padrões do Vagrant, pelo terminal. 
+
+## Possíveis erros
+
+1) O processo de instalação parou nesse ponto (ou algo parecido):
+
+    debian: Its output will be used to detect bootable binaries on them and create new boot entries.
+
+- Solução: Forçar o desligamento da máquina virtual pela janela que está aberta do VirtualBox
+
+File > Close > Send the shutdown signal
+
+- Resultado: O script voltará a funcionar normalmente. Após, basta reiniciar a máquina virtual pelo Vagrant
+
+vagrant reload
+
+2) Erro ao rodar qualquer comando Vagrant: 
+
+"negative string size (or size too big)"
+
+- Solução: Apagar a pasta ".vagrant.d" do sistema (geralmente fica na pasta raiz do usuário = C:/Users/username)
