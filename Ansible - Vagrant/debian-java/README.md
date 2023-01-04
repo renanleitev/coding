@@ -101,7 +101,7 @@ Softwares Pré-instalados:
 
     - Solução: Forçar o desligamento da máquina virtual pela janela que está aberta do VirtualBox
 
-    File > Close > Send the shutdown signal
+        File > Close > Send the shutdown signal
 
     - Resultado: O script voltará a funcionar normalmente. Após, basta reiniciar a máquina virtual pelo Vagrant
 
