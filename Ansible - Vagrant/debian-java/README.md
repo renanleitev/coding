@@ -4,7 +4,7 @@ Debian Xfce pré-configurado para programação, com uso de Vagrant e Oracle Vir
 
 Softwares Pré-instalados: 
 
-- Para programação: Visual Studio Code, Sublime Text, Eclipse, Netbeans.
+- Para programação: Visual Studio Code, Sublime Text, Netbeans.
 
 ## Pré-requisitos
 
@@ -97,18 +97,18 @@ Softwares Pré-instalados:
 
 1) O processo de instalação parou nesse ponto (ou algo parecido):
 
-    debian: Its output will be used to detect bootable binaries on them and create new boot entries.
+    "debian: Its output will be used to detect bootable binaries on them and create new boot entries."
 
-- Solução: Forçar o desligamento da máquina virtual pela janela que está aberta do VirtualBox
+    - Solução: Forçar o desligamento da máquina virtual pela janela que está aberta do VirtualBox
 
-File > Close > Send the shutdown signal
+    File > Close > Send the shutdown signal
 
-- Resultado: O script voltará a funcionar normalmente. Após, basta reiniciar a máquina virtual pelo Vagrant
+    - Resultado: O script voltará a funcionar normalmente. Após, basta reiniciar a máquina virtual pelo Vagrant
 
-vagrant reload
+    vagrant reload
 
 2) Erro ao rodar qualquer comando Vagrant: 
 
-"negative string size (or size too big)"
+    "negative string size (or size too big)"
 
-- Solução: Apagar a pasta ".vagrant.d" do sistema (geralmente fica na pasta raiz do usuário = C:/Users/username)
+    - Solução: Apagar a pasta ".vagrant.d" do sistema (geralmente fica na pasta raiz do usuário = C:/Users/username)
