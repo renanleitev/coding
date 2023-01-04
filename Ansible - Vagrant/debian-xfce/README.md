@@ -124,7 +124,7 @@ Softwares Pré-instalados:
 
 1) O processo de instalação parou nesse ponto (ou algo parecido):
 
-    "ebian: Its output will be used to detect bootable binaries on them and create new boot entries."
+    "debian: Its output will be used to detect bootable binaries on them and create new boot entries."
 
     - Solução: Forçar o desligamento da máquina virtual pela janela que está aberta do VirtualBox
 
