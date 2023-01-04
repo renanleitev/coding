@@ -96,27 +96,6 @@ else
   rm apache*
 fi
 
-# Instalando o Eclipse
-if [[ $(ls /usr/share/applications/ | grep "eclipse*") ]]
-then
-  echo "Eclipse IDE já instalado no sistema..."
-else
-  echo "Instalando Eclipse IDE no sistema..."
-  wget https://mirror.umd.edu/eclipse/technology/epp/downloads/release/2022-12/R/eclipse-java-2022-12-R-linux-gtk-x86_64.tar.gz
-  tar -xzvf eclipse-java-2022-12-R-linux-gtk-x86_64.tar.gz -C /opt
-  ln -sf /opt/eclipse/eclipse /usr/bin/eclipse
-  touch /usr/share/applications/eclipse.desktop
-  echo "[Desktop Entry]
-  Encoding=UTF-8
-  Name=Eclipse IDE
-  Comment=Eclipse IDE for Java Developers
-  Exec=/usr/bin/eclipse
-  Icon=/usr/eclipse/icon.xpm
-  Categories=Application;Development;Java;IDE
-  Type=Application
-  Terminal=0" >> /usr/share/applications/eclipse.desktop
-fi
-
 # Instalando o Visual Studio Code e Sublime Text
 deb-get install code sublime-text
 
