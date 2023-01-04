@@ -103,9 +103,9 @@ Softwares Pré-instalados:
 
         File > Close > Send the shutdown signal
 
-    - Resultado: O script voltará a funcionar normalmente. Após, basta reiniciar a máquina virtual pelo Vagrant
+    - Resultado: O script voltará a funcionar normalmente. Após, basta reiniciar a máquina virtual pelo Vagrant:
 
-    vagrant reload
+        vagrant reload
 
 2) Erro ao rodar qualquer comando Vagrant: 
 
