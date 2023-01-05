@@ -3,8 +3,10 @@
 # Atualizando o repositório do  sistema
 apt update
 
+# Atualizando os aplicativos
+
 # Instalando os programas
-apt install \
+yes | sudo DEBIAN_FRONTEND=noninteractive apt-get -yq install \
 xfce4 \
 xfce4-goodies \
 firefox-esr \
@@ -29,7 +31,6 @@ systemctl restart mariadb.service
 mysqladmin -u root --password= password root
 
 # Baixando e instalando a base de dados sakila
-# Verificando se sakila já não está instalado
 if [[ $(mysql -uroot -proot -e "show databases" | grep "sakila") ]]
 then
   echo "Banco de Dados sakila já instalado no sistema..."
@@ -44,7 +45,6 @@ else
 fi
 
 # Baixando e instalando a base de dados world
-# Verificando se world-db já não está instalado
 if [[ $(mysql -uroot -proot -e "show databases" | grep -w "world") ]]
 then
   echo "Banco de Dados world já instalado no sistema..."
@@ -58,7 +58,6 @@ else
 fi
 
 # Baixando e instalando a base de dados world_x
-# Verificando se world_x já não está instalado
 if [[ $(mysql -uroot -proot -e "show databases" | grep "world_x") ]]
 then
   echo "Banco de Dados world_x já instalado no sistema..."
