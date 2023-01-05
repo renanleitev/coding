@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Evitando erros no grub-pc
+echo "GRUB_DISABLE_OS_PROBER=false" >> /etc/default/grub
+update-grub
+
 # Atualizando o repositório do  sistema
 apt update
 
