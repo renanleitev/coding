@@ -3,17 +3,8 @@
 # Atualizando o repositório do  sistema
 apt update
 
-# Instalando o deb-get (para instalar pacotes deb via terminal)
-if [[ $(which deb-get) ]]
-then
-  echo "Pacote deb-get já instalado no sistema..."
-else
-  echo "Instalando deb-get no sistema..."
-  curl -sL https://raw.githubusercontent.com/wimpysworld/deb-get/main/deb-get | sudo -E bash -s install deb-get
-fi
-
 # Instalando os programas
-apt install \
+yes | sudo DEBIAN_FRONTEND=noninteractive apt-get -yq install \
 ncdu \
 htop \
 neofetch \
@@ -25,6 +16,20 @@ adminer \
 mariadb-server \
 default-jdk \
  -y
+
+# Instalando o deb-get (para instalar pacotes deb via terminal)
+if [[ $(which deb-get) ]]
+then
+  echo "Pacote deb-get já instalado no sistema..."
+else
+  echo "Instalando deb-get no sistema..."
+  wget https://github.com/wimpysworld/deb-get/releases/download/0.3.6/deb-get_0.3.6-1_all.deb
+  sudo DEBIAN_FRONTEND=noninteractive apt-get -yq install /home/vagrant/deb-get_0.3.6-1_all.deb
+  rm deb-get*
+fi
+
+# Instalando o Visual Studio Code e Sublime Text
+deb-get install code sublime-text
 
 # Habilitando o adminer
 a2enconf adminer.conf
@@ -43,7 +48,6 @@ systemctl restart mariadb.service
 mysqladmin -u root --password= password root
 
 # Baixando e instalando a base de dados sakila
-# Verificando se sakila já não está instalado
 if [[ $(mysql -uroot -proot -e "show databases" | grep "sakila") ]]
 then
   echo "Banco de Dados sakila já instalado no sistema..."
@@ -58,7 +62,6 @@ else
 fi
 
 # Baixando e instalando a base de dados world
-# Verificando se world-db já não está instalado
 if [[ $(mysql -uroot -proot -e "show databases" | grep -w "world") ]]
 then
   echo "Banco de Dados world já instalado no sistema..."
@@ -72,7 +75,6 @@ else
 fi
 
 # Baixando e instalando a base de dados world_x
-# Verificando se world_x já não está instalado
 if [[ $(mysql -uroot -proot -e "show databases" | grep "world_x") ]]
 then
   echo "Banco de Dados world_x já instalado no sistema..."
@@ -96,8 +98,26 @@ else
   rm apache*
 fi
 
-# Instalando o Visual Studio Code e Sublime Text
-deb-get install code sublime-text
+# Instalando o Eclipse
+if [[ $(ls /usr/share/applications/ | grep "eclipse*") ]]
+then
+  echo "Eclipse IDE já instalado no sistema..."
+else
+  echo "Instalando Eclipse IDE no sistema..."
+  wget https://mirror.umd.edu/eclipse/technology/epp/downloads/release/2022-12/R/eclipse-java-2022-12-R-lin>  tar -xzvf eclipse-java-2022-12-R-linux-gtk-x86_64.tar.gz -C /opt
+  rm eclipse-java-2022-12-R-linux-gtk-x86_64.tar.gz
+  ln -sf /opt/eclipse/eclipse /usr/bin/eclipse
+  touch /usr/share/applications/eclipse.desktop
+  echo "[Desktop Entry]
+  Encoding=UTF-8
+  Name=Eclipse IDE
+  Comment=Eclipse IDE for Java Developers
+  Exec=/usr/bin/eclipse
+  Icon=/usr/eclipse/icon.xpm
+  Categories=Application;Development;Java;IDE
+  Type=Application
+  Terminal=0" >> /usr/share/applications/eclipse.desktop
+fi
 
 # Definindo o fuso horário correto (Recife/PE)
 echo "Etc/GMT+3" > /etc/timezone
@@ -112,12 +132,12 @@ mv /usr/local/bin/tldr /usr/bin || echo "Programa tldr já configurado..."
 pip3 install TUIFIManager --upgrade
 
 # Definindo o teclado para o padrão abnt2
+. /home/vagrant/.bashrc
 if [[ $(cat /home/vagrant/.bashrc | grep "setxkbmap") ]]
 then
   echo "Teclado já configurado para o padrão abnt2..."
   . /home/vagrant/.bashrc
 else
-  echo "Configurando teclado para padrão abnt2..."
   echo "setxkbmap -model abnt2 -layout br" >> /home/vagrant/.bashrc
   . /home/vagrant/.bashrc
 fi
