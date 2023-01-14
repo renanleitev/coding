@@ -1,0 +1,16 @@
+1 - Instalação
+
+npm install html-react-parser
+
+2 - No arquivo App.js
+
+a) No começo do arquivo
+
+import parse from 'html-react-parser'
+const yourHtmlString = '<h1>Hello</h1>'
+
+b) No código (return):
+
+<div>
+    {parse(yourHtmlString)}
+</div>
