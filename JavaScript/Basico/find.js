@@ -3,7 +3,7 @@ let names = ["Sam", "Alex", "Charlie"];
 let result = names.find(
 	function(name) {
 		console.log("chamando");
-        // Para de chamar quando encontra o elemento desejado
+        // !! Para de chamar quando encontra o elemento desejado
 		return name === "Alex";
 	}
 );

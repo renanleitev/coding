@@ -1,15 +1,15 @@
 const letras = ['a', 'b', 'c'];
-// Laço for padrão
+// !! Laço for padrão
 console.log('Laço padrão')
 for (let i = 0; i < letras.length; i++){
     console.log(letras[i]);
 }
-// Laço for in
+// !! Laço for in
 console.log('Laço for in')
 for (let i in letras){
     console.log(letras[i]);
 }
-// Laço for of (ideal para strings)
+// !! Laço for of (ideal para strings)
 console.log('Laço for of')
 for (let i of letras){
     console.log(i);

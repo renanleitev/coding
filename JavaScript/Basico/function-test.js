@@ -14,7 +14,7 @@ const parImpar = (n) =>{
         return "impar"
     }
 }
-
+// !! Arrow function
 const bomDia = n => `Bom dia ${n}!`
 
 console.log(soma())
