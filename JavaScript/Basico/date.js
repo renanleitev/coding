@@ -48,3 +48,11 @@ const dataFormatada = data.toLocaleDateString('pt-BR', {
     hour12: false,
 });
 console.log('Data padrão pt-BR:', dataFormatada);
+// Corrigindo os zeros na hora de mostrar as horas
+function mostraHora(){
+    let data = new Date('2022-01-01 00:01:01');
+    let hora = String(data.getHours()).padStart(2, '0');
+    let minuto = String(data.getMinutes()).padStart(2, '0');
+    let segundo = String(data.getSeconds()).padStart(2, '0');
+    return `${hora}:${minuto}:${segundo}`
+};
