@@ -1,3 +1,8 @@
+/*
+Função First-class quando suas funções são tratadas como qualquer outra variável. 
+A função pode ser passada como argumento pra outras funções, ser retornada por outra função e pode ser atribuída como um valor à uma variável.
+*/
+
 // First-class objects = É possível usar uma variável/constante como função
 let variavel = function (){
     console.log('Variável como função.');
