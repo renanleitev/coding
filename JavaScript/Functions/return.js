@@ -1,6 +1,6 @@
 // O retorno de uma função permite armazenar o valor em uma variável
 function comRetorno (a, b){
-    return a + b
+    return a + b;
 };
 function semRetorno (a, b){
     console.log(a + b);
