@@ -1,16 +1,17 @@
-class ValidaCpf{
+class ValidaCPF{
     constructor(cpf){
-        this.cpf = cpf;
+        this.cpf = String(cpf);
     }
-    checaCpf(){
-        const listaCpf = [];
+    checaCPF(){
+        const listaCPF = [];
         for (let numero of Array.from(this.cpf)){
-            if (Number.isInteger(Number.parseInt(numero))) listaCpf.push(Number.parseInt(numero));
+            if (Number.isInteger(Number.parseInt(numero))) listaCPF.push(Number.parseInt(numero));
         };
-        const digitos = listaCpf.splice(-2, Number.MAX_VALUE);
-        const primeiroDigito = ValidaCpf.geraDigito(listaCpf, listaCpf.length + digitos.length);
-        listaCpf.push(primeiroDigito);
-        const segundoDigito = ValidaCpf.geraDigito(listaCpf, listaCpf.length + digitos.length);
+        if (listaCPF.length < 11) return 'O CPF é inválido.';
+        const digitos = listaCPF.splice(-2, Number.MAX_VALUE);
+        const primeiroDigito = ValidaCPF.geraDigito(listaCPF, listaCPF.length + digitos.length);
+        listaCPF.push(primeiroDigito);
+        const segundoDigito = ValidaCPF.geraDigito(listaCPF, listaCPF.length + digitos.length);
         return (digitos.includes(primeiroDigito) && digitos.includes(segundoDigito)) ? 'O CPF é válido.' : 'O CPF é inválido.';
     }
     static geraDigito(array, multiplicador){
@@ -24,5 +25,3 @@ class ValidaCpf{
         return digito > 9 ? 0 : digito;
     }
 };
-const cpf = new ValidaCpf('705.484.450-52');
-console.log(cpf.checaCpf());
