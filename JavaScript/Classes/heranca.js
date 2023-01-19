@@ -55,6 +55,10 @@ class Tablet extends DispositivoEletronico{
             console.log('Ligando, tablet está carregado...');
         }
     }
+    // É possível criar métodos exclusivos para as classes filhas
+    ostentar(){
+        console.log('Parabéns, você é rico! Você tem um(a)', this.nome);
+    }
 }
 const t1 = new Tablet('Ipad', 'Full HD', 70);
 console.log(t1);
@@ -62,3 +66,4 @@ console.log(t1);
 t1.ligar();
 // Utilizando o método ligar() da classe 'Mãe' = DispositivoEletronico
 t1.desligar();
+t1.ostentar();

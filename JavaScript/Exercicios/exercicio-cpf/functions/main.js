@@ -16,7 +16,7 @@ function geraDigito(array, multiplicador){
             return numero * multiplicador;
         })
         .reduce((acumulador, numero) => acumulador + numero);
-    let digito = 11 - (soma % 11);
+    const digito = 11 - (soma % 11);
     return digito > 9 ? 0 : digito;
 };
 const cpf = '705.484.450-52';
