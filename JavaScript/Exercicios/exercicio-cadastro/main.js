@@ -25,25 +25,21 @@ class ValidaFormulario{
             const label = campo.previousElementSibling.innerHTML;
             // Verificando se os inputs estão em branco
             if(!campo.value){
-                this.criaErro(campo, `Campo "${label}" não pode estar em branco.`, 'red');
-                valida = false;
+                valida = this.criaErro(campo, `Campo "${label}" não pode estar em branco.`, 'red');
             }
             // Verificando se os inputs possuem apenas letras e números
             if (this.apenasLetrasNumeros(campo.value) === false){
-                this.criaErro(campo, `Campo "${label}" deve conter letras e/ou números.`, 'purple');
-                valida = false;
+                valida = this.criaErro(campo, `Campo "${label}" deve conter letras e/ou números.`, 'purple');
             }
             // Verificando se o input "Usuário" possui entre 3 e 12 caracteres
             if (campo.classList.contains('usuario') && (campo.value.length < 3 || campo.value.length > 12)){
-                this.criaErro(campo, `Campo "${label}" precisa ter entre 3 e 12 caracteres.`, 'blue');
-                valida = false;
+                valida = this.criaErro(campo, `Campo "${label}" precisa ter entre 3 e 12 caracteres.`, 'blue');
             }
             // Verificando se o CPF é válido
             if (campo.classList.contains('cpf') && campo.value){
                 let resultado = this.validaCPF(campo);
                 if (resultado === 'O CPF é inválido.'){
-                    this.criaErro(campo, resultado, 'red');
-                    valida = false;
+                    valida = this.criaErro(campo, resultado, 'red');
                 };
             }
             // Armazenando a senha em uma variável
@@ -52,13 +48,11 @@ class ValidaFormulario{
             }
             // Verificando se o input "Senha" possui entre 6 e 12 caracteres
             if (campo.classList.contains('senha') && (campo.value.length < 6 || campo.value.length > 12)){
-                this.criaErro(campo, `Campo "${label}" precisa ter entre 6 e 12 caracteres.`, 'blue');
-                valida = false;
+                valida = this.criaErro(campo, `Campo "${label}" precisa ter entre 6 e 12 caracteres.`, 'blue');
             }
             // Verificando se o input "Senha" e "Repetir Senha" são iguais
             if (campo.classList.contains('repetir-senha') && (campo.value !== senha.value)){
-                this.criaErro(campo, `Campo "${label}" precisa ser igual a senha.`, 'red');
-                valida = false;
+                valida = this.criaErro(campo, `Campo "${label}" precisa ser igual a senha.`, 'red');
             }
         }
         return valida;
@@ -73,6 +67,8 @@ class ValidaFormulario{
         div.classList.add('error-text');
         // Adicionando a mensagem de erro logo abaixo de cada input
         campo.insertAdjacentElement('afterend', div);
+        // Retornando falso enquanto houver erros
+        return false;
     }
     apenasLetrasNumeros(str){
         return Boolean(str.match(/^[A-Za-z0-9]*$/));
