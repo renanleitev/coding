@@ -1,3 +1,4 @@
+// ! Introdução
 // Gerando um tempo aleatório entre 1 e 2 segundos
 function aleatorio(min = 1000, max = 2000){
     const num = Math.random() * (max - min) + min;
@@ -37,18 +38,22 @@ function esperaPromise(msg, tempo){
         }, tempo);
     });
 }
+// Gerando uma função promise
 const espera = esperaPromise('Frase 1', aleatorio())
     .then(resposta => {
         console.log(resposta);
+        // Erro, pois 2222 não é uma string
         return esperaPromise(2222, aleatorio());
     })
     .then(resposta => {
         console.log(resposta);
+        // Não é executado, pois houve erro antes
         return esperaPromise('Frase 3', aleatorio());
     })
     .then(resposta => {
         console.log(resposta);
     })
+    // É executado, pois houve um erro
     .catch(e => console.log(e));
 console.log(espera);
 console.log('Outros códigos são executados antes das promises.');
