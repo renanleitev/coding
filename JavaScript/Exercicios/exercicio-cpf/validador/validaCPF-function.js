@@ -5,12 +5,12 @@ function validaCPF(cpf){
     };
     if (listaCPF.length < 11) return 'O CPF é inválido.';
     const digitos = listaCPF.splice(-2, Number.MAX_VALUE);
-    const primeiroDigito = geraDigito(listaCPF, listaCPF.length + digitos.length);
+    const primeiroDigito = verificaDigito(listaCPF, listaCPF.length + digitos.length);
     listaCPF.push(primeiroDigito);
-    const segundoDigito = geraDigito(listaCPF, listaCPF.length + digitos.length);
+    const segundoDigito = verificaDigito(listaCPF, listaCPF.length + digitos.length);
     return (digitos.includes(primeiroDigito) && digitos.includes(segundoDigito)) ? 'O CPF é válido.' : 'O CPF é inválido.';
 };
-function geraDigito(array, multiplicador){
+function verificaDigito(array, multiplicador){
     const soma = array
         .map(function(numero){
             multiplicador--;
@@ -20,5 +20,5 @@ function geraDigito(array, multiplicador){
     const digito = 11 - (soma % 11);
     return digito > 9 ? 0 : digito;
 };
-const cpf = 70548445052;
+const cpf = 18164076152;
 console.log(validaCPF(cpf));

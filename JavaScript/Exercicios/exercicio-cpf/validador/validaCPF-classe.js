@@ -9,12 +9,12 @@ class ValidaCPF{
         };
         if (listaCPF.length < 11) return 'O CPF é inválido.';
         const digitos = listaCPF.splice(-2, Number.MAX_VALUE);
-        const primeiroDigito = ValidaCPF.geraDigito(listaCPF, listaCPF.length + digitos.length);
+        const primeiroDigito = ValidaCPF.verificaDigito(listaCPF, listaCPF.length + digitos.length);
         listaCPF.push(primeiroDigito);
-        const segundoDigito = ValidaCPF.geraDigito(listaCPF, listaCPF.length + digitos.length);
+        const segundoDigito = ValidaCPF.verificaDigito(listaCPF, listaCPF.length + digitos.length);
         return (digitos.includes(primeiroDigito) && digitos.includes(segundoDigito)) ? 'O CPF é válido.' : 'O CPF é inválido.';
     }
-    static geraDigito(array, multiplicador){
+    static verificaDigito(array, multiplicador){
         const soma = array
             .map(function(numero){
                 multiplicador--;
