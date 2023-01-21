@@ -3,24 +3,13 @@
     <head>
         <meta charset="utf-8">
         <title>Exercício 01 - JavaScript</title>
-        
-        <!--CSS-->
         <link rel="stylesheet" href="estilos_exercicio1.css">
-        
-        <!--JS-->
-        <script src="js_exercicio1.js"></script>
     </head>
-    
     <body>
-        
-        <h1></h1>
-        
-        <form action="http://www.proway.com.br">
-            <input type="text" placeholder="Nome" id="nome" onKeyup="ocultarErro()">
-            
-            <input type="email" placeholder="E-mail" id="email" onKeyup="ocultarErro()">
-            
-            <select id="cargo" onchange="ocultarErro()">
+        <form action="/" method="POST" class="formulario">
+            <input type="text" placeholder="Nome" id="nome">
+            <input type="email" placeholder="E-mail" id="email">
+            <select id="cargo">
                 <option>Cargo</option>
                 <option>Analista de Software</option>
                 <option>Atendente</option>
@@ -28,11 +17,8 @@
                 <option>Gerente</option>
                 <option>Programador</option>
             </select>
-            
-            <textarea placeholder="Mensagem" id="mensagem" onKeyup="ocultarErro()"></textarea>
-            
-            <input type="submit" value="Cadastrar" onclick="return validar()">
+            <button type="submit" class="enviar">Enviar</button>
         </form>
-        
     </body>
+    <script src="js_exercicio1.js"></script>
 </html>
