@@ -1,0 +1,39 @@
+.main{
+    background-color: white;
+    padding: 30px;
+    margin: 50px auto;
+    max-width: 500px;
+    border-radius: 4px;
+    box-shadow: 0 0 10px black;
+}
+.main h1{
+    font-size: 20px;
+    text-align: center;
+}
+.form{
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.form input[type='text']{
+    height: 40px;
+    padding: 0 20px;
+    font-size: 20px;
+    border: 1px solid gray;
+    min-width: 50%;
+}
+.form button[type='submit']{
+    border: none;
+    height: 40px;
+    width: 40px;
+    background-color: pink;
+    border: 1px solid gray;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.form button[type='submit']:hover{
+    background-color: red;
+    color: white;
+}
