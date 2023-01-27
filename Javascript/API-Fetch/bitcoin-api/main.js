@@ -14,12 +14,12 @@ axios.get('https://api.coindesk.com/v1/bpi/currentprice.json')
     createLineHeader(tr, 'Rate Float');
     coins.forEach(e => {
       const tr = document.createElement('tr');
-      createElement(response, table, tr, e, 'code');
-      createElement(response, table, tr, e, 'rate');
-      createElement(response, table, tr, e, 'rate_float');
+      populateField(response, table, tr, e, 'code');
+      populateField(response, table, tr, e, 'rate');
+      populateField(response, table, tr, e, 'rate_float');
     })
 });
-function createElement(response, table, line, element, field){
+function populateField(response, table, line, element, field){
     let code = response.data['bpi'][element][field];
     line.appendChild(createLineTable(code));
     table.appendChild(line);
