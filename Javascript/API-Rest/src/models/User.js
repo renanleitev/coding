@@ -19,6 +19,7 @@ export default class User extends Model {
       email: {
         type: Sequelize.STRING,
         defaultValue: '',
+        // Mensagem de erro = Email deve ser único
         unique: {
           msg: 'Email já existe',
         },
@@ -49,8 +50,15 @@ export default class User extends Model {
     });
     // Hooks são executados quando certas condições são atingidas
     this.addHook('beforeSave', async (user) => {
-      user.password_hash = await bcryptjs.hash(user.password, 8);
+      // Se a requisição tiver senha, é feito o hash
+      if (user.password) {
+        user.password_hash = await bcryptjs.hash(user.password, 8);
+      }
     });
     return this;
+  }
+
+  passwordIsVald(password) {
+    return bcryptjs.compare(password, this.password_hash);
   }
 }
