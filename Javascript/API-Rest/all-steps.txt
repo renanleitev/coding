@@ -1,0 +1,39 @@
+CONFIGURAÇÃO DAS PASTAS DO PROJETO
+
+node_modules: Armazena os módulos instalados no projeto (não alterar)
+config: Define as configurações do banco de dados (Ex: 'mariadb', senha, etc.)
+controllers: Define as funcionalidades das requisições e os erros que podem acontecer
+  - index = lista todos os usuários => GET
+  - store/create = cria um novo usuário => POST
+  - delete = apaga um usuário => DELETE
+  - show = mostra um usuário => GET
+  - update = atualiza um usuário => PATCH ou PUT
+database: Armazena as alterações na base de dados (migrations e seeds)
+  - migrations: Cria/altera as tabelas no banco de dados
+  - seeds: Realiza novas inserções no banco de dados
+middlewares: Funcionalidades que ocorrem durante o controller (Ex: token de autenticação)
+models: Define as regras para as tabelas do banco de dados
+routes: Define as rotas de acesso para as requisições
+uploads: Armazena arquivos que podem ser enviados para o banco de dados
+
+CONFIGURAÇÃO DOS ARQUIVOS DO PROJETO
+
+.env = Armazena as variáveis do banco de dados (Ex: nome do db, ip, senha, etc.)
+.eslintrc.js = Define as regras para o eslint (correção da escrita do código)
+.sequelizerc = Define os caminhos para a criação dos seeds e das migrations
+nodemon.json, package-lock.json = Configurações padrão do projeto (não alterar)
+package.json = Armazena a lista de pacotes instalados no projeto
+
+PASSO A PASSO PARA CRIAR UMA NOVA ROTA
+
+1 - Cria controller
+
+2 - Cria routes
+
+  a) Importa o novo controller
+
+3 - Adiciona no app.js
+
+  a) Importa o novo routes
+
+  b) Altera em routes() (inserindo o novo routes)
