@@ -18,13 +18,68 @@ uploads: Armazena arquivos que podem ser enviados para o banco de dados
 
 CONFIGURAÇÃO DOS ARQUIVOS DO PROJETO
 
-.env = Armazena as variáveis do banco de dados (Ex: nome do db, ip, senha, etc.)
+.env = Armazena as variáveis do projeto (Ex: nome do db, ip, senha, etc.)
 .eslintrc.js = Define as regras para o eslint (correção da escrita do código)
 .sequelizerc = Define os caminhos para a criação dos seeds e das migrations
 nodemon.json, package-lock.json = Configurações padrão do projeto (não alterar)
 package.json = Armazena a lista de pacotes instalados no projeto
 
-PASSO A PASSO PARA CRIAR UMA NOVA ROTA
+DEPENDÊNCIAS
+
+devDependencies:
+  "eslint": "^8.33.0",
+  "eslint-config-airbnb-base": "^15.0.0",
+  "eslint-plugin-import": "^2.27.5",
+  "nodemon": "^2.0.20",
+  "sequelize-cli": "^6.6.0",
+  "sucrase": "^3.29.0"
+
+dependencies:
+  "bcryptjs": "^2.4.3" => Para encriptar a senha do usuário (hash)
+  "dotenv": "^16.0.3" => Para armazenar as variáveis do projeto
+  "express": "^4.18.2" => Para criar a API
+  "jsonwebtoken": "^9.0.0" => Para gerar o token de autenticação
+  "mariadb": "^3.0.2" => Para se conectar com o banco de dados
+  "multer": "^1.4.5-lts.1" => Para manipular o arquivo enviado por upload
+  "sequelize": "^6.28.0" => Para enviar os dados para o banco de dados
+
+PARA CRIAR UMA NOVA TABELA
+
+1 - Rodar no terminal
+
+  npx sequelize migration:create --name=nome-para-migration-tabela
+
+2 - Editar o arquivo gerado (database/migrations) com as colunas que você quer na tabela
+
+  EXEMPLO:
+  nome-coluna: {
+    type: Sequelize.TIPO,
+    allowNull: true/false,
+    references: {
+      model: 'nome-tabela-original',
+      key: 'chave-estrangeira',
+    },
+    onDelete: 'SET NULL',
+    onUpdate: 'CASCADE',
+  }
+
+  OBS: TIPO = INTEGER, STRING, FLOAT, ...
+
+3 - Criar o arquivo model (com o nome da tabela no singular)
+
+  OBS: Usar os mesmos atributos do migration
+
+4 - Editar o arquivo index.js na pasta database
+
+  a) Importando o model do arquivo model
+
+    import Novo-Model from '../models/Novo-Model';
+
+  b) Inserindo o model no array de models
+
+    const models = [Aluno, User, Novo-Model];
+
+PARA CRIAR UMA NOVA ROTA
 
 1 - Cria controller
 

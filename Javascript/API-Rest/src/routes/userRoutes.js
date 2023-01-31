@@ -6,8 +6,8 @@ import loginRequired from '../middlewares/loginRequired';
 const router = new Router();
 
 // Não deveriam existir (falha de segurança)
-// router.get('/', UserController.index);
-// router.get('/:id', UserController.show);
+router.get('/', UserController.index);
+router.get('/:id', UserController.show);
 
 // Podem existir (CRUD)
 router.post('/', UserController.store);
