@@ -20,10 +20,10 @@ axios.get('https://api.publicapis.org/entries')
     });
 });
 function createLineHeader(tr, text){
-    const campo = document.createElement('td');
-    campo.innerHTML = text;
-    campo.style.fontWeight = 'bolder';
-    tr.appendChild(campo);
+    const field = document.createElement('td');
+    field.innerHTML = text;
+    field.style.fontWeight = 'bolder';
+    tr.appendChild(field);
 }
 function createLineTable(element){
     let td = document.createElement('td');

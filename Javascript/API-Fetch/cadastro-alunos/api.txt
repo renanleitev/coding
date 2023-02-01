@@ -1,0 +1,11 @@
+Diretório: C:\Users\renan.vieira\Documents\Vs Code\coding\Javascript\API-Rest
+
+Acessar o diretório: cd C:\Users\renan.vieira\Documents\Vs Code\coding\Javascript\API-Rest
+
+Rodar o servidor: npm run dev
+
+Instalar as dependências: npm i cors helmet
+
+Editar o package.json e colocar a seguinte linha:
+
+    "proxy": "http://localhost:3001",

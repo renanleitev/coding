@@ -1,5 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import Sequelize, { Model } from 'sequelize';
+import appConfig from '../config/appConfig';
 
 export default class Foto extends Model {
   static init(sequelize) {
@@ -25,7 +26,7 @@ export default class Foto extends Model {
       url: {
         type: Sequelize.VIRTUAL,
         get() {
-          return `${this.getDataValue('filename')}`;
+          return `${appConfig.url}/images/${this.getDataValue('filename')}`;
         },
       },
     }, {

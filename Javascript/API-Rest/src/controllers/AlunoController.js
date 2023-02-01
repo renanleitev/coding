@@ -19,7 +19,7 @@ class AlunoController {
       // Incluindo as fotos vinculadas ao usuário
       include: {
         model: Foto,
-        attributes: ['filename'],
+        attributes: ['url', 'filename'],
       },
     });
     res.json(alunos);
@@ -64,7 +64,7 @@ class AlunoController {
         // Incluindo as fotos vinculadas ao usuário
         include: {
           model: Foto,
-          attributes: ['filename'],
+          attributes: ['url', 'filename'],
         },
       });
       // Verificando se o aluno existe

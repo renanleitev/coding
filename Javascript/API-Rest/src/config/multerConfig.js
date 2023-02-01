@@ -16,7 +16,7 @@ export default {
     // req = requisição / file = arquivo enviado / cb = função callback
     destination: (req, file, cb) => {
       // Caminho onde o arquivo deve ser armazenado (pasta uploads)
-      cb(null, resolve(__dirname, '..', '..', 'uploads'));
+      cb(null, resolve(__dirname, '..', '..', 'uploads', 'images'));
     },
     filename: (req, file, cb) => {
       // Definindo o nome do arquivo (data + aleatório + nome sem extensão)
