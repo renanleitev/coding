@@ -1,0 +1,1 @@
+find -name "*.png" -exec echo "<p>{}</p><img src='{}'>" \; >> index.html
