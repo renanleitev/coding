@@ -1,15 +1,11 @@
 import React from 'react';
-
 import { Route, Redirect } from 'react-router-dom';
-
 import PropTypes from 'prop-types';
 
 export default function MyRoute({
     component: Component, isClosed, ...rest
 }){
-    // Verifica se o usuário está logado
     const isLoggedIn = false;
-    // Se a rota estiver fechada e o usuário não estiver logado
     if (isClosed && !isLoggedIn) {
         return (
             <Redirect

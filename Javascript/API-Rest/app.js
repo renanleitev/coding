@@ -1,22 +1,14 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import express from 'express';
-
 import dotenv from 'dotenv';
-
 import { resolve } from 'path';
-
 import cors from 'cors';
-
 import helmet from 'helmet';
-
+import delay from 'express-delay';
 import homeRoutes from './src/routes/homeRoutes';
-
 import userRoutes from './src/routes/userRoutes';
-
 import tokenRoutes from './src/routes/tokenRoutes';
-
 import alunoRoutes from './src/routes/alunoRoutes';
-
 import fotoRoutes from './src/routes/fotoRoutes';
 
 import './src/database';
@@ -33,6 +25,7 @@ class App {
   middlewares() {
     this.app.use(cors());
     this.app.use(helmet());
+    this.app.use(delay(2000));
     this.app.use(express.urlencoded({ extended: true }));
     this.app.use(express.json());
     this.app.use(express.static(resolve(__dirname, 'uploads')));

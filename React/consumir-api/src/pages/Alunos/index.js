@@ -5,21 +5,23 @@ import { FaUserCircle, FaEdit, FaWindowClose } from 'react-icons/fa';
 import { Container } from '../../styles/GlobalStyle';
 import axios from '../../services/axios';
 import { AlunoContainer, ProfilePicture } from './styled';
+import Loading from '../../components/Loading';
 
 export default function Alunos(){
-    // Obtendo um array de alunos
     const [alunos, setAlunos] = useState([]);
-    // Obtendo os dados da API
+    const [isLoading, setIsLoading] = useState(false);
     React.useEffect(() => {
         async function getData() {
+            setIsLoading(true);
             const response = await axios.get('/alunos');
             setAlunos(response.data);
-            // console.log(response.data);
+            setIsLoading(false);
         }
         getData();
     }, []);
     return (
         <Container>
+            <Loading isLoading={isLoading}/>
             <h1>Alunos</h1>
             <AlunoContainer>
                 {alunos.map(aluno => (
