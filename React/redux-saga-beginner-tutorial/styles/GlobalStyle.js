@@ -7,6 +7,12 @@ export default createGlobalStyle`
     padding: 20px;
     border-radius: 5px;
   }
+  button {
+    cursor: pointer;
+  }
+  .increment-async {
+    background-color: orange;
+  }
   .increment {
     background-color: green;
   }
