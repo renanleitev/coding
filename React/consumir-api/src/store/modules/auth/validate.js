@@ -1,7 +1,8 @@
 import { isEmail } from 'validator';
 import { toast } from 'react-toastify';
 
-export default function Validate(
+export default function validate(
+    id = null,
     nome = null,
     email = null,
     password = null,
@@ -15,9 +16,9 @@ export default function Validate(
         formErrors = true;
         toast.error('E-mail inválido');
     }
-    if ((password !== null) && (password.length < 6 || password.length > 50)) {
+    if ((id !== null) && (password !== null) && (password.length < 6 || password.length > 50)) {
         formErrors = true;
         toast.error('Senha inválida e/ou deve ter entre 6 e 50 caracteres');
     }
-    if (formErrors) return;  
+    if (formErrors) return formErrors;  
 }

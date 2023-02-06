@@ -3,20 +3,20 @@ import React from 'react';
 export default function Input(props){
     const field = props.field;
     const setField = props.setField;
-    const kind = props.kind;
+    const placeholder = props.placeholder.charAt(0).toUpperCase(0) + props.placeholder.slice(1);
     let type;
-    let placeholder;
-    switch(kind){
-        case 'email':
-            placeholder = 'Digite o seu e-mail';
-            break;
-        case 'password':
+    switch(placeholder){
+        case 'Password':
             type = 'password';
-            placeholder = 'Digite a sua senha';
+            break;
+        case 'Email':
+            type = 'email';
+            break;
+        case 'Idade':
+            type = 'number';
             break;
         default:
             type = 'text';
-            placeholder = 'Digite o seu nome';
             break;
     }
     return (
