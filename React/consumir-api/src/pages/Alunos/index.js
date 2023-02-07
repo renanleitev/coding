@@ -37,7 +37,8 @@ export default function Alunos(){
             setIsLoading(false);
             deleteSuccess = true;
             e.currentTarget.parentElement.remove();
-        } catch (e) {
+        } 
+        catch (e) {
             const errors = get(e, 'response.data.errors', []);
             errors.map(error => toast.error(error));
         }
@@ -86,7 +87,6 @@ export default function Alunos(){
             ) : (
                 <h3>Faça o login para visualizar os alunos!</h3>
             )}
-
         </Container>
     );
 }

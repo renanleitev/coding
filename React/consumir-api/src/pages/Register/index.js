@@ -27,7 +27,7 @@ export default function Register(){
 
     async function handleSubmit(e) {
         e.preventDefault();
-        const formErrors = validate(id, nome, email, password);
+        const formErrors = validate({id: id, nome: nome, email: email, password: password});
         if (!formErrors) dispatch(actions.registerRequest({ nome, email, password, id }));  
     }
     return (
@@ -35,18 +35,9 @@ export default function Register(){
             <Loading isLoading={isLoading}/>
             <h1>{isLoggedIn ? 'Editar dados' : 'Crie a sua conta'}</h1>
             <Form onSubmit={handleSubmit}>
-                <label htmlFor='nome'>
-                    Nome:
-                    <Input field={nome} setField={setNome} placeholder='nome'/>
-                </label>
-                <label htmlFor='email'>
-                    Email:
-                    <Input field={email} setField={setEmail} placeholder='email'/>
-                </label>
-                <label htmlFor='password'>
-                    Senha:
-                    <Input field={password} setField={setPassword} placeholder='password'/>
-                </label>
+                <Input field={nome} setField={setNome} placeholder='nome'/>
+                <Input field={email} setField={setEmail} placeholder='email'/>
+                <Input field={password} setField={setPassword} placeholder='password'/>
                 <button type="submit">{isLoggedIn ? 'Salvar': 'Criar conta'}</button>
             </Form>
         </Container>

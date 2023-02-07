@@ -6,7 +6,6 @@ import { Form } from './styled';
 import Input from '../../components/Input';
 import * as actions from '../../store/modules/auth/actions';
 import Loading from '../../components/Loading';
-import validate from '../../store/modules/auth/validate';
 
 export default function Login(props){
     const dispatch = useDispatch();
@@ -16,7 +15,6 @@ export default function Login(props){
     const [password, setPassword] = useState('');
     const handleSubmit = e => {
         e.preventDefault();
-        validate(null, null, email, password);
         dispatch(actions.loginRequest({ email, password, prevPath }));
     }
     return (
