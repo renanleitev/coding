@@ -1,0 +1,22 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+  config.vm.box = "generic/debian11"
+  
+  config.vm.synced_folder "compartilhado/", "/home/vagrant"
+
+  # Configurando a VM
+  config.vm.provider "virtualbox" do |vb|
+    # Exibe a interface gráfica do VirtualBox
+    vb.gui = true
+    vb.memory = '256'
+  end
+
+  config.vm.define "debian" do |db|
+    db.vm.hostname = "debian"
+    db.vm.network "private_network", ip: "192.168.60.9"
+    db.vm.provision "shell", path: "script.sh"
+  end
+
+end
