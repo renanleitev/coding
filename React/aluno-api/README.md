@@ -18,4 +18,14 @@ No terminal, insira o comando:
 
 Acesse [http://localhost:3000](http://localhost:3000) para visualizar no browser.
 
+## Banco de Dados
+
+O banco de dados utilizado foi o MariaDB, em formato Docker.
+
+Para instalar:
+
+    sudo docker run --restart always -d --name bdmariadb1 -p 3306:3306 -e MYSQL_ROOT_PASSWORD=abc mariadb
+
+Obs: É preciso iniciar o banco de dados antes de rodar a aplicação React.
+
 

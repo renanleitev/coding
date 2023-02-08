@@ -1,10 +1,10 @@
-# Debian Xfce pré-configurado para banco de dados
+# Debian pré-configurado para banco de dados
 
-Debian Xfce pré-configurado para banco de dados, com uso de Vagrant e Oracle VirtualBox.
+Debian pré-configurado para banco de dados, com uso de Vagrant e Oracle VirtualBox.
 
 Softwares Pré-instalados: 
 
-- Para banco de dados: Firefox, Adminer e MariaDB/MySQL.
+- Para banco de dados: Adminer e MariaDB.
 
 ## Pré-requisitos
 
@@ -60,46 +60,48 @@ Softwares Pré-instalados:
 
     vagrant destroy
 
-## Utilização do Banco de Dados (Adminer/MySQL)
+## Utilização do Banco de Dados 
 
-1) Abra o navegador Firefox e digite na barra de endereços:
+1) Abra o seu navegador no sistema host e digite na barra de endereços:
 
-    localhost/adminer
+        192.168.60.9/adminer
+
+    Obs: O IP pode ser configurado depois, nas configurações do Vagrant.
 
 2) Para se conectar no adminer:
 
-- user/login: root
-- senha/password: root
+        user/login: root
+    
+        senha/password: root
 
-3) Banco de dados instalados:
+1) Banco de dados instalados:
 
-- sakila
-- world
-- world_x
+        sakila
+    
+        world
+    
+        world_x
 
 ## Programas instalados e configuração da VM
 
 1) Edite a lista de programas instalados em "script.sh": 
 
-- **xfce4** (para ter uma interface gráfica no Debian)
-- **xfce4-goodies** (opcional, para ter aplicativos adicionais do Xfce)
-- **firefox-esr** (apenas se quiser usar o banco de dados)
-- **adminer** (apenas se quiser usar o banco de dados)
-- **mariadb-server** (apenas se quiser usar o banco de dados)
+- **adminer** 
+- **mariadb-server** 
 
-2) Edite as configurações da VM em "Vagrantfile":
+1) Edite as configurações da VM em "Vagrantfile":
 
 - **Memória RAM** (recomendado: 1 gb). Altere para valores maiores, se tiver memória RAM disponível. Ex: '4096' = 4gb de RAM.	 
 
-    vb.memory = '1024' 
+        vb.memory = '256' 
 
 - **IP** (para acessar a máquina virtual pelo navegador ou por SSH). Pode ser qualquer endereço de IP, desde que seja da sua rede local.
 
-    ip: "192.168.60.9"
+        ip: "192.168.60.9"
 
 - **Pasta compartilhada** (para compartilhar arquivos entre a máquina virtual e o host). Pode ser qualquer pasta, desde que o caminho esteja correto. Padrão: host = pasta "compartilhado", na pasta onde se encontram os arquivos "script.sh" e "Vagrantfile" / guest = pasta "/home/vagrant".
 
-    synced_folder "compartilhado/", "/home/vagrant"
+        synced_folder "compartilhado/", "/home/vagrant"
 
 ## Outras configurações
 
@@ -111,18 +113,18 @@ Softwares Pré-instalados:
 
 1) O processo de instalação parou nesse ponto (ou algo parecido):
 
-    debian: Its output will be used to detect bootable binaries on them and create new boot entries.
+        debian: Its output will be used to detect bootable binaries on them and create new boot entries.
 
-    - Solução: Forçar o desligamento da máquina virtual pela janela que está aberta do VirtualBox
+        Solução: Forçar o desligamento da máquina virtual pela janela que está aberta do VirtualBox
 
-    File > Close > Send the shutdown signal
+        File > Close > Send the shutdown signal
 
-    - Resultado: O script voltará a funcionar normalmente. Após, basta reiniciar a máquina virtual pelo Vagrant.
+        Resultado: O script voltará a funcionar normalmente. Após, basta reiniciar a máquina virtual pelo Vagrant.
 
     vagrant reload
 
-2) Erro ao rodar qualquer comando Vagrant: 
+1) Erro ao rodar qualquer comando Vagrant: 
 
-    "negative string size (or size too big)"
+        "negative string size (or size too big)"
 
-    - Solução: Apagar a pasta ".vagrant.d" do sistema (geralmente fica na pasta raiz do usuário = C:/Users/username)
+        Solução: Apagar a pasta ".vagrant.d" do sistema (geralmente fica na pasta raiz do usuário = C:/Users/username)
