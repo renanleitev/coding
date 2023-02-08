@@ -23,8 +23,47 @@ function persistRehydrate({ payload }) {
     if (!token) return;
     axios.defaults.headers.Authorization = `Bearer ${token}`;
 }
+function* registerRequest({ payload }) {
+    const { id, nome, email, password } = payload;
+    try {
+      if (id) {
+        yield call(axios.put, '/users', {
+          email,
+          nome,
+          password: password || undefined,
+        });
+        toast.success('Atualizado com sucesso!');
+        yield put(actions.registerUpdatedSuccess({ nome, email, password }));
+      } else {
+        yield call(axios.post, '/users', {
+          email,
+          nome,
+          password,
+        });
+        toast.success('Cadastrado com sucesso!');
+        yield put(actions.registerCreatedSuccess({ nome, email, password }));
+        history.push('/login');
+      }
+    } catch (er) {
+      const errors = get(er, 'response.data.error', []);
+      const status = get(er, 'response.status', 0);
+  
+      if (status === 401) {
+        toast.error('Faça login novamente');
+        yield put(actions.loginFailure());
+        return history.push('/login');
+      }
+      if (errors.length > 0) {
+        errors.map((error) => toast.error(error));
+      } else {
+        toast.error(errors);
+      }
+      return yield put(actions.registerFailure());
+    }
+}
 // takeLatest = Obtém apenas o último clique do botão
 export default all([
     takeLatest(types.login_request, loginRequest),
-    takeLatest(types.persist_rehydrate, persistRehydrate)
+    takeLatest(types.persist_rehydrate, persistRehydrate),
+    takeLatest(types.register_request, registerRequest),
 ]);

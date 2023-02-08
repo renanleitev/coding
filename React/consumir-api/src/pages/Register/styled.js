@@ -17,6 +17,7 @@ export const Form = styled.form`
         padding: 0 10px;
         border-radius: 4px;
         margin-top: 5px;
+        margin-bottom: 15px;
         &:focus {
             border: 1px solid ${colors.primaryColor};
         }

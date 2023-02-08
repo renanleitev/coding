@@ -1,53 +1,44 @@
-import React, { useState } from 'react';
-import { toast } from 'react-toastify';
+import React, { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { Container } from '../../styles/GlobalStyle';
 import { Form } from './styled';
 import Input from '../../components/Input';
-import axios from '../../services/axios';
-import history from '../../services/history';
 import Loading from '../../components/Loading';
-import Validate from '../../store/modules/auth/validate';
+import validate from '../../store/modules/auth/validate';
+import * as actions from '../../store/modules/auth/actions';
 
 export default function Register(){
+    const dispatch = useDispatch();
+    const id = useSelector(state => state.auth);
+    const nomeStored = useSelector(state => state.auth.user.nome);
+    const emailStored = useSelector(state => state.auth.user.email);
+    const isLoading = useSelector(state => state.auth.isLoading);
+    const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
+
     const [nome, setNome] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [isLoading, setIsLoading] = useState(false);
+
+    useEffect(() => {
+        if (!id) return;
+        setNome(nomeStored);
+        setEmail(emailStored);
+    }, [emailStored, id, nomeStored]);
 
     async function handleSubmit(e) {
         e.preventDefault();
-        Validate(nome, email, password);    
-        setIsLoading(true);  
-        try {
-            await axios.post('/users/', {
-                nome, password, email,
-            });
-            toast.success('Você fez seu cadastro');
-            setIsLoading(false);
-            history.push('/login');
-        }  
-        catch (e) {
-            setIsLoading(false);
-        }
+        const formErrors = validate({id: id, nome: nome, email: email, password: password});
+        if (!formErrors) dispatch(actions.registerRequest({ nome, email, password, id }));  
     }
     return (
         <Container>
             <Loading isLoading={isLoading}/>
-            <h1>Crie a sua conta</h1>
+            <h1>{isLoggedIn ? 'Editar dados' : 'Crie a sua conta'}</h1>
             <Form onSubmit={handleSubmit}>
-                <label htmlFor='nome'>
-                    Nome:
-                    <Input field={nome} setField={setNome} kind='nome'/>
-                </label>
-                <label htmlFor='email'>
-                    Email:
-                    <Input field={email} setField={setEmail} kind='email'/>
-                </label>
-                <label htmlFor='password'>
-                    Senha:
-                    <Input field={password} setField={setPassword} kind='password'/>
-                </label>
-                <button type="submit">Criar minha conta</button>
+                <Input field={nome} setField={setNome} placeholder='nome'/>
+                <Input field={email} setField={setEmail} placeholder='email'/>
+                <Input field={password} setField={setPassword} placeholder='password'/>
+                <button type="submit">{isLoggedIn ? 'Salvar': 'Criar conta'}</button>
             </Form>
         </Container>
     );
