@@ -4,6 +4,8 @@ import 'react-toastify/dist/ReactToastify.css';
 
 export default createGlobalStyle`
     * {
+        padding: 0;
+        margin: 0;
         font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     }
     body {

@@ -50,5 +50,6 @@ export const DataContainer = styled.div`
     }
     p {
         font-size: larger;
+        margin: 15px;
     }
 `;

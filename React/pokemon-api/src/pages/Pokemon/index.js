@@ -40,7 +40,7 @@ export default function Pokemon(){
                 history.push(`/pokemon/${id}`);
             } 
             catch (e) {
-                toast.error('Pokemón não existe!');
+                toast.error('Pokémon does not exist!');
                 setId(1);
                 history.push(`/pokemon/${id}`);
             }
@@ -74,7 +74,7 @@ export default function Pokemon(){
                 </div>
             </PokeContainer>
             <DataContainer>
-                <h1>Info</h1>
+                <h1>Data</h1>
                 <p>Type: {type}</p>
                 <p>Base Exp: {exp} xp</p>
                 <p>Height: {height} m</p>
@@ -86,4 +86,4 @@ export default function Pokemon(){
             </DataContainer>
         </Container>
     ) 
-}
+};
