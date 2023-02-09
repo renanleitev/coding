@@ -1,17 +1,20 @@
 import React, { useState, useEffect } from "react";
-import { toast } from 'react-toastify';
-import { get, startCase } from 'lodash';
-import { Container, PokeContainer, DataContainer } from '../../styles/GlobalStyles';
+import { useParams } from 'react-router-dom';
+import { startCase } from 'lodash';
+import {toast} from 'react-toastify';
+import { Container } from '../../styles/GlobalStyles';
+import { PokeContainer, DataContainer } from './styled';
 import axios from '../../services/axios';
 import history from '../../services/history';
 
 export default function Pokemon(){
+    let url = useParams();
     const [name, setName] = useState('');
     const [photo, setPhoto] = useState('');
     const [photoFront, setPhotoFront] = useState('');
     const [photoBack, setPhotoBack] = useState('');
     const [photoShiny, setPhotoShiny] = useState('');
-    const [id, setId] = useState(1);
+    const [id, setId] = useState(Number.parseInt(url.id));
     const [type, setType] = useState('');
     const [exp, setExp] = useState('');
     const [height, setHeight] = useState('');
@@ -37,10 +40,9 @@ export default function Pokemon(){
                 history.push(`/pokemon/${id}`);
             } 
             catch (e) {
-                const status = get(e, 'response.status', 0);
-                const errors = get(e, 'response.data.errors', []);
-                if (status === 400) errors.map(error => toast.error(error));
-                history.push('/');
+                toast.error('Pokemón não existe!');
+                setId(1);
+                history.push(`/pokemon/${id}`);
             }
         }
         getData();
@@ -52,13 +54,13 @@ export default function Pokemon(){
         setId(id + 1);
     }
     function handlePhotoFront(){
-        setPhoto(photoFront)
+        setPhoto(photoFront);
     }
     function handlePhotoBack(){
-        setPhoto(photoBack)
+        if (photoBack) setPhoto(photoBack);
     }
     function handlePhotoShiny(){
-        setPhoto(photoShiny)
+        if (photoShiny) setPhoto(photoShiny);
     }
     return (
         <Container>
