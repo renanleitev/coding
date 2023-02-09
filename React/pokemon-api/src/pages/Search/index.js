@@ -12,6 +12,7 @@ export default function Search(){
         if(valid){
             async function getData() {
                 try {
+                    toast.success('Searching...');
                     const { data } = await axios.get(`/pokemon/${query}`);
                     history.push(`/pokemon/${data.id}`);
                     window.location.reload();
@@ -31,7 +32,7 @@ export default function Search(){
             }
             getData();
         }
-    }, [valid]);
+    });
     function handleSubmit(e){
         e.preventDefault();
         setValid(true);
@@ -44,7 +45,7 @@ export default function Search(){
             <Form onSubmit={handleSubmit}>
                 <input 
                     placeholder="Search for Pokémons or Items"
-                    onChange={e => setQuery(e.target.value.toLowerCase().replace(/ +/g, '-'))}
+                    onChange={e => handleQuery(e)}
                 />
                 <button type='submit'>Search</button>
             </Form>

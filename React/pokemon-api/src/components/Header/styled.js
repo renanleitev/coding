@@ -15,7 +15,7 @@ export const NavHeader = styled.nav`
         font-weight: bold;
     }
     a:hover{
-        color: ${colors.primaryColor};
+        color: ${colors.secundaryColor};
         transition-delay: 300ms;
     }
 `;
