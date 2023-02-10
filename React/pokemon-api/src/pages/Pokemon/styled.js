@@ -13,12 +13,11 @@ export const PokeContainer = styled.div`
         margin-top: -100px;
         margin-bottom: -100px;
         transform: scale(0.5);
+        transition: all .5s ease-in-out;
     }
     img:hover{
         cursor: pointer;
-    }
-    img:active{
-        transform: scale(0.8);
+        transform: scale(0.8) rotate(-5deg);
     }
     button {
         background-color: ${colors.successColor};

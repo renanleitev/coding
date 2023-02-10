@@ -6,6 +6,7 @@ export const MiniContainer = styled.div`
     background-color: ${colors.primaryColor};
     width: 150px;
     height: 150px;
+    margin-bottom: 50px;
     border-radius: 50%;
     justify-content: center;
     align-items: center;
