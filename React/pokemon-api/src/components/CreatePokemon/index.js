@@ -1,5 +1,5 @@
 import { MiniContainer } from "../../pages/Home/styled";
-import {toast} from 'react-toastify';
+import { toast } from "react-toastify";
 import { startCase } from 'lodash';
 import React, { useState, useEffect } from "react";
 import axios from '../../services/axios';
@@ -17,8 +17,9 @@ export default function CreatePokemon(props){
                 setPhoto(data.sprites.front_default);
                 }
             catch (e) {
-                toast.error('There are no more Pokemons on the list!');
-                history.push('/');
+                toast.error('No more Pokémons on the list!');
+                setPhoto('https://cdn-icons-png.flaticon.com/512/5266/5266579.png');
+                setName('???');
             }
         }
         getData();
@@ -26,6 +27,12 @@ export default function CreatePokemon(props){
     function handleImg(){
         history.push(`/pokemon/${id}`);
         window.location.reload();
+    }
+    if (photo === null) {
+        setPhoto('https://cdn-icons-png.flaticon.com/512/5266/5266579.png');
+    }
+    if (name === null) {
+        setName('???');
     }
     return (
         <MiniContainer>

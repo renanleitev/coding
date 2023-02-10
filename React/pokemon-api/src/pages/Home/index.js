@@ -29,7 +29,7 @@ export default function Home(){
                 <CreatePokemon idPok={idPok+2}/>
                 <CreatePokemon idPok={idPok+3}/>
                 <CreatePokemon idPok={idPok+4}/>
-                <ArrowRight onClick={incrementPok}/>
+                <ArrowRight onClick={incrementPok} className='arrow-right'/>
             </Container>
             <Title>Items</Title>
             <Container>
@@ -39,7 +39,7 @@ export default function Home(){
                 <CreateItem idItem={idItem+2}/>
                 <CreateItem idItem={idItem+3}/>
                 <CreateItem idItem={idItem+4}/>
-                <ArrowRight onClick={incrementItem}/>
+                <ArrowRight onClick={incrementItem} className='arrow-right'/>
             </Container>
         </>
 

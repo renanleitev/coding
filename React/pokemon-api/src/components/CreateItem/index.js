@@ -17,8 +17,9 @@ export default function CreateItem(props){
                 setPhoto(data.sprites.default);
                 }
             catch (e) {
-                toast.error('There are no more Items on the list!');
-                history.push('/');
+                toast.error('No more Items on the list!');
+                setPhoto('https://cdn-icons-png.flaticon.com/512/5266/5266579.png');
+                setName('???');
             }
         }
         getData();
@@ -26,6 +27,12 @@ export default function CreateItem(props){
     function handleImg(){
         history.push(`/item/${id}`);
         window.location.reload();
+    }
+    if (photo === null) {
+        setPhoto('https://cdn-icons-png.flaticon.com/512/5266/5266579.png');
+    }
+    if (name === null) {
+        setName('???');
     }
     return (
         <MiniContainer>
