@@ -1,0 +1,11 @@
+https://github.com/public-apis/public-apis 
+
+https://deividfortuna.github.io/fipe/
+
+https://rickandmortyapi.com/
+
+https://dictionaryapi.dev/ 
+
+https://taniarascia.github.io/react-hooks/
+
+https://github.com/basir/node-react-ecommerce
