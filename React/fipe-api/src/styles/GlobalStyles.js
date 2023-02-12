@@ -61,3 +61,11 @@ export const Container = styled.div`
         transition: 300ms ease-in-out;
     }
 `;
+export const ResultContainer = styled.div`
+    position: fixed;
+    margin-top: 100px;
+    background-color: ${colors.containerColor};
+    padding: 30px;
+    border-radius: 4px;
+    box-shadow: 0 0 10px black;
+`;

@@ -1,5 +1,5 @@
 import React from "react";
-import { FaHome } from 'react-icons/fa';
+import { FaHome, FaSearch } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { NavHeader } from "./styled";
 
@@ -9,6 +9,9 @@ export default function Header(){
         <NavHeader>
             <Link to='/'>
                 <FaHome size={size}/>
+            </Link>
+            <Link to='/search'>
+                <FaSearch size={size}/>
             </Link>
         </NavHeader>
     );
