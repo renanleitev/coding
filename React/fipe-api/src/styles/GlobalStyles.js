@@ -21,7 +21,7 @@ export default createGlobalStyle`
     }
     a {
         color: ${colors.invertedColor};
-        font-size: 20px;
+        font-size: 36px;
         text-decoration: none;
     }
     a:hover{
@@ -30,7 +30,7 @@ export default createGlobalStyle`
 `;
 export const Container = styled.div`
     display: flex;
-    max-width: 700px;
+    max-width: 980px;
     background-color: ${colors.containerColor};
     margin: 30px auto;
     padding: 30px;
@@ -41,13 +41,23 @@ export const Container = styled.div`
         text-align: center;
         -webkit-text-stroke: 1px black;
     }
-    button:hover{
-        background-color: ${colors.sucessHoverColor};
-        color: ${colors.invertedColor};
-        transition: all 0.3s;
-    }
     div {
-        text-align: center;
         margin-right: 10px;
+        flex-grow: 2;
+        text-align: center;
+    }
+    p { 
+        font-size: 36px;
+    }
+    button {
+        background-color: ${colors.containerColor};
+        border: none;
+        font-size: 36px;
+        flex-grow: 2;
+        cursor: pointer;
+    }
+    button:hover{
+        color: ${colors.secundaryColor};
+        transition: 300ms ease-in-out;
     }
 `;

@@ -3,6 +3,7 @@ import {toast} from 'react-toastify';
 import axios from '../../services/axios';
 import {useParams} from 'react-router-dom';
 import { Container } from '../../styles/GlobalStyles';
+import Search from '../../components/Search';
 
 export default function VehicleModelPage(){
     let params = useParams();
@@ -14,8 +15,9 @@ export default function VehicleModelPage(){
             const { data } = await axios.get(url);
             for (let key in data.modelos){
                 let vehicle = document.createElement('a');
-                const divvehicle= document.querySelector('.vehicle');
-                divvehicle.appendChild(vehicle);
+                vehicle.setAttribute('class', 'vehicle');
+                const divVehicle= document.querySelector('.vehicle');
+                divVehicle.appendChild(vehicle);
                 let vehicleName = data.modelos[key].nome;
                 let vehicleCode = data.modelos[key].codigo;
                 vehicle.innerHTML = vehicleName + '<br>';
@@ -28,8 +30,11 @@ export default function VehicleModelPage(){
     }
     getData();
     return (
-        <Container>
-            <div className="vehicle"></div>
-        </Container>
+        <>
+            <Search/>
+            <Container>
+                <div className="vehicle"></div>
+            </Container>
+        </>
     );
 };

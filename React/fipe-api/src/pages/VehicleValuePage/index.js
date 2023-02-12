@@ -38,19 +38,29 @@ export default function VehicleValuePage(){
         }
     }
     getData();
+    function handleCopy(){
+        let text = '';
+        let targets = document.getElementsByClassName('result');
+        for ( let i = 0; i < targets.length; i++ ) {
+            text += targets[i].innerText + '\n';
+        }
+        navigator.clipboard.writeText(text);
+        toast.success('Texto copiado com sucesso!');
+    }
     return (
         <Container>
             <div>
-                <p>Modelo: {model}</p>
-                <p>Valor: {value}</p>
-                <p>Marca: {brand}</p>
-                <p>Ano Modelo: {yearModel}</p>
-                <p>Combustível: {gas}</p>
-                <p>Código Fipe: {fipeCode}</p>
-                <p>Mês de Referência: {monthReference}</p>
-                <p>Tipo de Veículo: {typeVehicle}</p>
-                <p>Sigla de Combustível: {typeGas}</p>
+                <p className="result">Modelo: {model}</p>
+                <p className="result">Valor: {value}</p>
+                <p className="result">Marca: {brand}</p>
+                <p className="result">Ano Modelo: {yearModel}</p>
+                <p className="result">Combustível: {gas}</p>
+                <p className="result">Código Fipe: {fipeCode}</p>
+                <p className="result">Mês de Referência: {monthReference}</p>
+                <p className="result">Tipo de Veículo: {typeVehicle}</p>
+                <p className="result">Sigla de Combustível: {typeGas}</p>
             </div>
+            <button onClick={handleCopy}>Copiar</button>
         </Container>
     );
 };
