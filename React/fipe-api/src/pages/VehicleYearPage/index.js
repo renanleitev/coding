@@ -1,0 +1,36 @@
+import React from "react";
+import {toast} from 'react-toastify';
+import axios from '../../services/axios';
+import {useParams} from 'react-router-dom';
+import { Container } from '../../styles/GlobalStyles';
+
+export default function VehicleYearPage(){
+    let params = useParams();
+    const id = params.id;
+    const type = params.type;
+    const vehicle = params.vehicle;
+    const url = `/${vehicle}/marcas/${id}/modelos/${type}/anos`;
+    async function getData() {
+        try {
+            const { data } = await axios.get(url);
+            for (let key in data){
+                let vehicle = document.createElement('a');
+                const divvehicle= document.querySelector('.vehicle');
+                divvehicle.appendChild(vehicle);
+                let vehicleName = data[key].nome;
+                let vehicleCode = data[key].codigo;
+                vehicle.innerHTML = vehicleName + '<br>';
+                vehicle.setAttribute('href', `${url}/${vehicleCode}`);
+            }
+        }
+        catch (e) {
+            toast.error('Error:' + e);
+        }
+    }
+    getData();
+    return (
+        <Container>
+            <div className="vehicle"></div>
+        </Container>
+    );
+};
