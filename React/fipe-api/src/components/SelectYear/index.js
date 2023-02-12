@@ -6,6 +6,7 @@ export default function SelectYear(props){
     let optionVehicle = props.vehicle;
     let optionBrand = props.brand;
     let code = props.code;
+    let [firstLoad, setFirstLoad] = useState(true);
     let [valid, setValid] = useState(false);
     let [value, setValue] = useState('');
     let [brand, setBrand] = useState('');
@@ -20,26 +21,46 @@ export default function SelectYear(props){
     let [brandName, setBrandName] = useState('');
     let [yearModelCode, setYearModelCode] = useState('');
     let [yearVehicle, setYearVehicle] = useState('');
-
+    
     useEffect(() => {
         let url = `/${optionVehicle}/marcas/${optionBrand}/modelos/${code}/anos`;
         async function getData() {
             const {data} = await axios.get(url);
-            for (let key in data){
-                let option = document.createElement('option');
-                const selectBrand= document.querySelector('.year');
-                let vehicleName = data[key].nome;
-                let year = data[key].codigo;
-                option.setAttribute('value', `${year}`);
-                option.setAttribute('class', 'year-options');
-                option.innerHTML = vehicleName;
-                selectBrand.appendChild(option);
+            function mapData(){
+                for (let key in data){
+                    let option = document.createElement('option');
+                    const selectBrand= document.querySelector('.year');
+                    let vehicleName = data[key].nome;
+                    let year = data[key].codigo;
+                    option.setAttribute('value', `${year}`);
+                    option.setAttribute('class', 'year-options');
+                    option.innerHTML = vehicleName;
+                    selectBrand.appendChild(option);
+                }
+            }
+            mapData();
+            let elements = document.getElementsByClassName('year-options');
+            if (firstLoad) {
+                let diff = elements.length - data.length;
+                if (diff > 0) {
+                    while(elements.length > diff){
+                        elements[elements.length-1].parentNode.removeChild(elements[elements.length-1]);
+                    }
+                    setFirstLoad(false);
+                }
+            }
+            else {
+                while(elements.length > 0){
+                    elements[0].parentNode.removeChild(elements[0]);
+                }
+                mapData();
             }
         }  
-        getData();    
+        getData();  
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [code, optionBrand, optionVehicle]);
     useEffect(() => {
-        if(valid){
+        if (valid) {
             let urlData = `/${vehicleName}/marcas/${brandName}/modelos/${yearModelCode}/anos/${yearVehicle}`;
             async function getData() {
                 const { data } = await axios.get(urlData);
