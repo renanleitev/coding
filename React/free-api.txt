@@ -1,3 +1,9 @@
+Dados TCE PE:
+
+https://www.tce.pe.gov.br/internet/index.php/dados-abertos/definicoes-da-api
+
+https://sistemas.tce.pe.gov.br/DadosAbertos/Exemplo!listar
+
 https://github.com/public-apis/public-apis 
 
 https://deividfortuna.github.io/fipe/

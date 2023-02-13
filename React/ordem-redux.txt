@@ -1,0 +1,30 @@
+1 - Criar o arquivoTypes.js
+
+a) Declarar as variáveis em string
+
+export const FETCH_USERS_REQUEST = 'FETCH_USERS_REQUEST';
+export const FETCH_USERS_SUCCESS = 'FETCH_USERS_SUCCESS';
+export const FETCH_USERS_FAILURE = 'FETCH_USERS_FAILURE';
+
+2 - Criar o arquivoActions.js
+
+export const fetchUsersRequest = () => {
+    return {
+        type: types.FETCH_USERS_REQUEST
+    }
+}
+// payload = Resposta da API
+export const fetchUsersSuccess = (payload) => {
+    return {
+        type: types.FETCH_USERS_SUCCESS,
+        payload: payload,
+    }
+}
+export const fetchUsersFailure = error => {
+    return {
+        type: types.FETCH_USERS_FAILURE,
+        payload: error
+    }
+}
+
+3 - Criar o arquivoReducer.js
