@@ -26,7 +26,7 @@ export default function SelectModel(props){
     }
     return (
         <>
-            <label for='model-brand'>Modelo:</label>    
+            <label htmlFor='model-brand'>Modelo:</label>    
             <select className='model-brand' onChange={handleYearModel} id='model-brand'>
                 <option>---</option>
             </select>

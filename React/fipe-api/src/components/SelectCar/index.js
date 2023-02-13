@@ -26,13 +26,13 @@ export default function SelectCar(){
     }
     return (
         <>
-            <label for='vehicle'>Veículo:</label> 
+            <label htmlFor='vehicle'>Veículo:</label> 
             <select className='vehicle' id='vehicle' onChange={handleVehicle}>
                 <option value='carros'>Carros</option>
                 <option value='motos'>Motos</option>
                 <option value='caminhoes'>Caminhões</option>
             </select>
-            <label for='brand'>Marca:</label> 
+            <label htmlFor='brand'>Marca:</label> 
             <select className='brand' id='brand' onChange={handleBrand}>
             </select>
             <SelectModel vehicle={optionVehicle} brand={optionBrand}/>

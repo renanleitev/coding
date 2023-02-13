@@ -64,7 +64,7 @@ export default function SelectYear(props){
     }
     return (
         <>
-            <label for='year'>Ano:</label>
+            <label htmlFor='year'>Ano:</label>
             <select className='year' id='year'>
                 <option>---</option>
             </select>
