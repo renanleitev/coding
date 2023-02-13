@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from "react";
 import axios from '../../services/axios';
+import mapData from '../../services/mapData';
+import removeOptions from '../../services/removeOptions';
 import {ResultContainer} from '../../styles/GlobalStyles';
 
 export default function SelectYear(props){
@@ -24,21 +26,9 @@ export default function SelectYear(props){
     useEffect(() => {
         let url = `/${optionVehicle}/marcas/${optionBrand}/modelos/${code}/anos`;
         async function getData() {
-            let elements = document.getElementsByClassName('year-options');
-            while(elements.length > 0){
-                elements[0].parentNode.removeChild(elements[0]);
-            }
+            removeOptions('year-options');
             const {data} = await axios.get(url);
-            for (let key in data){
-                let option = document.createElement('option');
-                const selectBrand= document.querySelector('.year');
-                selectBrand.appendChild(option);
-                let vehicleName = data[key].nome;
-                let year = data[key].codigo;
-                option.setAttribute('value', `${year}`);
-                option.setAttribute('class', 'year-options');
-                option.innerHTML = vehicleName;
-            }
+            mapData(data, '.year', 'year-options');
         }  
         getData();  
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -65,17 +55,17 @@ export default function SelectYear(props){
         setValid(true);
         setVehicleName(document.querySelector('.vehicle').value);
         setBrandName(document.querySelector('.brand').value);
-        setYearModelCode(document.querySelector('.year-model-brand').value);
+        setYearModelCode(document.querySelector('.model-brand').value);
         setYearVehicle(document.querySelector('.year').value);
     }
     window.onload = function (){
-        const selectBrand = document.querySelector('.year');
-        selectBrand.disabled = true;
+        const selectYear = document.querySelector('.year');
+        selectYear.disabled = true;
     }
     return (
         <>
-            Ano:
-            <select className='year'>
+            <label for='year'>Ano:</label>
+            <select className='year' id='year'>
                 <option>---</option>
             </select>
             <button onClick={handleSearch}>Pesquisar</button>

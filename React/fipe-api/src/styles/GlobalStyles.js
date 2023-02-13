@@ -27,6 +27,13 @@ export default createGlobalStyle`
     a:hover{
         text-decoration: underline;
     }
+    select{
+        width: 10.5em;
+    }
+    label{
+        padding: 5px;
+        margin-top: 5px;
+    }
 `;
 export const Container = styled.div`
     display: flex;
@@ -64,6 +71,7 @@ export const Container = styled.div`
 export const ResultContainer = styled.div`
     position: fixed;
     margin-top: 100px;
+    width: 920px;
     background-color: ${colors.containerColor};
     padding: 30px;
     border-radius: 4px;

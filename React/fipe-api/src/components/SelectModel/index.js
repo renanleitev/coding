@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from "react";
 import axios from '../../services/axios';
 import SelectYear from "../SelectYear";
+import mapData from '../../services/mapData';
+import removeOptions from '../../services/removeOptions';
 
 export default function SelectModel(props){
     let optionVehicle = props.vehicle;
@@ -9,36 +11,24 @@ export default function SelectModel(props){
     useEffect(() => {
         let url = `/${optionVehicle}/marcas/${optionBrand}/modelos`;
         async function getData() {
-            let elements = document.getElementsByClassName('year-model-options');
-            while(elements.length > 0){
-                elements[0].parentNode.removeChild(elements[0]);
-            }
+            removeOptions('model-brand-options');
             const {data} = await axios.get(url);
-            for (let key in data.modelos){
-                let option = document.createElement('option');
-                const selectBrand= document.querySelector('.year-model-brand');
-                selectBrand.appendChild(option);
-                let vehicleName = data.modelos[key].nome;
-                let vehicleCode = data.modelos[key].codigo;
-                option.setAttribute('value', `${vehicleCode}`);
-                option.setAttribute('class', 'year-model-options');
-                setVehicleCode(vehicleCode);
-                option.innerHTML = vehicleName;
-            }
+            mapData(data.modelos, '.model-brand', 'model-brand-options');
             const selectBrand = document.querySelector('.year');
             selectBrand.disabled = true;
         }
         getData();
     }, [optionBrand, optionVehicle]);
     function handleYearModel(){
-        setVehicleCode(document.querySelector('.year-model-brand').value);
+        setVehicleCode(document.querySelector('.model-brand').value);
         const selectBrand = document.querySelector('.year');
         selectBrand.disabled = false;
     }
     return (
         <>
-            Ano Modelo:
-            <select className='year-model-brand' onChange={handleYearModel}>
+            <label for='model-brand'>Modelo:</label>    
+            <select className='model-brand' onChange={handleYearModel} id='model-brand'>
+                <option>---</option>
             </select>
             <SelectYear vehicle={optionVehicle} brand={optionBrand} code={vehicleCode}/>
         </>
