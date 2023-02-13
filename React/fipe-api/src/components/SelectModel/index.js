@@ -25,11 +25,15 @@ export default function SelectModel(props){
                 setVehicleCode(vehicleCode);
                 option.innerHTML = vehicleName;
             }
+            const selectBrand = document.querySelector('.year');
+            selectBrand.disabled = true;
         }
         getData();
     }, [optionBrand, optionVehicle]);
     function handleYearModel(){
         setVehicleCode(document.querySelector('.year-model-brand').value);
+        const selectBrand = document.querySelector('.year');
+        selectBrand.disabled = false;
     }
     return (
         <>
