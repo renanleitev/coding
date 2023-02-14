@@ -23,6 +23,7 @@ export default function VehicleYearPage(){
                 let vehicleCode = data[key].codigo;
                 vehicle.innerHTML = vehicleName + '<br>';
                 vehicle.setAttribute('href', `${url}/${vehicleCode}`);
+                vehicle.setAttribute('key', `${vehicleCode}`);
             }
         }
         catch (e) {

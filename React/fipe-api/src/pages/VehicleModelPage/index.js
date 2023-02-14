@@ -22,6 +22,7 @@ export default function VehicleModelPage(){
                 let vehicleCode = data.modelos[key].codigo;
                 vehicle.innerHTML = vehicleName + '<br>';
                 vehicle.setAttribute('href', `${url}/${vehicleCode}/anos`);
+                vehicle.setAttribute('key', `${vehicleCode}`);
             }
         }
         catch (e) {

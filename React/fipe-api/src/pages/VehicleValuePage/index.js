@@ -28,7 +28,7 @@ export default function VehicleValuePage(){
             <div>
                 {Object.keys(dataSearch).map((key) => {
                     return (
-                        <p className="result">{key}: {dataSearch[key]}</p>
+                        <p className="result" key={key}>{key}: {dataSearch[key]}</p>
                     )
                 })}
             <button className='copiar' onClick={copyText}>Copiar</button>
