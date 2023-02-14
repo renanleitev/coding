@@ -14,8 +14,8 @@ export default function SelectModel(props){
             removeOptions('model-brand-options');
             const {data} = await axios.get(url);
             mapSelect(data.modelos, '.model-brand', 'model-brand-options');
-            const selectBrand = document.querySelector('.year');
-            selectBrand.disabled = true;
+            const selectYear = document.querySelector('.year');
+            selectYear.disabled = true;
         }
         getData();
     }, [optionBrand, optionVehicle]);

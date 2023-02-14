@@ -27,15 +27,16 @@ export default function SelectYear(props){
     }, [optionModel, optionBrand, optionVehicle]);
     useEffect(() => {
         if (isSearching) {
-            let urlData = `/${vehicle}/marcas/${brand}/modelos/${model}/anos/${year}`;
+            let urlSearch = `/${vehicle}/marcas/${brand}/modelos/${model}/anos/${year}`;
             async function getData() {
                 try{
                     toast.success('Pesquisando...');
-                    const { data } = await axios.get(urlData);
+                    const { data } = await axios.get(urlSearch);
                     setDataSearch(data);
                 }
                 catch(e){
                     toast.error('Erro: Consulta inválida.');
+                    setDataSearch({'Erro': 'Consulta inválida.'});
                 }
             }
             getData();
@@ -66,7 +67,7 @@ export default function SelectYear(props){
                         <p className="result">{key}: {dataSearch[key]}</p>
                     )
                 })}
-            </ResultContainer> : <div></div>}
+            </ResultContainer> : <></>}
         </>
     );
 };
