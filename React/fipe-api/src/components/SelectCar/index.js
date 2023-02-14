@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import axios from '../../services/axios';
 import SelectModel from "../SelectModel";
 import mapData from '../../services/mapData';
@@ -8,13 +8,15 @@ export default function SelectCar(){
     let [optionVehicle, setOptionVehicle] = useState('carros');
     let [optionBrand, setOptionBrand] = useState('1');
     let url = `/${optionVehicle}/marcas`;
-    async function getData() {
-        const {data} = await axios.get(url);
-        mapData(data, '.brand', 'brand-options');
-        const selectBrand = document.querySelector('.brand');
-        setOptionBrand(selectBrand.value);
-    }
-    getData();
+    useEffect(() => {
+        async function getData() {
+            const {data} = await axios.get(url);
+            mapData(data, '.brand', 'brand-options');
+            const selectBrand = document.querySelector('.brand');
+            setOptionBrand(selectBrand.value);
+        }
+        getData();
+    }, [url]);
     function handleVehicle(){
         removeOptions('brand-options');
         let selectVehicle = document.querySelector('.vehicle');
@@ -34,6 +36,7 @@ export default function SelectCar(){
             </select>
             <label htmlFor='brand'>Marca:</label> 
             <select className='brand' id='brand' onChange={handleBrand}>
+            <option>---</option>
             </select>
             <SelectModel vehicle={optionVehicle} brand={optionBrand}/>
         </>

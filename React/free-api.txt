@@ -1,8 +1,20 @@
-Dados TCE PE:
+API TCE PE:
 
 https://www.tce.pe.gov.br/internet/index.php/dados-abertos/definicoes-da-api
 
 https://sistemas.tce.pe.gov.br/DadosAbertos/Exemplo!listar
+
+API Prefeitura de Recife:
+
+http://dados.recife.pe.gov.br/pt_BR/ 
+
+http://dados.recife.pe.gov.br/pt_BR/dataset/pontos-de-coleta-seletiva
+
+API IBGE:
+
+https://servicodados.ibge.gov.br/api/docs/localidades
+
+Outras APIs:
 
 https://github.com/public-apis/public-apis 
 

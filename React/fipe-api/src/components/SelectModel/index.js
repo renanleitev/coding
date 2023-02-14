@@ -19,15 +19,15 @@ export default function SelectModel(props){
         }
         getData();
     }, [optionBrand, optionVehicle]);
-    function handleYearModel(){
+    function handleModelBrand(){
         setVehicleCode(document.querySelector('.model-brand').value);
-        const selectBrand = document.querySelector('.year');
-        selectBrand.disabled = false;
+        const selectYear = document.querySelector('.year');
+        selectYear.disabled = false;
     }
     return (
         <>
             <label htmlFor='model-brand'>Modelo:</label>    
-            <select className='model-brand' onChange={handleYearModel} id='model-brand'>
+            <select className='model-brand' onChange={handleModelBrand} id='model-brand'>
                 <option>---</option>
             </select>
             <SelectYear vehicle={optionVehicle} brand={optionBrand} code={vehicleCode}/>
