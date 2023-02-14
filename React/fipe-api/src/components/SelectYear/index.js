@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from "react";
 import axios from '../../services/axios';
+import {toast} from 'react-toastify';
 import mapData from '../../services/mapData';
 import removeOptions from '../../services/removeOptions';
 import {ResultContainer} from '../../styles/GlobalStyles';
@@ -8,7 +9,7 @@ export default function SelectYear(props){
     let optionVehicle = props.vehicle;
     let optionBrand = props.brand;
     let code = props.code;
-    let [valid, setValid] = useState(false);
+    let [isSearching, setIsSearching] = useState(false);
     let [value, setValue] = useState('');
     let [brand, setBrand] = useState('');
     let [model, setModel] = useState('');
@@ -31,10 +32,9 @@ export default function SelectYear(props){
             mapData(data, '.year', 'year-options');
         }  
         getData();  
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [code, optionBrand, optionVehicle]);
     useEffect(() => {
-        if (valid) {
+        if (isSearching) {
             let urlData = `/${vehicleName}/marcas/${brandName}/modelos/${yearModelCode}/anos/${yearVehicle}`;
             async function getData() {
                 const { data } = await axios.get(urlData);
@@ -50,9 +50,10 @@ export default function SelectYear(props){
             }
             getData();
         }
-    }, [brandName, valid, value, vehicleName, yearModelCode, yearVehicle]);
-    function handleSearch(){
-        setValid(true);
+    }, [brandName, isSearching, value, vehicleName, yearModelCode, yearVehicle]);
+    function handleSearching(){
+        setIsSearching(true);
+        toast.success('Carregando...');
         setVehicleName(document.querySelector('.vehicle').value);
         setBrandName(document.querySelector('.brand').value);
         setYearModelCode(document.querySelector('.model-brand').value);
@@ -68,13 +69,13 @@ export default function SelectYear(props){
             <select className='year' id='year'>
                 <option>---</option>
             </select>
-            <button onClick={handleSearch}>Pesquisar</button>
-            {valid ? 
+            <button onClick={handleSearching}>Pesquisar</button>
+            {isSearching ? 
             <ResultContainer>
                 <p className="result">Modelo: {model || '???'}</p>
                 <p className="result">Valor: {value || '???'}</p>
                 <p className="result">Marca: {brand || '???'}</p>
-                <p className="result">Ano Modelo: {yearModel || '???'}</p>
+                <p className="result">Modelo: {yearModel || '???'}</p>
                 <p className="result">Combustível: {gas || '???'}</p>
                 <p className="result">Código Fipe: {fipeCode || '???'}</p>
                 <p className="result">Mês de Referência: {monthReference || '???'}</p>

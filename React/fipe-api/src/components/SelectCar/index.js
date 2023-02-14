@@ -36,7 +36,7 @@ export default function SelectCar(){
             </select>
             <label htmlFor='brand'>Marca:</label> 
             <select className='brand' id='brand' onChange={handleBrand}>
-            <option>---</option>
+                <option>---</option>
             </select>
             <SelectModel vehicle={optionVehicle} brand={optionBrand}/>
         </>
