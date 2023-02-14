@@ -1,63 +1,52 @@
 import React, {useState, useEffect} from "react";
 import axios from '../../services/axios';
 import {toast} from 'react-toastify';
-import mapData from '../../services/mapData';
+import mapSelect from '../../services/mapSelect';
 import removeOptions from '../../services/removeOptions';
 import {ResultContainer} from '../../styles/GlobalStyles';
 
 export default function SelectYear(props){
     let optionVehicle = props.vehicle;
     let optionBrand = props.brand;
-    let code = props.code;
+    let optionModel = props.model;
     let [isSearching, setIsSearching] = useState(false);
-    let [value, setValue] = useState('');
+    let [vehicle, setVehicle] = useState('');
     let [brand, setBrand] = useState('');
     let [model, setModel] = useState('');
-    let [yearModel, setYearModel] = useState('');
-    let [gas, setGas] = useState('');
-    let [fipeCode, setFipeCode] = useState('');
-    let [monthReference, setMonthReference] = useState('');
-    let [typeVehicle, setTypeVehicle] = useState('');
-    let [typeGas, setTypeGas] = useState('');
-    let [vehicleName, setVehicleName] = useState('');
-    let [brandName, setBrandName] = useState('');
-    let [yearModelCode, setYearModelCode] = useState('');
-    let [yearVehicle, setYearVehicle] = useState('');
+    let [year, setYear] = useState('');
+    const [dataSearch, setDataSearch] = useState({'Erro': 'Consulta inválida.'});
     
     useEffect(() => {
-        let url = `/${optionVehicle}/marcas/${optionBrand}/modelos/${code}/anos`;
+        let url = `/${optionVehicle}/marcas/${optionBrand}/modelos/${optionModel}/anos`;
         async function getData() {
             removeOptions('year-options');
             const {data} = await axios.get(url);
-            mapData(data, '.year', 'year-options');
+            mapSelect(data, '.year', 'year-options');
         }  
         getData();  
-    }, [code, optionBrand, optionVehicle]);
+    }, [optionModel, optionBrand, optionVehicle]);
     useEffect(() => {
         if (isSearching) {
-            let urlData = `/${vehicleName}/marcas/${brandName}/modelos/${yearModelCode}/anos/${yearVehicle}`;
+            let urlData = `/${vehicle}/marcas/${brand}/modelos/${model}/anos/${year}`;
             async function getData() {
-                const { data } = await axios.get(urlData);
-                setValue(data.Valor);
-                setBrand(data.Marca);
-                setModel(data.Modelo);
-                setYearModel(data.AnoModelo);
-                setGas(data.Combustivel);
-                setFipeCode(data.CodigoFipe);
-                setMonthReference(data.MesReferencia);
-                setTypeVehicle(data.TipoVeiculo);
-                setTypeGas(data.SiglaCombustivel);
+                try{
+                    toast.success('Pesquisando...');
+                    const { data } = await axios.get(urlData);
+                    setDataSearch(data);
+                }
+                catch(e){
+                    toast.error('Erro: Consulta inválida.');
+                }
             }
             getData();
         }
-    }, [brandName, isSearching, value, vehicleName, yearModelCode, yearVehicle]);
+    }, [brand, isSearching, vehicle, model, year]);
     function handleSearching(){
         setIsSearching(true);
-        toast.success('Carregando...');
-        setVehicleName(document.querySelector('.vehicle').value);
-        setBrandName(document.querySelector('.brand').value);
-        setYearModelCode(document.querySelector('.model-brand').value);
-        setYearVehicle(document.querySelector('.year').value);
+        setVehicle(document.querySelector('.vehicle').value);
+        setBrand(document.querySelector('.brand').value);
+        setModel(document.querySelector('.model-brand').value);
+        setYear(document.querySelector('.year').value);
     }
     window.onload = function (){
         const selectYear = document.querySelector('.year');
@@ -72,15 +61,11 @@ export default function SelectYear(props){
             <button onClick={handleSearching}>Pesquisar</button>
             {isSearching ? 
             <ResultContainer>
-                <p className="result">Modelo: {model || '???'}</p>
-                <p className="result">Valor: {value || '???'}</p>
-                <p className="result">Marca: {brand || '???'}</p>
-                <p className="result">Modelo: {yearModel || '???'}</p>
-                <p className="result">Combustível: {gas || '???'}</p>
-                <p className="result">Código Fipe: {fipeCode || '???'}</p>
-                <p className="result">Mês de Referência: {monthReference || '???'}</p>
-                <p className="result">Tipo de Veículo: {typeVehicle || '???'}</p>
-                <p className="result">Sigla de Combustível: {typeGas || '???'}</p>
+                {Object.keys(dataSearch).map((key) => {
+                    return (
+                        <p className="result">{key}: {dataSearch[key]}</p>
+                    )
+                })}
             </ResultContainer> : <div></div>}
         </>
     );

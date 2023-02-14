@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import axios from '../../services/axios';
 import SelectModel from "../SelectModel";
-import mapData from '../../services/mapData';
+import mapSelect from '../../services/mapSelect';
 import removeOptions from '../../services/removeOptions';
 
 export default function SelectCar(){
@@ -11,7 +11,7 @@ export default function SelectCar(){
     useEffect(() => {
         async function getData() {
             const {data} = await axios.get(url);
-            mapData(data, '.brand', 'brand-options');
+            mapSelect(data, '.brand', 'brand-options');
             const selectBrand = document.querySelector('.brand');
             setOptionBrand(selectBrand.value);
         }

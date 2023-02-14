@@ -1,4 +1,4 @@
-export default function mapData(data, parentClassName, childClassName){
+export default function mapSelect(data, parentClassName, childClassName){
     for (let key in data){
         let option = document.createElement('option');
         const parent = document.querySelector(parentClassName);
