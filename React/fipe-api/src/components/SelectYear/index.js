@@ -3,6 +3,7 @@ import axios from '../../services/axios';
 import {toast} from 'react-toastify';
 import mapSelect from '../../services/mapSelect';
 import removeOptions from '../../services/removeOptions';
+import copyText from "../../services/copyText";
 import {ResultContainer} from '../../styles/GlobalStyles';
 
 export default function SelectYear(props){
@@ -60,14 +61,15 @@ export default function SelectYear(props){
                 <option>---</option>
             </select>
             <button onClick={handleSearching}>Pesquisar</button>
-            {isSearching ? 
-            <ResultContainer>
+            {isSearching && 
+            (<ResultContainer>
                 {Object.keys(dataSearch).map((key) => {
                     return (
                         <p className="result">{key}: {dataSearch[key]}</p>
                     )
                 })}
-            </ResultContainer> : <></>}
+                <button className='copiar' onClick={copyText}>Copiar</button>
+            </ResultContainer>)}
         </>
     );
 };

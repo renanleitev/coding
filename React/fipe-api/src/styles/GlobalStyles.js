@@ -67,6 +67,9 @@ export const Container = styled.div`
         color: ${colors.secundaryColor};
         transition: 300ms ease-in-out;
     }
+    button.copiar{
+        margin-top: 50px;
+    }
 `;
 export const ResultContainer = styled.div`
     position: fixed;
