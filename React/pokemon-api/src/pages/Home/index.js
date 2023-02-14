@@ -7,38 +7,35 @@ import CreateItem from "../../components/CreateItem";
 export default function Home(){
     let [idPok, setIdPok] = useState(1);
     let [idItem, setIdItem] = useState(1);
+    let count = 5;
     function incrementPok(){
-        setIdPok(idPok + 5);
+        setIdPok(idPok + count);
     }
     function decrementPok(){
-        if(idPok > 5) setIdPok(idPok - 5);
+        if(idPok > count) setIdPok(idPok - count);
     }
     function incrementItem(){
-        setIdItem(idItem + 5);
+        setIdItem(idItem + count);
     }
     function decrementItem(){
-        if(idItem > 5) setIdItem(idItem - 5);
+        if(idItem > count) setIdItem(idItem - count);
     }
     return (
         <>
             <Title>Pokémons</Title>
             <Container>
                 <ArrowLeft onClick={decrementPok}/>
-                <CreatePokemon idPok={idPok}/>
-                <CreatePokemon idPok={idPok+1}/>
-                <CreatePokemon idPok={idPok+2}/>
-                <CreatePokemon idPok={idPok+3}/>
-                <CreatePokemon idPok={idPok+4}/>
+                {[...Array(count).keys()].map((key) => (
+                    <CreatePokemon key={key} idPok={idPok + key}/>
+                ))}
                 <ArrowRight onClick={incrementPok} className='arrow-right'/>
             </Container>
             <Title>Items</Title>
             <Container>
                 <ArrowLeft onClick={decrementItem}/>
-                <CreateItem idItem={idItem}/>
-                <CreateItem idItem={idItem+1}/>
-                <CreateItem idItem={idItem+2}/>
-                <CreateItem idItem={idItem+3}/>
-                <CreateItem idItem={idItem+4}/>
+                {[...Array(count).keys()].map((key) => (
+                    <CreateItem key={key} idItem={idItem + key}/>
+                ))}
                 <ArrowRight onClick={incrementItem} className='arrow-right'/>
             </Container>
         </>
