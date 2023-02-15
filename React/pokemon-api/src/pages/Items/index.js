@@ -4,6 +4,7 @@ import { startCase } from 'lodash';
 import {toast} from 'react-toastify';
 import { Container } from '../../styles/GlobalStyles';
 import { PokeContainer, DataContainer } from '../Pokemon/styled';
+import ListItems from "../../components/ListItems";
 import axios from '../../services/axios';
 import history from '../../services/history';
 
@@ -41,19 +42,23 @@ export default function Items(){
         setId(id + 1);
     }
     return (
-        <Container>
-            <PokeContainer>
-                <h1>{name}</h1>
-                <img src={photo} alt=''/>
-            </PokeContainer>
-            <DataContainer>
-                <h1>Data</h1>
-                <p>Effect: {effect}</p>
-                <p>Description: {text}</p>
-                <p>Cost: ${cost}</p>
-                <button onClick={handlePrevious}>Previous</button>
-                <button onClick={handleNext}>Next</button>
-            </DataContainer>
-        </Container>
+        <>
+            <Container>
+                <PokeContainer>
+                    <h1>{name}</h1>
+                    <img src={photo} alt=''/>
+                </PokeContainer>
+                <DataContainer>
+                    <h1>Data</h1>
+                    <p>Effect: {effect}</p>
+                    <p>Description: {text}</p>
+                    <p>Cost: ${cost}</p>
+                    <button onClick={handlePrevious}>Previous</button>
+                    <button onClick={handleNext}>Next</button>
+                </DataContainer>
+            </Container>
+            <ListItems id={id}/>
+        </>
+
     )
 }

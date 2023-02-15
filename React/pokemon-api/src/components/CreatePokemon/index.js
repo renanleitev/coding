@@ -1,5 +1,4 @@
 import { MiniContainer } from "../../pages/Home/styled";
-import { toast } from "react-toastify";
 import { startCase } from 'lodash';
 import React, { useState, useEffect } from "react";
 import axios from '../../services/axios';
@@ -17,7 +16,6 @@ export default function CreatePokemon(props){
                 setPhoto(data.sprites.front_default);
                 }
             catch (e) {
-                toast.error('No more Pokémons on the list!');
                 setPhoto('https://cdn-icons-png.flaticon.com/512/5266/5266579.png');
                 setName('???');
             }

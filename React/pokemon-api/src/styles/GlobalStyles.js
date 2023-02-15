@@ -22,6 +22,7 @@ export default createGlobalStyle`
 `;
 export const Container = styled.div`
     display: flex;
+    justify-content: space-between;
     max-width: 980px;
     background-color: ${colors.containerColor};
     margin: 30px auto;
