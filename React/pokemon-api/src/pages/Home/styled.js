@@ -11,17 +11,12 @@ export const MiniContainer = styled.div`
     img {
         width: 100%;
         height: 100%;
-        object-fit: cover;
         cursor: pointer;
     }
     img:hover{
         background-color: ${colors.secundaryColor};
         transition-delay: 300ms;
-        width: 150px; 
-        height: 150px;
         border-radius: 50%;
-        justify-content: center;
-        align-items: center;
     }
     p {
         margin-top: -5px;
@@ -31,12 +26,12 @@ export const MiniContainer = styled.div`
     }
 `;
 export const ArrowLeft = styled(FaLongArrowAltLeft)`
-    color: green;
+    color: ${colors.successColor};
     align-self: center;
     cursor: pointer;
 `;
 export const ArrowRight = styled(FaLongArrowAltRight)`
-    color: green;
+    color: ${colors.successColor};
     align-self: center;
     cursor: pointer;
 `;

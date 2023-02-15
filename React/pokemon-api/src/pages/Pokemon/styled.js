@@ -16,8 +16,7 @@ export const PokeContainer = styled.div`
         transition: all .5s ease-in-out;
     }
     img:hover{
-        cursor: pointer;
-        transform: scale(0.8) rotate(-5deg);
+        transform: scale(0.6) rotate(-5deg);
     }
     button {
         background-color: ${colors.successColor};
