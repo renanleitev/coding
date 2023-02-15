@@ -8,9 +8,6 @@ export const MiniContainer = styled.div`
     height: 150px;
     margin-bottom: 50px;
     border-radius: 50%;
-    justify-content: center;
-    align-items: center;
-    margin-left: 30px;
     img {
         width: 100%;
         height: 100%;
@@ -35,13 +32,12 @@ export const MiniContainer = styled.div`
 `;
 export const ArrowLeft = styled(FaLongArrowAltLeft)`
     color: green;
-    margin-top: 60px;
+    align-self: center;
     cursor: pointer;
 `;
 export const ArrowRight = styled(FaLongArrowAltRight)`
-    margin-left: 30px;
     color: green;
-    margin-top: 60px;
+    align-self: center;
     cursor: pointer;
 `;
 export const Title = styled.h1`
