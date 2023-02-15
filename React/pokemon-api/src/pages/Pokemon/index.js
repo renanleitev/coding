@@ -6,6 +6,7 @@ import { Container } from '../../styles/GlobalStyles';
 import { PokeContainer, DataContainer } from './styled';
 import axios from '../../services/axios';
 import history from '../../services/history';
+import Evolution from "../../components/Evolution";
 
 export default function Pokemon(){
     let url = useParams();
@@ -82,6 +83,7 @@ export default function Pokemon(){
                 <button onClick={handlePrevious}>Previous</button>
                 <button onClick={handleNext}>Next</button>
             </DataContainer>
+            <Evolution id={id}/>
         </Container>
     ) 
 };
