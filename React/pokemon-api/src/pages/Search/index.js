@@ -9,9 +9,9 @@ import ListItems from "../../components/ListItems";
 
 export default function Search(){
     let [query, setQuery] = useState('');
-    const [valid, setValid] = useState(false);
+    const [isSearching, setIsSearching] = useState(false);
     useEffect(() => {
-        if(valid){
+        if(isSearching){
             async function getData() {
                 try {
                     toast.success('Searching...');
@@ -26,7 +26,7 @@ export default function Search(){
                         window.location.reload();
                     }
                     catch(e){
-                        setValid(false);
+                        setIsSearching(false);
                         toast.error('Pokémon or Item does not exist!');
                         history.push(`/search`);
                     }
@@ -37,24 +37,24 @@ export default function Search(){
     });
     function handleSubmit(e){
         e.preventDefault();
-        setValid(true);
+        setIsSearching(true);
     }
     function handleQuery(e){
         setQuery(e.target.value.toLowerCase().replace(/ +/g, '-'));
     }
     return (
         <>
-        <Container>
-            <Form onSubmit={handleSubmit}>
-                <input 
-                    placeholder="Search for Pokémons or Items"
-                    onChange={e => handleQuery(e)}
-                />
-                <button type='submit'>Search</button>
-            </Form>
-        </Container>
-        <ListPokemons id={1}/>
-        <ListItems id={1}/>
+            <Container>
+                <Form onSubmit={handleSubmit}>
+                    <input 
+                        placeholder="Search for Pokémons or Items"
+                        onChange={e => handleQuery(e)}
+                    />
+                    <button type='submit'>Search</button>
+                </Form>
+            </Container>
+            <ListPokemons id={1}/>
+            <ListItems id={1}/>
         </>
     )
 }
