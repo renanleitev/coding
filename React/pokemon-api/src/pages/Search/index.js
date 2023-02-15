@@ -4,6 +4,8 @@ import { Container } from '../../styles/GlobalStyles';
 import axios from '../../services/axios';
 import history from '../../services/history';
 import { Form } from "./styled";
+import ListPokemons from "../../components/ListPokemons";
+import ListItems from "../../components/ListItems";
 
 export default function Search(){
     let [query, setQuery] = useState('');
@@ -41,6 +43,7 @@ export default function Search(){
         setQuery(e.target.value.toLowerCase().replace(/ +/g, '-'));
     }
     return (
+        <>
         <Container>
             <Form onSubmit={handleSubmit}>
                 <input 
@@ -50,5 +53,8 @@ export default function Search(){
                 <button type='submit'>Search</button>
             </Form>
         </Container>
+        <ListPokemons id={1}/>
+        <ListItems id={1}/>
+        </>
     )
 }
