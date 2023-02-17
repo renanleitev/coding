@@ -1,16 +1,17 @@
 import React from "react";
-import { Switch } from 'react-router-dom';
-import MyRoute from "./MyRoute";
+import { Switch, Route } from 'react-router-dom';
 import Login from '../pages/Login';
+import Home from '../pages/Home';
+import Shopping from "../pages/Shopping";
 import Page404 from '../pages/Page404';
-import {useSelector} from 'react-redux';
 
 export default function Routes(){
-    const isLoggedIn = useSelector(state => state.login.isLoggedIn);
     return (
         <Switch>
-            <MyRoute exact path='/login' component={Login} isClosed={isLoggedIn}/>
-            <MyRoute path='*' component={Page404}/>
+            <Route exact path='/' component={Home}/>
+            <Route exact path='/login' component={Login}/>
+            <Route exact path='/shopping' component={Shopping}/>
+            <Route path='*' component={Page404}/>
         </Switch>
     );
 }

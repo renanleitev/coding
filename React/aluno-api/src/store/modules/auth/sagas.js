@@ -18,11 +18,6 @@ function* loginRequest({ payload }) {
         yield put(actions.loginFailure());
     }
 }
-function persistRehydrate({ payload }) {
-    const token = get(payload, 'auth.token', '');
-    if (!token) return;
-    axios.defaults.headers.Authorization = `Bearer ${token}`;
-}
 function* registerRequest({ payload }) {
     const { id, nome, email, password } = payload;
     try {
@@ -64,6 +59,5 @@ function* registerRequest({ payload }) {
 // takeLatest = Obtém apenas o último clique do botão
 export default all([
     takeLatest(types.login_request, loginRequest),
-    takeLatest(types.persist_rehydrate, persistRehydrate),
     takeLatest(types.register_request, registerRequest),
 ]);
