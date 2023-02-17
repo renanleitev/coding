@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { useParams } from 'react-router-dom';
 import { startCase } from 'lodash';
 import {toast} from 'react-toastify';
@@ -9,7 +9,7 @@ import history from '../../services/history';
 import ListPokemons from "../../components/ListPokemons";
 
 export default function Pokemon(){
-    let url = useParams();
+    const url = useParams();
     const [name, setName] = useState('');
     const [photo, setPhoto] = useState('');
     const [photoFront, setPhotoFront] = useState('');
@@ -46,47 +46,47 @@ export default function Pokemon(){
         }
         getData();
     }, [id]);
-    function handlePrevious(){
+    const handlePrevious = useCallback(() => {
         if (id > 1) setId(id - 1);
-    }
-    function handleNext(){
+    }, [id]);
+    const handleNext = useCallback(() => {
         setId(id + 1);
-    }
-    function handlePhotoFront(){
-        setPhoto(photoFront);
-    }
-    function handlePhotoBack(){
+    }, [id]);
+    const handlePhotoFront = useCallback(() => {
+        if (photoFront) setPhoto(photoFront);
+    }, [photoFront]);
+    const handlePhotoBack = useCallback(() => {
         if (photoBack) setPhoto(photoBack);
-    }
-    function handlePhotoShiny(){
+    }, [photoBack]);
+    const handlePhotoShiny = useCallback(() => {
         if (photoShiny) setPhoto(photoShiny);
-    }
+    }, [photoShiny]);
+    
     return (
         <>
-        <Container>
-            <PokeContainer>
-                <h1>{name}</h1>
-                <img src={photo} alt=''/>
-                <div className="button-image">
-                    <button onClick={handlePhotoFront}>Front</button>
-                    <button onClick={handlePhotoBack}>Back</button>
-                    <button onClick={handlePhotoShiny}>Shiny</button>
-                </div>
-            </PokeContainer>
-            <DataContainer>
-                <h1>Data</h1>
-                <p>ID: {id}</p>
-                <p>Type: {type}</p>
-                <p>Base Exp: {exp} xp</p>
-                <p>Height: {height} m</p>
-                <p>Weight: {weight} kg</p>
-                <p>Ability: {ability}</p>
-                <button onClick={handlePrevious}>Previous</button>
-                <button onClick={handleNext}>Next</button>
-            </DataContainer>
-        </Container>
-        <ListPokemons id={id}/>
+            <Container>
+                <PokeContainer>
+                    <h1>{name}</h1>
+                    <img src={photo} alt=''/>
+                    <div className="button-image">
+                        <button onClick={handlePhotoFront}>Front</button>
+                        <button onClick={handlePhotoBack}>Back</button>
+                        <button onClick={handlePhotoShiny}>Shiny</button>
+                    </div>
+                </PokeContainer>
+                <DataContainer>
+                    <h1>Data</h1>
+                    <p>ID: {id}</p>
+                    <p>Type: {type}</p>
+                    <p>Base Exp: {exp} xp</p>
+                    <p>Height: {height} m</p>
+                    <p>Weight: {weight} kg</p>
+                    <p>Ability: {ability}</p>
+                    <button onClick={handlePrevious}>Previous</button>
+                    <button onClick={handleNext}>Next</button>
+                </DataContainer>
+            </Container>
+            <ListPokemons id={id}/>
         </>
-
     ) 
 };

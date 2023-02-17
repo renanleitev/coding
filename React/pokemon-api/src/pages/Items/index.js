@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { useParams } from 'react-router-dom';
 import { startCase } from 'lodash';
 import {toast} from 'react-toastify';
@@ -16,6 +16,7 @@ export default function Items(){
     const [effect, setEffect] = useState('');
     const [text, setText] = useState('');
     const [cost, setCost] = useState('');
+
     useEffect(() => {
         async function getData() {
             try {
@@ -35,12 +36,12 @@ export default function Items(){
         }
         getData();
     }, [id]);
-    function handlePrevious(){
+    const handlePrevious = useCallback(() => {
         if (id > 1) setId(id - 1);
-    }
-    function handleNext(){
+    }, [id]);
+    const handleNext = useCallback(() => {
         setId(id + 1);
-    }
+    }, [id]);
     return (
         <>
             <Container>
@@ -59,6 +60,5 @@ export default function Items(){
             </Container>
             <ListItems id={id}/>
         </>
-
     )
 }

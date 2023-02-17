@@ -1,14 +1,14 @@
 import { MiniContainer } from "../../pages/Home/styled";
 import {toast} from 'react-toastify';
 import { startCase } from 'lodash';
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import axios from '../../services/axios';
 import history from '../../services/history';
 
 export default function CreateItem(props){
     const [name, setName] = useState('');
     const [photo, setPhoto] = useState('');
-    let id = props.idItem;
+    const id = props.idItem;
     useEffect(() => {
         async function getData() {
             try {
@@ -24,10 +24,11 @@ export default function CreateItem(props){
         }
         getData();
     }, [id]);
-    function handleImg(){
+    // Memoized function
+    const handleImg = useCallback(() => {
         history.push(`/item/${id}`);
         window.location.reload();
-    }
+    }, [id]);
     if (photo === null) {
         setPhoto('https://cdn-icons-png.flaticon.com/512/5266/5266579.png');
     }

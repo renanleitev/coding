@@ -1,21 +1,21 @@
-import React from "react";
+import React, {useCallback} from "react";
 import { FaHome, FaDotCircle, FaSearch, FaLuggageCart } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { NavHeader } from "./styled";
 import history from "../../services/history";
 
 export default function Header(){
-    let size = 20;
-    let urlPok = '/pokemon/1';
-    let urlItem = '/item/1';
-    function handleChangePok(){
+    const size = 20;
+    const urlPok = '/pokemon/1';
+    const urlItem = '/item/1';
+    const handleChangePok = useCallback(() => {
         history.push(urlPok);
         window.location.reload();
-    }
-    function handleChangeItem(){
+    }, [urlPok]);
+    const handleChangeItem = useCallback(() => {
         history.push(urlItem);
         window.location.reload();
-    }
+    }, [urlItem]);
     return (
         <NavHeader>
             <Link to='/'>

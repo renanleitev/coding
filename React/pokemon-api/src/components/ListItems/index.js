@@ -1,23 +1,24 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { Container } from '../../styles/GlobalStyles';
 import history from '../../services/history';
 import CreateItem from "../CreateItem";
 import { ArrowLeft, ArrowRight } from "../../pages/Home/styled";
 
 export default function ListItems(props){
-    let [id, setId] = useState(Number.parseInt(props.id));
+    const [id, setId] = useState(Number.parseInt(props.id));
 
     useEffect(() => {setId(props.id)}, [props.id]);
-    function handleClick(){
+    const handleClick = useCallback(() => {
         history.push(`/item/${id}`);
         window.location.reload();
-    }
-    function handleNext(){
+    }, [id])
+    const handleNext = useCallback(() => {
         setId(id+1);
-    }
-    function handlePrevious(){
+    }, [id]);
+    const handlePrevious = useCallback(() => {
         if(id > 1) setId(id - 1);
-    }
+    }, [id]);
+    
     return (
         <Container>
             <ArrowLeft onClick={handlePrevious}/>

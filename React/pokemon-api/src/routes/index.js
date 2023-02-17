@@ -7,6 +7,9 @@ import Items from "../pages/Items";
 import Search from "../pages/Search";
 import Page404 from '../pages/Page404';
 
+// ! Erros de Componentes = Error boundary
+// ! Erros de Servidor = Toastify
+
 export default function MainRoutes(){
     return (
         <Routes>

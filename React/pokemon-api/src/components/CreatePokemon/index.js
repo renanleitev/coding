@@ -1,13 +1,13 @@
 import { MiniContainer } from "../../pages/Home/styled";
 import { startCase } from 'lodash';
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import axios from '../../services/axios';
 import history from '../../services/history';
 
 export default function CreatePokemon(props){
     const [name, setName] = useState('');
     const [photo, setPhoto] = useState('');
-    let id = props.idPok;
+    const id = props.idPok;
     useEffect(() => {
         async function getData() {
             try {
@@ -22,10 +22,10 @@ export default function CreatePokemon(props){
         }
         getData();
     }, [id]);
-    function handleImg(){
+    const handleImg = useCallback(() => {
         history.push(`/pokemon/${id}`);
         window.location.reload();
-    }
+    }, [id]);
     if (photo === null) {
         setPhoto('https://cdn-icons-png.flaticon.com/512/5266/5266579.png');
     }
