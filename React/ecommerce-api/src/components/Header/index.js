@@ -1,5 +1,5 @@
 import React, {useCallback} from 'react';
-import { FaHome, FaSignInAlt, FaUserAlt, FaShoppingCart } from 'react-icons/fa';
+import { FaHome, FaSignInAlt, FaUserAlt, FaUserEdit, FaUserPlus, FaShoppingCart } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import * as loginActions from '../../store/modules/login/actions';
@@ -23,7 +23,10 @@ export default function Header(){
                 <FaHome size={24}/>
             </Link>
             <Link to="/login">
-                <FaUserAlt size={24}/>
+                {(isLoggedIn && (<FaUserEdit size={24}/>)) || (<FaUserAlt size={24}/>)}
+            </Link>
+            <Link to="/register">
+                <FaUserPlus size={24}/>
             </Link>
             <Link to="/shopping">
                 <FaShoppingCart size={24}/>
