@@ -1,7 +1,5 @@
 import styled, { createGlobalStyle } from "styled-components";
-
 import * as colors from '../config/colors';
-
 import 'react-toastify/dist/ReactToastify.css';
 
 export default createGlobalStyle`
@@ -31,6 +29,9 @@ export default createGlobalStyle`
     a {
         text-decoration: none;
     }
+    a:hover{
+        color: ${colors.infoColor};
+    }
     ul {
         list-style: none;
     }
@@ -51,4 +52,32 @@ export const Container = styled.section`
     padding: 30px;
     border-radius: 4px;
     box-shadow: 0 0 10px black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    img {
+        width: 150px;
+        margin-top: 100%;
+    }
+    img:hover{
+        transform: scale(1.2);
+    }
+`;
+
+export const Form = styled.form`
+    display: flex;
+    flex-direction: column;
+    label{
+        margin: 10px 0px;
+    }
+    button{
+        margin-top: 10px;
+    }
+    .link{
+        margin-top: 10px;
+        font-size: 12px;
+    }
+    .link:hover{
+        color: blue;
+    }
 `;

@@ -1,11 +1,12 @@
 import React, {useState, useCallback} from 'react';
-import { Container } from '../../styles/GlobalStyle';
-import { Form } from './styled.js';
+import { isEmail } from 'validator';
+import { Container, Form } from '../../styles/GlobalStyle';
 import history from '../../services/history'
 import * as actions from '../../store/modules/login/actions';
 import { useSelector, useDispatch } from 'react-redux';
 import Input from '../../components/Input';
 import { toast } from 'react-toastify';
+import DeleteUser from '../DeleteUser';
 
 export default function Register(){
     const isLoggedIn = useSelector(state => state.login.isLoggedIn);
@@ -16,29 +17,48 @@ export default function Register(){
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [repeatPassword, setRepeatPassword] = useState(''); 
+    const [formErrors, setFormErrors] = useState(true);
     const dispatch = useDispatch();
     const handleSubmit = useCallback((e) => {
         e.preventDefault();
-        if (password === repeatPassword) {
-            if (!isLoggedIn) { 
-                dispatch(actions.registerRequest({
-                    id, name, surname, address, email, password
-                }));
-                dispatch(actions.loginSuccess());
-            }
-            if (isLoggedIn) {
-                history.push('/');
-            } history.push('/');
-        } 
-        else {
-            toast.error('Password needs to be the same.')
+        setFormErrors(false);
+        if (name.length < 3 || name.length > 255) {
+            setFormErrors(true);
+            toast.error('Name invalid and/or need to have between 3 and 255 characters.');
         }
-    }, [password, repeatPassword, isLoggedIn, dispatch, id, name, surname, address, email]);
+        if (surname.length < 3 || surname.length > 255) {
+            setFormErrors(true);
+            toast.error('Surname invalid and/or need to have between 3 and 255 characters.');
+        }
+        if (address.length < 3 || address.length > 255) {
+            setFormErrors(true);
+            toast.error('Address invalid and/or need to have between 3 and 255 characters.');
+        }
+        if (!isEmail(email)){
+            setFormErrors(true);
+            toast.error('Email invalid.');
+        }
+        if (password !== repeatPassword) {
+            setFormErrors(true);
+            toast.error('Password needs to be the same.');
+        }
+        if (password.length < 6 || repeatPassword.length < 6) {
+            setFormErrors(true);
+            toast.error('Password needs to have 6 characters or more.');
+        }
+        if (!formErrors){
+            dispatch(actions.registerRequest({
+                id, name, surname, address, email, password
+            }));
+            dispatch(actions.loginSuccess());
+            history.push('/');
+        }
+    }, [password, repeatPassword, formErrors, dispatch, id, name, surname, address, email]);
     return (
         <Container>
-            <Form onSubmit={handleSubmit}>
             {(!isLoggedIn && 
-                (<>
+                (
+                <Form onSubmit={handleSubmit}>
                     <h2>Create an account</h2>
                     <label htmlFor='name'>Name</label>
                     <Input field={name} setField={setName} placeholder='name'/>
@@ -52,12 +72,12 @@ export default function Register(){
                     <Input field={password} setField={setPassword} placeholder='password'/>
                     <label htmlFor='password'>Repeat password</label>
                     <Input field={repeatPassword} setField={setRepeatPassword} placeholder='password'/>
-                </>))
+                    <button type="submit">Create</button>
+                </Form>
+                ))
                 ||
-                (<p>Delete account.</p>)
+                (<DeleteUser/>)
             }
-            <button type="submit">{!isLoggedIn ? ('Create') : ('Delete')}</button>
-            </Form>
         </Container>
     );
 }
