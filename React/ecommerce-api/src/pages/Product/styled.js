@@ -12,6 +12,11 @@ export const ItemContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    p {
+        font-size: 20px;
+        margin-bottom: 10px;
+        text-align: center;
+    }
     img{
         width: 150px;
         margin-top: 100px;
@@ -22,7 +27,7 @@ export const ItemContainer = styled.div`
 `;
 
 export const CartButton = styled.button`
-    margin-top: 10%;
+    margin-right: 10px;
     :hover{
         background-color: ${colors.sucessColor};
     }

@@ -24,6 +24,9 @@ export default function productsReducer (state = initialState, action) {
         }
         case types.ADD_PRODUCT: {
             const newState = { ...state };
+            if (newState.cart === undefined) {
+                newState.cart = [{ ...action.payload, quantity: 1 }];
+            }
             const itemInCart = newState.cart.find((item) => item.id === action.payload.id);
             if (itemInCart) {
               itemInCart.quantity++;
