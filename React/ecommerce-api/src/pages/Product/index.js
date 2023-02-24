@@ -1,9 +1,10 @@
-import React, { useEffect, useCallback } from 'react';
+import React, { useEffect, useCallback, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import * as actions from '../../store/modules/products/actions';
 import { ItemContainer, CartButton } from './styled';
 import {ProductContainer} from '../Home/styled';
+import {toast} from 'react-toastify';
 
 export default function Product(){
     const url = useParams();
@@ -26,16 +27,20 @@ export default function Product(){
     }, [dispatch, id]);
     const addProduct = useCallback(() => {
         dispatch(actions.addProduct({id, name, images}));
+        toast.success(`Added ${name} successfully!`);
     }, [dispatch, id, images, name]);
     const removeProduct = useCallback(() => {
         dispatch(actions.removeProduct(id));
-    }, [dispatch, id]);
+        toast.success(`Removed ${name} successfully!`);
+    }, [dispatch, id, name]);
     const incrementQuantity = useCallback(() => {
         dispatch(actions.incrementQuantity(id));
-    }, [dispatch, id]);
+        toast.success(`Added ${name} successfully!`);
+    }, [dispatch, id, name]);
     const decrementQuantity = useCallback(() => {
         dispatch(actions.decrementQuantity(id));
-    }, [dispatch, id]);
+        toast.success(`Removed ${name} successfully!`);
+    }, [dispatch, id, name]);
     return (
         <>
             <ProductContainer>

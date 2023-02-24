@@ -1,28 +1,41 @@
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import * as actions from '../../store/modules/products/actions';
-import { ItemContainer } from '../Product/styled';
-import { ShoppingContainer } from './styled';
-import {ProductContainer} from '../Home/styled';
+import { CartContainer, ShoppingContainer, ButtonContainer, ItemContainer } from './styled';
 import { CartButton } from '../Product/styled';
 
 export default function Shopping(){
     const cart = useSelector(state => state.products.cart);
+    const [render, setRender] = useState(0);
     const dispatch = useDispatch();
+    function forceRender(){
+        setRender(render+1);
+    }
     return (
-        <ItemContainer>
-            <ProductContainer>
+        <CartContainer>
                 {(cart.map(item => (
-                    <ShoppingContainer key={item.id}>
-                        <p key={item.name}>{item.name}</p>
-                        <img key={item.images} src={item.images} alt=''/>
-                        <p key={item.quantity}>{item.quantity}</p>
-                        <CartButton onClick={() => dispatch(actions.incrementQuantity(item.id))}>+</CartButton>
-                        <CartButton onClick={() => dispatch(actions.decrementQuantity(item.id))}>-</CartButton>
-                        <CartButton onClick={() => dispatch(actions.removeProduct(item.id))}>Remove item</CartButton>
-                    </ShoppingContainer>
+                    <ItemContainer key={item.id}>
+                        <ShoppingContainer key={item.id+1}>
+                            <h2 key={item.name}>{item.name}</h2>
+                            <img key={item.images} src={item.images} alt=''/>
+                            <p key={item.quantity}>Quantity: {item.quantity}</p>
+                        </ShoppingContainer>
+                        <ButtonContainer key={item.id+2}>
+                                <CartButton onClick={() => {
+                                    dispatch(actions.incrementQuantity(item.id));
+                                    forceRender();
+                                    }}>+</CartButton>
+                                <CartButton onClick={() => {
+                                    dispatch(actions.decrementQuantity(item.id));
+                                    forceRender();
+                                    }}>-</CartButton>
+                                <CartButton onClick={() => {
+                                    dispatch(actions.removeProduct(item.id));
+                                    forceRender();
+                                    }}>Remove item</CartButton>
+                        </ButtonContainer>
+                    </ItemContainer>
                 )))}
-            </ProductContainer> 
-        </ItemContainer> 
+        </CartContainer> 
     )
 }
