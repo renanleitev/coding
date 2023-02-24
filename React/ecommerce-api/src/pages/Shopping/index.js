@@ -8,17 +8,7 @@ import { CartButton } from '../Product/styled';
 
 export default function Shopping(){
     const cart = useSelector(state => state.products.cart);
-    const [id, setId] = useState('');
     const dispatch = useDispatch();
-    const removeProduct = useCallback(() => {
-        dispatch(actions.removeProduct(id));
-    }, [dispatch, id]);
-    const incrementQuantity = useCallback(() => {
-        dispatch(actions.incrementQuantity(id));
-    }, [dispatch, id]);
-    const decrementQuantity = useCallback(() => {
-        dispatch(actions.decrementQuantity(id));
-    }, [dispatch, id]);
     return (
         <ItemContainer>
             <ProductContainer>
@@ -27,9 +17,9 @@ export default function Shopping(){
                         <p key={item.name}>{item.name}</p>
                         <img key={item.images} src={item.images} alt=''/>
                         <p key={item.quantity}>{item.quantity}</p>
-                        <CartButton onClick={incrementQuantity}>+</CartButton>
-                        <CartButton onClick={decrementQuantity}>-</CartButton>
-                        <CartButton onClick={removeProduct}>Remove item</CartButton>
+                        <CartButton onClick={() => dispatch(actions.incrementQuantity(item.id))}>+</CartButton>
+                        <CartButton onClick={() => dispatch(actions.decrementQuantity(item.id))}>-</CartButton>
+                        <CartButton onClick={() => dispatch(actions.removeProduct(item.id))}>Remove item</CartButton>
                     </ShoppingContainer>
                 )))}
             </ProductContainer> 
