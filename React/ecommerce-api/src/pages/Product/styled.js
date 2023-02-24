@@ -20,6 +20,7 @@ export const ItemContainer = styled.div`
     img{
         width: 150px;
         margin-top: 100px;
+        margin-bottom: 50px;
     }
     img:hover{
         transform: scale(1.2);

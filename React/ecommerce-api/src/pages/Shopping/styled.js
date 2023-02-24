@@ -38,11 +38,9 @@ export const ShoppingContainer = styled.div`
         margin-bottom: 10px;
         text-align: center;
     }
-    h2{
-        margin-bottom: 50px;
-    }
     img{
         width: 150px;
+        margin-top: 50px;
         margin-bottom: 50px;
     }
 `;

@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import * as actions from '../../store/modules/products/actions';
 import { CartContainer, ShoppingContainer, ButtonContainer, ItemContainer } from './styled';
 import { CartButton } from '../Product/styled';
+import { Link } from 'react-router-dom';
 
 export default function Shopping(){
     const cart = useSelector(state => state.products.cart);
@@ -16,7 +17,7 @@ export default function Shopping(){
                 {(cart.map(item => (
                     <ItemContainer key={item.id}>
                         <ShoppingContainer key={item.id+1}>
-                            <h2 key={item.name}>{item.name}</h2>
+                            <Link to={`product/${item.id}`} key={item.name}>{item.name}</Link>
                             <img key={item.images} src={item.images} alt=''/>
                             <p key={item.quantity}>Quantity: {item.quantity}</p>
                         </ShoppingContainer>
