@@ -19,11 +19,14 @@ export const ItemContainer = styled.div`
     }
     img{
         width: 150px;
-        margin-top: 100px;
+        margin-top: 50px;
         margin-bottom: 50px;
     }
     img:hover{
         transform: scale(1.2);
+    }
+    h1{
+        margin-bottom: 10px;
     }
 `;
 

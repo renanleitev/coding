@@ -27,9 +27,10 @@ export default function productsReducer (state = initialState, action) {
             if (newState.cart === undefined) {
                 newState.cart = [{ ...action.payload, quantity: 1 }];
             }
-            const itemInCart = newState.cart.find((item) => item.id === action.payload.id);
-            if (itemInCart) {
-              itemInCart.quantity++;
+            const item = newState.cart.find((item) => item.id === action.payload.id);
+            if (item) {
+              item.quantity++;
+              item.totalPrice = Number.parseFloat(Number.parseFloat(item.price * item.quantity).toFixed(2));
             } else {
                 newState.cart.push({ ...action.payload, quantity: 1 });
             }
@@ -39,6 +40,7 @@ export default function productsReducer (state = initialState, action) {
             const newState = { ...state };
             const item = newState.cart.find((item) => item.id === action.payload);
             item.quantity++;
+            item.totalPrice = Number.parseFloat(Number.parseFloat(item.price * item.quantity).toFixed(2));
             return newState;
         }
         case types.DECREMENT_QUANTITY: {
@@ -49,6 +51,7 @@ export default function productsReducer (state = initialState, action) {
             } else {
               item.quantity--;
             }
+            item.totalPrice = Number.parseFloat(Number.parseFloat(item.price * item.quantity).toFixed(2));
             return newState;
         }
         case types.REMOVE_PRODUCT: {

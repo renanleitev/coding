@@ -1,25 +1,51 @@
-import React, { useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import * as actions from '../../store/modules/products/actions';
-import { CartContainer, ShoppingContainer, ButtonContainer, ItemContainer } from './styled';
+import { 
+    CartContainer, 
+    ShoppingContainer, 
+    ButtonContainer, 
+    ItemContainer,
+    CheckoutContainer } from './styled';
 import { CartButton } from '../Product/styled';
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 export default function Shopping(){
     const cart = useSelector(state => state.products.cart);
+    const isLoggedIn = useSelector(state => state.login.isLoggedIn);
     const [render, setRender] = useState(0);
+    const [total, setTotal] = useState(0);
+    const [isCheckout, setIsCheckout] = useState(true);
     const dispatch = useDispatch();
     function forceRender(){
         setRender(render+1);
     }
+    useEffect(() => {
+        if (isCheckout){
+            cart.forEach(element => {
+                setTotal(total + element.totalPrice);
+            });
+        }
+        setIsCheckout(false);
+    }, [cart, isCheckout, total]);
+    const handleCheckout = useCallback(() => {
+        toast.success(`Thank you! Your total is $${total}`);
+        setTotal(0);
+        setIsCheckout(true);
+    }, [total]);
     return (
         <CartContainer>
-                {(cart.map(item => (
-                    <ItemContainer key={item.id}>
-                        <ShoppingContainer key={item.id+1}>
+            <CheckoutContainer onClick={handleCheckout}>Checkout</CheckoutContainer>
+            {isLoggedIn ? (
+                cart.map(item => (
+                    <ItemContainer key={Math.random()}>
+                        <ShoppingContainer key={Math.random()}>
                             <Link to={`product/${item.id}`} key={item.name}>{item.name}</Link>
-                            <img key={item.images} src={item.images} alt=''/>
-                            <p key={item.quantity}>Quantity: {item.quantity}</p>
+                            <img key={Math.random()} src={item.images} alt=''/>
+                            <p key={Math.random()}>Price: ${item.price}</p>
+                            <p key={Math.random()}>Quantity: {item.quantity}</p>
+                            <p key={Math.random()}>Total: {item.totalPrice}</p>
                         </ShoppingContainer>
                         <ButtonContainer key={item.id+2}>
                                 <CartButton onClick={() => {
@@ -36,7 +62,12 @@ export default function Shopping(){
                                     }}>Remove item</CartButton>
                         </ButtonContainer>
                     </ItemContainer>
-                )))}
+                ))
+            ) : (
+                <ItemContainer>
+                    <h1>You must be logged in to visualize your cart.</h1>
+                </ItemContainer>
+            )}
         </CartContainer> 
     )
 }

@@ -22,6 +22,9 @@ export const ItemContainer = styled.div`
     border-radius: 20px;
     margin-top: 1%;
     margin-bottom: 6%;
+    h1{
+        padding: 20px;
+    }
 `;
 
 export const ShoppingContainer = styled.div`
@@ -42,5 +45,13 @@ export const ShoppingContainer = styled.div`
         width: 150px;
         margin-top: 50px;
         margin-bottom: 50px;
+    }
+`;
+
+export const CheckoutContainer = styled.button`
+    background-color: ${colors.infoColor};
+    border-radius: 0;
+    :hover{
+        background-color: ${colors.sucessColor};
     }
 `;

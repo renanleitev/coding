@@ -4,7 +4,7 @@ export const primaryWhiteColor = 'white';
 
 export const primaryDarkColor = '#1A1A1D';
 
-export const sucessColor = '#0197F6';
+export const sucessColor = 'green';
 
 export const infoColor = '#0197F6';
 
