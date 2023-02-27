@@ -11,6 +11,12 @@ export const ButtonContainer = styled.div`
     flex-direction: row;
     align-self: center;
     margin-bottom: 5%;
+    button{
+        margin-right: 10px;
+        :hover{
+        background-color: ${colors.sucessColor};
+        }
+    }
 `;
 
 export const ItemContainer = styled.div`

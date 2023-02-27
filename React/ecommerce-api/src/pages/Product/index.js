@@ -18,12 +18,12 @@ export default function Product(){
         if (cart !== undefined) {
             cart.forEach(element => {
                 if (element.id === id) {
-                    setQuantity(element.quantity)
-                    setTotalPrice(element.totalPrice);
+                    setQuantity(element.quantity);
+                    setTotalPrice(element.price*quantity);
                 }
             });
         }
-    }, [cart, id]);
+    }, [cart, id, quantity]);
     const product = useSelector(state => state.products.product);
     if (product === undefined) dispatch(actions.findProduct({id}));
     const name = product.data.name;
@@ -100,7 +100,7 @@ export default function Product(){
                 <img src={images} alt=''/>
                 <p>Price: ${price}</p>
                 <p>Quantity: {quantity}</p>
-                <p>Total: ${totalPrice}</p>
+                <p>Total: ${Number.parseFloat(Number.parseFloat(totalPrice).toFixed(2))}</p>
             </ItemContainer> 
         </ProductContainer>       
     )

@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import * as actions from '../../store/modules/products/actions';
 import { 
@@ -7,33 +7,33 @@ import {
     ButtonContainer, 
     ItemContainer,
     CheckoutContainer } from './styled';
-import { CartButton } from '../Product/styled';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 export default function Shopping(){
     const cart = useSelector(state => state.products.cart);
     const isLoggedIn = useSelector(state => state.login.isLoggedIn);
-    const [render, setRender] = useState(0);
-    const [total, setTotal] = useState(0);
-    const [isCheckout, setIsCheckout] = useState(true);
+    const [quantity, setQuantity] = useState(0);
+    let total = 0;
     const dispatch = useDispatch();
-    function forceRender(){
-        setRender(render+1);
-    }
-    useEffect(() => {
-        if (isCheckout){
-            cart.forEach(element => {
-                setTotal(total + element.totalPrice);
-            });
-        }
-        setIsCheckout(false);
-    }, [cart, isCheckout, total]);
     const handleCheckout = useCallback(() => {
+        cart.forEach(element => {
+            total += element.totalPrice;
+        });
         toast.success(`Thank you! Your total is $${total}`);
-        setTotal(0);
-        setIsCheckout(true);
-    }, [total]);
+        total = 0;
+    }, [cart, total]);
+    const handleIncrement = useCallback((id, quant) => {
+        dispatch(actions.incrementQuantity(id));
+        setQuantity(quant+1);
+    }, [dispatch]);
+    const handleDecrement = useCallback((id, quant) => {
+        dispatch(actions.decrementQuantity(id));
+        setQuantity(quant-1);
+    }, [dispatch]);
+    const handleRemove = useCallback((id) => {
+        dispatch(actions.removeProduct(id));
+    }, [dispatch]);
     return (
         <CartContainer>
             <CheckoutContainer onClick={handleCheckout}>Checkout</CheckoutContainer>
@@ -41,25 +41,22 @@ export default function Shopping(){
                 cart.map(item => (
                     <ItemContainer key={Math.random()}>
                         <ShoppingContainer key={Math.random()}>
-                            <Link to={`product/${item.id}`} key={item.name}>{item.name}</Link>
+                            <Link to={`product/${item.id}`} key={Math.random()}>{item.name}</Link>
                             <img key={Math.random()} src={item.images} alt=''/>
                             <p key={Math.random()}>Price: ${item.price}</p>
                             <p key={Math.random()}>Quantity: {item.quantity}</p>
-                            <p key={Math.random()}>Total: {item.totalPrice}</p>
+                            <p key={Math.random()}>Total: ${item.totalPrice}</p>
                         </ShoppingContainer>
-                        <ButtonContainer key={item.id+2}>
-                                <CartButton onClick={() => {
-                                    dispatch(actions.incrementQuantity(item.id));
-                                    forceRender();
-                                    }}>+</CartButton>
-                                <CartButton onClick={() => {
-                                    dispatch(actions.decrementQuantity(item.id));
-                                    forceRender();
-                                    }}>-</CartButton>
-                                <CartButton onClick={() => {
-                                    dispatch(actions.removeProduct(item.id));
-                                    forceRender();
-                                    }}>Remove item</CartButton>
+                        <ButtonContainer key={Math.random()}>
+                                <button onClick={() => handleIncrement(
+                                    item.id,
+                                    item.quantity
+                                    )}>+</button>
+                                <button onClick={() => handleDecrement(
+                                    item.id,
+                                    item.quantity
+                                    )}>-</button>
+                                <button onClick={() => handleRemove(item.id)}>Remove item</button>
                         </ButtonContainer>
                     </ItemContainer>
                 ))

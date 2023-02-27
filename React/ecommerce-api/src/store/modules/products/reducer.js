@@ -32,7 +32,10 @@ export default function productsReducer (state = initialState, action) {
               item.quantity++;
               item.totalPrice = Number.parseFloat(Number.parseFloat(item.price * item.quantity).toFixed(2));
             } else {
-                newState.cart.push({ ...action.payload, quantity: 1 });
+                newState.cart.push({ 
+                    ...action.payload, 
+                    quantity: 1, 
+                    totalPrice: Number.parseFloat(Number.parseFloat(action.payload.price).toFixed(2))});
             }
             return newState;
         }
